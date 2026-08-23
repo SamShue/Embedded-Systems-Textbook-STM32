@@ -200,25 +200,23 @@ int main(){
 
 We’ve expanded our earlier example by adding an additional variable, r, which hold the result of our addition operation, which adds 10 to the value stored in x, 5. After this operation, r will hold the value, 15. There are many arithmetic operators in C, here are some of the most common:
 
--   \+ – performs addition
-
--   \- – performs subtraction
-
--   \* – performs multiplication
-
--   / – performs division
+| Operator | Description |
+|----|----|
+| `+` | performs addition |
+| `-` | performs subtraction |
+| `*` | performs multiplication |
+| `/` | performs division |
 
 #### Boolean Operators
 
 In addition to arithmetic operators, we also have a set of Boolean operators. Boolean operators are operations that do not have a numerical result, but rather a true/false result. Boolean operators are used to compare two numbers for properties such as equality, greater than, etc.
 
--   x == y – used to compare two values for equality
-
--   x != y – used to compare two values for inequality
-
--   x \> y – used to evaluate greater than
-
--   x \< y – used to evaluate less than
+| Operator | Description |
+|----|----|
+| `x == y` | used to compare two values for equality |
+| `x != y` | used to compare two values for inequality |
+| `x > y` | used to evaluate greater than |
+| `x < y` | used to evaluate less than |
 
 \<side note: are adding variables (x,y) more or less confusing?\>
 
