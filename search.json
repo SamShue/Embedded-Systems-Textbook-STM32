@@ -1,0 +1,109 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Embedded Systems with STM32",
+    "section": "",
+    "text": "Preface\nThis book is an introduction to embedded systems programming using an STMicroelectronics STM32 microcontroller.\nIt is intended for readers who are new to embedded systems, and covers the fundamentals of microcontrollers, C programming for resource-constrained targets, general purpose input/output (GPIO), embedded programming patterns, timers, analog-to-digital conversion, and serial communication.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#how-this-book-is-organized",
+    "href": "index.html#how-this-book-is-organized",
+    "title": "Embedded Systems with STM32",
+    "section": "How this book is organized",
+    "text": "How this book is organized\nThe book is split into parts, each grouping related chapters:\n\nFoundations — what an embedded system is, and the C programming concepts needed to work with one.\nDigital I/O and Program Structure — controlling GPIO pins and structuring larger embedded programs (hardware abstraction layers, state machines, interrupts).\nPeripherals — timers, analog-to-digital conversion (ADC), and serial communication.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#relationship-to-the-msp430-edition",
+    "href": "index.html#relationship-to-the-msp430-edition",
+    "title": "Embedded Systems with STM32",
+    "section": "Relationship to the MSP430 edition",
+    "text": "Relationship to the MSP430 edition\nThis book follows the same chapter structure as the companion “Embedded Systems with the MSP430G2553” textbook, but is written independently for the STM32 platform rather than translated from it, since most chapter content (peripheral registers, memory maps, toolchain) is platform-specific. See that project’s README for background on why these are maintained as separate repositories rather than one.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "chapters/01-introduction.html",
+    "href": "chapters/01-introduction.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "NoteDraft status\n\n\n\nThis chapter has not yet been written. It will cover what an embedded system and microcontroller are, why systems are embedded with computers, the constraints embedded systems operate under, and an overview of the STM32 development board used throughout this book.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-c-programming.html",
+    "href": "chapters/02-c-programming.html",
+    "title": "2  C Programming",
+    "section": "",
+    "text": "NoteDraft status\n\n\n\nThis chapter has not yet been written. It will cover low- vs. high-level languages, C programming basics, C and memory management, and using an STM32 IDE (e.g. STM32CubeIDE) to build and flash C programs.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>C Programming</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-gpio.html",
+    "href": "chapters/03-gpio.html",
+    "title": "3  General Purpose Input/Output (GPIO)",
+    "section": "",
+    "text": "NoteDraft status\n\n\n\nThis chapter has not yet been written. It will cover memory-mapped peripherals, the STM32 GPIO peripheral registers, controlling GPIO pins directly and via HAL/LL drivers, and bit masking.",
+    "crumbs": [
+      "Digital I/O and Program Structure",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>General Purpose Input/Output (GPIO)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-embedded-programming.html",
+    "href": "chapters/04-embedded-programming.html",
+    "title": "4  Embedded Programming",
+    "section": "",
+    "text": "NoteDraft status\n\n\n\nThis chapter has not yet been written. It will cover functionalizing code, hardware abstraction layers, software state machines, clock sources, and interrupts on STM32.",
+    "crumbs": [
+      "Digital I/O and Program Structure",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Embedded Programming</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-timers.html",
+    "href": "chapters/05-timers.html",
+    "title": "5  Timers",
+    "section": "",
+    "text": "NoteDraft status\n\n\n\nThis chapter has not yet been written. It will cover counters, timers, and the STM32 timer peripherals.",
+    "crumbs": [
+      "Peripherals",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Timers</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-adc.html",
+    "href": "chapters/06-adc.html",
+    "title": "6  Analog-to-Digital Conversion (ADC)",
+    "section": "",
+    "text": "NoteDraft status\n\n\n\nThis chapter has not yet been written. It will cover the STM32’s analog-to-digital converter(s), configuring the ADC, sampling analog inputs, and reading conversion results.",
+    "crumbs": [
+      "Peripherals",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Analog-to-Digital Conversion (ADC)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-serial-communication.html",
+    "href": "chapters/07-serial-communication.html",
+    "title": "7  Serial Communication",
+    "section": "",
+    "text": "NoteDraft status\n\n\n\nThis chapter has not yet been written. It will cover serial communication peripherals on the STM32, such as USART, and how to use them to communicate with other devices.",
+    "crumbs": [
+      "Peripherals",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Serial Communication</span>"
+    ]
+  }
+]
