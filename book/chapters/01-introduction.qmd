@@ -76,27 +76,35 @@ Now that we understand what an embedded system and a microcontroller are, let’
 
 ### Is It Really Necessary to Embed a Computer?
 
-In many embedded systems applications, an entire computer is used in place of what could otherwise be a custom analog circuit. One example of a device that utilizes a microcontroller for cost benefits and flexibility is a thermostat. Traditionally, thermostats used analog circuits to control the temperature, employing components like resistors, capacitors, and relays.
+In many embedded systems applications, an entire computer is used in place of what could otherwise be a custom analog circuit. One example of a device that utilizes a microcontroller for cost benefits and flexibility is a thermostat.
 
-Many modern thermostats now utilize microcontrollers for enhanced functionality and cost-effectiveness:
+Traditionally, thermostats used analog circuits to control the temperature, employing components like resistors, capacitors, and relays. @fig-ch01-thermostat-analog shows an example of one such analog thermostat control board. This board reads the temperature settings from switches or potentiometers set by the installer or homeowner, and switches relays on and off to turn a furnace or air conditioner on and off – all without a single line of code.
+
+![An analog thermostat control board. Relays (the black components) and other discrete components are wired together to control heating and cooling equipment.](../images/ch01/thermostat_analog.jpeg){#fig-ch01-thermostat-analog}
+
+Many modern thermostats now utilize microcontrollers for enhanced functionality and cost-effectiveness, as shown in @fig-ch01-thermostat-mcu.
+
+![A microcontroller-based thermostat control board. The microcontroller (the black IC to the right of the 7-segment displays) reads button presses, drives the display, and switches the same kind of relay used in the analog design.](../images/ch01/thermostat_mcu.jpeg){#fig-ch01-thermostat-mcu}
 
 **Flexibility**
 
--   A microcontroller allows for programmability, enabling the thermostat to have various features.
+-   A microcontroller allows for programmability, enabling the thermostat to have various features, such as scheduling different temperatures throughout the day or displaying the current temperature on a digital display.
 
--   These features can be updated or customized through firmware updates.
+-   These features can be updated or customized through firmware updates, without having to redesign the analog control circuitry.
 
 **Cost-effectiveness**
 
 -   Versatility and mass production benefits of microcontrollers often result in lower overall costs.
 
--   Microcontrollers can handle multiple functions, reducing the need for additional discrete components.
+-   Microcontrollers can handle multiple functions, reducing the need for additional discrete components. Instead of designing separate custom circuits for scheduling, button input, and display functionality, a single microcontroller can be programmed to handle all of these behaviors.
 
 **Diagnostic capabilities**
 
 -   Microcontrollers can monitor various parameters and detect faults or inefficiencies in the system.
 
--   This allows for proactive maintenance and troubleshooting.
+-   This allows for proactive maintenance and troubleshooting, such as alerting a homeowner that a filter needs to be changed or that a sensor is reading an unexpected value.
+
+Notice that both thermostat designs in @fig-ch01-thermostat-analog and @fig-ch01-thermostat-mcu still rely on the same kind of relay to physically switch the furnace or air conditioner on and off. The microcontroller does not replace this hardware, but rather replaces the analog logic that used to decide *when* to activate it, while also adding capabilities – such as scheduling, a digital display, and diagnostics – that would be very difficult to implement using discrete analog components alone.
 
 ### Example: Digital vs. Analog
 
@@ -129,14 +137,6 @@ Now let’s consider the same task using a microcontroller, as shown in @fig-ch0
 | **Total** |  | **\$2.33** |
 
 Even though the microcontroller design replaces several discrete components (the relay and capacitor used to create the timing behavior) with an entire computer, the total cost is actually *lower* than the analog design (\$2.33 vs. \$2.99). This is because the microcontroller, despite being a far more complex device internally, is manufactured at an enormous scale across many different products and applications, driving its unit cost down below that of the specialized analog components it replaces. Like the analog design, this total also excludes a breadboard, jumper wires, and batteries, and would likely change if either design were purchased in mass quantities.
-
-## An Example of Embedding Computers
-
-As an example, let’s examine how embedded systems have affected automobiles. A typical modern car has dozens of microcontrollers embedded within it. Let’s see why.
-
-Consider the windows of a typical car door. Often, they are controlled by a motor and a button is used to control lowering and raising them. The motor that controls these windows could be driven by a simple switch, but including a microcontroller allows us to create additional features. Using only a switch we could run into trouble when the windows are fully closed, but the motor continues to run as the window presses against the frame. This could cause the motor to stall, pulling more current than it should, which could in turn damage the circuit. With a microcontroller, we can read the button press through a program, then in turn drive the motor. Moreover, we could read some feedback from the motor in terms of an encoder – which could indicate when the motor has moved an appropriate distance to fully close the window – or we could include a current sensor – which could be used to programmatically shut off the motor controls when the stall current is detected.
-
-In addition to electronic safety features, we can also add child locks on the windows in the back passenger seats of the car. By networking the microcontroller with other microcontrollers in the vehicle, the driver may engage some safety lock feature which would digitally communicate to the other microcontrollers to disable the ability to roll the windows down.
 
 ## Limitations of Embedded Systems
 
