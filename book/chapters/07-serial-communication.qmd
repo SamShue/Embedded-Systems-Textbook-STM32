@@ -1,0 +1,11 @@
+---
+title: "Serial Communication"
+---
+
+::: {.callout-note}
+## Draft status
+
+This chapter has not yet been written. It will cover serial communication
+peripherals on the STM32, such as USART, and how to use them to
+communicate with other devices.
+:::

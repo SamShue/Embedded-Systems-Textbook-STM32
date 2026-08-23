@@ -1,0 +1,38 @@
+# Preface {.unnumbered}
+
+This book is an introduction to embedded systems programming using an
+STMicroelectronics STM32 microcontroller.
+
+::: {.callout-note}
+## Draft status
+
+This book is a work in progress. Chapter content, the specific STM32 part
+number/development board, and toolchain (e.g. STM32CubeIDE) used throughout
+the book still need to be filled in.
+:::
+
+It is intended for readers who are new to embedded systems, and covers the
+fundamentals of microcontrollers, C programming for resource-constrained
+targets, general purpose input/output (GPIO), embedded programming
+patterns, timers, analog-to-digital conversion, and serial communication.
+
+## How this book is organized
+
+The book is split into parts, each grouping related chapters:
+
+- **Foundations** &mdash; what an embedded system is, and the C programming
+  concepts needed to work with one.
+- **Digital I/O and Program Structure** &mdash; controlling GPIO pins and
+  structuring larger embedded programs (hardware abstraction layers, state
+  machines, interrupts).
+- **Peripherals** &mdash; timers, analog-to-digital conversion (ADC), and
+  serial communication.
+
+## Relationship to the MSP430 edition
+
+This book follows the same chapter structure as the companion
+[Embedded Systems with the MSP430G2553](https://github.com/) textbook, but
+is written independently for the STM32 platform rather than translated
+from it, since most chapter content (peripheral registers, memory maps,
+toolchain) is platform-specific. See that project's README for background
+on why these are maintained as separate repositories rather than one.

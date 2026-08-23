@@ -1,0 +1,12 @@
+---
+title: "Introduction"
+---
+
+::: {.callout-note}
+## Draft status
+
+This chapter has not yet been written. It will cover what an embedded
+system and microcontroller are, why systems are embedded with computers,
+the constraints embedded systems operate under, and an overview of the
+STM32 development board used throughout this book.
+:::

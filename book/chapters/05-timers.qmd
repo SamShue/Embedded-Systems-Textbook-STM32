@@ -1,0 +1,10 @@
+---
+title: "Timers"
+---
+
+::: {.callout-note}
+## Draft status
+
+This chapter has not yet been written. It will cover counters, timers,
+and the STM32 timer peripherals.
+:::

@@ -1,0 +1,11 @@
+---
+title: "General Purpose Input/Output (GPIO)"
+---
+
+::: {.callout-note}
+## Draft status
+
+This chapter has not yet been written. It will cover memory-mapped
+peripherals, the STM32 GPIO peripheral registers, controlling GPIO pins
+directly and via HAL/LL drivers, and bit masking.
+:::

@@ -1,0 +1,11 @@
+---
+title: "Embedded Programming"
+---
+
+::: {.callout-note}
+## Draft status
+
+This chapter has not yet been written. It will cover functionalizing
+code, hardware abstraction layers, software state machines, clock
+sources, and interrupts on STM32.
+:::

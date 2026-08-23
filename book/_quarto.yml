@@ -1,0 +1,42 @@
+project:
+  type: book
+
+book:
+  title: "Embedded Systems with STM32"
+  author: "Sam Shue"
+  date: today
+  date-format: "MMMM YYYY"
+  page-footer:
+    left: "Embedded Systems with STM32"
+    right: "Built with Quarto"
+  chapters:
+    - index.qmd
+    - part: "Foundations"
+      chapters:
+        - chapters/01-introduction.qmd
+        - chapters/02-c-programming.qmd
+    - part: "Digital I/O and Program Structure"
+      chapters:
+        - chapters/03-gpio.qmd
+        - chapters/04-embedded-programming.qmd
+    - part: "Peripherals"
+      chapters:
+        - chapters/05-timers.qmd
+        - chapters/06-adc.qmd
+        - chapters/07-serial-communication.qmd
+
+format:
+  html:
+    theme: cosmo
+    code-copy: true
+    number-depth: 3
+    fig-cap-location: bottom
+    toc: true
+    toc-depth: 3
+  pdf:
+    documentclass: scrbook
+    toc: true
+    number-depth: 3
+    fig-cap-location: bottom
+
+editor: source

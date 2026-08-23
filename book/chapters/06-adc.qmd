@@ -1,0 +1,11 @@
+---
+title: "Analog-to-Digital Conversion (ADC)"
+---
+
+::: {.callout-note}
+## Draft status
+
+This chapter has not yet been written. It will cover the STM32's
+analog-to-digital converter(s), configuring the ADC, sampling analog
+inputs, and reading conversion results.
+:::

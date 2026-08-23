@@ -1,0 +1,8 @@
+# Quarto build output
+book/_book/
+book/.quarto/
+book/site_libs/
+/.quarto/
+
+# OS/editor cruft
+.DS_Store

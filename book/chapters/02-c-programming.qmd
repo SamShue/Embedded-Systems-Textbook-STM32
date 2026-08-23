@@ -1,0 +1,11 @@
+---
+title: "C Programming"
+---
+
+::: {.callout-note}
+## Draft status
+
+This chapter has not yet been written. It will cover low- vs. high-level
+languages, C programming basics, C and memory management, and using an
+STM32 IDE (e.g. STM32CubeIDE) to build and flash C programs.
+:::
