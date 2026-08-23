@@ -1,5 +1,7 @@
 # Embedded Systems with STM32
 
+📖 **Read the book online:** <https://SamShue.github.io/Embedded-Systems-Textbook-STM32/>
+
 This repository contains the source for an introductory embedded systems
 textbook built around an STMicroelectronics STM32 microcontroller.
 
@@ -85,6 +87,23 @@ quarto preview
 
 Rendered output is written to `book/_book/` and is not checked into version
 control.
+
+## Publishing
+
+The book is published to GitHub Pages at
+<https://SamShue.github.io/Embedded-Systems-Textbook-STM32/>. A GitHub
+Action ([`.github/workflows/publish.yml`](.github/workflows/publish.yml))
+automatically re-renders and re-publishes the site (to the `gh-pages`
+branch) on every push to `main` &mdash; no manual steps are needed after
+merging a change.
+
+If you ever need to publish manually from your own machine instead (e.g. to
+test something before pushing), run:
+
+```bash
+cd book
+quarto publish gh-pages
+```
 
 ## Editing content
 
