@@ -70,6 +70,66 @@ Microcontrollers also help reduce the cost of a design because they are a generi
 
 Microcontrollers can also bring more advantages than just expense. In the same space any other circuit would occupy, a microcontroller can implement additional capabilities. This could be additional features beyond the base functionality of the device, such as safety features – both for the operator and the electronics themselves. This is because we are implementing features through software rather than hardware, which doesn’t require more physical space!
 
+## The Economics of Embedded Systems
+
+Now that we understand what an embedded system and a microcontroller are, let’s take a closer look at why cost is such a large driver behind the widespread use of microcontrollers in modern products.
+
+### Is It Really Necessary to Embed a Computer?
+
+In many embedded systems applications, an entire computer is used in place of what could otherwise be a custom analog circuit. One example of a device that utilizes a microcontroller for cost benefits and flexibility is a thermostat. Traditionally, thermostats used analog circuits to control the temperature, employing components like resistors, capacitors, and relays.
+
+Many modern thermostats now utilize microcontrollers for enhanced functionality and cost-effectiveness:
+
+**Flexibility**
+
+-   A microcontroller allows for programmability, enabling the thermostat to have various features.
+
+-   These features can be updated or customized through firmware updates.
+
+**Cost-effectiveness**
+
+-   Versatility and mass production benefits of microcontrollers often result in lower overall costs.
+
+-   Microcontrollers can handle multiple functions, reducing the need for additional discrete components.
+
+**Diagnostic capabilities**
+
+-   Microcontrollers can monitor various parameters and detect faults or inefficiencies in the system.
+
+-   This allows for proactive maintenance and troubleshooting.
+
+### Example: Digital vs. Analog
+
+Let’s consider a concrete example: building a circuit that blinks an LED. We’ll compare two circuits that accomplish this task – one built from traditional analog/digital components, and one that uses an entire computer (a microcontroller) for this simple task.
+
+![Blink an LED using a relay, capacitor, and resistors.](../images/ch01/analog_blink_circuit.png){#fig-ch01-economics-1}
+
+@fig-ch01-economics-1 shows a design that blinks an LED using only a relay, a capacitor, and a couple of resistors – no microcontroller required. Pricing each of these discrete components individually gives us the following:
+
+| Component | Description | Price |
+|----|----|----|
+| Capacitor | 1000 µF, 16V, radial electrolytic | \$0.54 |
+| Relay | DPDT, 2A, 5V | \$1.91 |
+| Resistor | 10 kΩ, 1%, 1/4 W | \$0.10 |
+| Resistor | 330 Ω, 5%, 1/2 W | \$0.10 |
+| LED | Red, diffused, T-1 3/4 | \$0.34 |
+| **Total** |  | **\$2.99** |
+
+This total excludes jumper wires, a breadboard, and batteries, and would likely be cheaper if these components were ordered in mass quantities.
+
+![Blink an LED using a microcontroller and a resistor.](../images/ch01/mcu_blink_circuit.png){#fig-ch01-economics-2}
+
+Now let’s consider the same task using a microcontroller, as shown in @fig-ch01-economics-2. Pricing these components individually gives us the following:
+
+| Component | Description | Price |
+|----|----|----|
+| LED | Red, diffused, T-1 3/4 | \$0.34 |
+| Resistor | 20 Ω, 1%, 1/4 W | \$0.10 |
+| Microcontroller | 16-bit MCU, 2 KB Flash, DIP-14 package | \$1.89 |
+| **Total** |  | **\$2.33** |
+
+Even though the microcontroller design replaces several discrete components (the relay and capacitor used to create the timing behavior) with an entire computer, the total cost is actually *lower* than the analog design (\$2.33 vs. \$2.99). This is because the microcontroller, despite being a far more complex device internally, is manufactured at an enormous scale across many different products and applications, driving its unit cost down below that of the specialized analog components it replaces. Like the analog design, this total also excludes a breadboard, jumper wires, and batteries, and would likely change if either design were purchased in mass quantities.
+
 ## An Example of Embedding Computers
 
 As an example, let’s examine how embedded systems have affected automobiles. A typical modern car has dozens of microcontrollers embedded within it. Let’s see why.
