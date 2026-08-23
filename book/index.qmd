@@ -30,9 +30,9 @@ The book is split into parts, each grouping related chapters:
 
 ## Relationship to the MSP430 edition
 
-This book follows the same chapter structure as the companion
-[Embedded Systems with the MSP430G2553](https://github.com/) textbook, but
-is written independently for the STM32 platform rather than translated
-from it, since most chapter content (peripheral registers, memory maps,
-toolchain) is platform-specific. See that project's README for background
-on why these are maintained as separate repositories rather than one.
+This book follows the same chapter structure as the companion "Embedded
+Systems with the MSP430G2553" textbook, but is written independently for
+the STM32 platform rather than translated from it, since most chapter
+content (peripheral registers, memory maps, toolchain) is platform-specific.
+See that project's README for background on why these are maintained as
+separate repositories rather than one.
