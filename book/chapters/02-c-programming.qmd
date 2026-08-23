@@ -159,6 +159,10 @@ int main(){
 }
 ```
 
+::: {.callout-note}
+This declaration simply reserves space in memory for the variable “x”; it does not assign it an initial value.
+:::
+
 In this example, we’ve declared a variable called “x” and it has been designated to hold an integer by preceding our variable name with the keyword “int”. There are many different data types in C, but we’ll examine some of the basic types here:
 
 | Data Type | Description |
@@ -183,7 +187,9 @@ int main(){
 
 Now after reserving the space for variable x, the value 5 will be written to that location. There are many more operators available in C, so let’s have a look at all the different types available.
 
-\<Add initialized vs uninitialized junk here\>
+::: {.callout-note}
+If a variable is not assigned a value, the value it contains is undefined – it could be any leftover bit pattern that happened to already be at that memory location.
+:::
 
 #### Arithmetic Operators
 
