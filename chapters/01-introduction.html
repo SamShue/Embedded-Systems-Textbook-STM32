@@ -209,11 +209,16 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#embedded-systems-and-microcontrollers" id="toc-embedded-systems-and-microcontrollers" class="nav-link" data-scroll-target="#embedded-systems-and-microcontrollers"><span class="header-section-number">1.3</span> Embedded Systems and Microcontrollers</a></li>
   <li><a href="#microcontrollers-vs.-microprocessors" id="toc-microcontrollers-vs.-microprocessors" class="nav-link" data-scroll-target="#microcontrollers-vs.-microprocessors"><span class="header-section-number">1.4</span> Microcontrollers vs.&nbsp;Microprocessors</a></li>
   <li><a href="#why-embed-a-computer" id="toc-why-embed-a-computer" class="nav-link" data-scroll-target="#why-embed-a-computer"><span class="header-section-number">1.5</span> Why Embed a Computer?</a></li>
-  <li><a href="#an-example-of-embedding-computers" id="toc-an-example-of-embedding-computers" class="nav-link" data-scroll-target="#an-example-of-embedding-computers"><span class="header-section-number">1.6</span> An Example of Embedding Computers</a></li>
-  <li><a href="#limitations-of-embedded-systems" id="toc-limitations-of-embedded-systems" class="nav-link" data-scroll-target="#limitations-of-embedded-systems"><span class="header-section-number">1.7</span> Limitations of Embedded Systems</a></li>
-  <li><a href="#developing-for-embedded-systems" id="toc-developing-for-embedded-systems" class="nav-link" data-scroll-target="#developing-for-embedded-systems"><span class="header-section-number">1.8</span> Developing for Embedded Systems</a></li>
-  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap"><span class="header-section-number">1.9</span> Recap</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">1.10</span> References</a></li>
+  <li><a href="#the-economics-of-embedded-systems" id="toc-the-economics-of-embedded-systems" class="nav-link" data-scroll-target="#the-economics-of-embedded-systems"><span class="header-section-number">1.6</span> The Economics of Embedded Systems</a>
+  <ul class="collapse">
+  <li><a href="#is-it-really-necessary-to-embed-a-computer" id="toc-is-it-really-necessary-to-embed-a-computer" class="nav-link" data-scroll-target="#is-it-really-necessary-to-embed-a-computer"><span class="header-section-number">1.6.1</span> Is It Really Necessary to Embed a Computer?</a></li>
+  <li><a href="#example-digital-vs.-analog" id="toc-example-digital-vs.-analog" class="nav-link" data-scroll-target="#example-digital-vs.-analog"><span class="header-section-number">1.6.2</span> Example: Digital vs.&nbsp;Analog</a></li>
+  </ul></li>
+  <li><a href="#an-example-of-embedding-computers" id="toc-an-example-of-embedding-computers" class="nav-link" data-scroll-target="#an-example-of-embedding-computers"><span class="header-section-number">1.7</span> An Example of Embedding Computers</a></li>
+  <li><a href="#limitations-of-embedded-systems" id="toc-limitations-of-embedded-systems" class="nav-link" data-scroll-target="#limitations-of-embedded-systems"><span class="header-section-number">1.8</span> Limitations of Embedded Systems</a></li>
+  <li><a href="#developing-for-embedded-systems" id="toc-developing-for-embedded-systems" class="nav-link" data-scroll-target="#developing-for-embedded-systems"><span class="header-section-number">1.9</span> Developing for Embedded Systems</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap"><span class="header-section-number">1.10</span> Recap</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">1.11</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -307,20 +312,144 @@ Figure&nbsp;1.2: Basic Structure of Von Neumann Computer
 <p>Microcontrollers also help reduce the cost of a design because they are a generic component. The same microcontroller can be integrated into many different systems and be programmed for very different tasks. Microcontrollers will be manufactured on a scale that makes them extremely affordable, often costing less than 25 cent per chip. Even though the microcontroller’s design may be far more complex than a custom circuit for a specific task, its mass manufacturing still makes it the more cost-effective option.</p>
 <p>Microcontrollers can also bring more advantages than just expense. In the same space any other circuit would occupy, a microcontroller can implement additional capabilities. This could be additional features beyond the base functionality of the device, such as safety features – both for the operator and the electronics themselves. This is because we are implementing features through software rather than hardware, which doesn’t require more physical space!</p>
 </section>
-<section id="an-example-of-embedding-computers" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="an-example-of-embedding-computers"><span class="header-section-number">1.6</span> An Example of Embedding Computers</h2>
+<section id="the-economics-of-embedded-systems" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="the-economics-of-embedded-systems"><span class="header-section-number">1.6</span> The Economics of Embedded Systems</h2>
+<p>Now that we understand what an embedded system and a microcontroller are, let’s take a closer look at why cost is such a large driver behind the widespread use of microcontrollers in modern products.</p>
+<section id="is-it-really-necessary-to-embed-a-computer" class="level3" data-number="1.6.1">
+<h3 data-number="1.6.1" class="anchored" data-anchor-id="is-it-really-necessary-to-embed-a-computer"><span class="header-section-number">1.6.1</span> Is It Really Necessary to Embed a Computer?</h3>
+<p>In many embedded systems applications, an entire computer is used in place of what could otherwise be a custom analog circuit. One example of a device that utilizes a microcontroller for cost benefits and flexibility is a thermostat. Traditionally, thermostats used analog circuits to control the temperature, employing components like resistors, capacitors, and relays.</p>
+<p>Many modern thermostats now utilize microcontrollers for enhanced functionality and cost-effectiveness:</p>
+<p><strong>Flexibility</strong></p>
+<ul>
+<li><p>A microcontroller allows for programmability, enabling the thermostat to have various features.</p></li>
+<li><p>These features can be updated or customized through firmware updates.</p></li>
+</ul>
+<p><strong>Cost-effectiveness</strong></p>
+<ul>
+<li><p>Versatility and mass production benefits of microcontrollers often result in lower overall costs.</p></li>
+<li><p>Microcontrollers can handle multiple functions, reducing the need for additional discrete components.</p></li>
+</ul>
+<p><strong>Diagnostic capabilities</strong></p>
+<ul>
+<li><p>Microcontrollers can monitor various parameters and detect faults or inefficiencies in the system.</p></li>
+<li><p>This allows for proactive maintenance and troubleshooting.</p></li>
+</ul>
+</section>
+<section id="example-digital-vs.-analog" class="level3" data-number="1.6.2">
+<h3 data-number="1.6.2" class="anchored" data-anchor-id="example-digital-vs.-analog"><span class="header-section-number">1.6.2</span> Example: Digital vs.&nbsp;Analog</h3>
+<p>Let’s consider a concrete example: building a circuit that blinks an LED. We’ll compare two circuits that accomplish this task – one built from traditional analog/digital components, and one that uses an entire computer (a microcontroller) for this simple task.</p>
+<div id="fig-ch01-economics-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch01-economics-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch01/analog_blink_circuit.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch01-economics-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.3: Blink an LED using a relay, capacitor, and resistors.
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-ch01-economics-1" class="quarto-xref">Figure&nbsp;<span>1.3</span></a> shows a design that blinks an LED using only a relay, a capacitor, and a couple of resistors – no microcontroller required. Pricing each of these discrete components individually gives us the following:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Description</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Capacitor</td>
+<td>1000 µF, 16V, radial electrolytic</td>
+<td>$0.54</td>
+</tr>
+<tr class="even">
+<td>Relay</td>
+<td>DPDT, 2A, 5V</td>
+<td>$1.91</td>
+</tr>
+<tr class="odd">
+<td>Resistor</td>
+<td>10 kΩ, 1%, 1/4 W</td>
+<td>$0.10</td>
+</tr>
+<tr class="even">
+<td>Resistor</td>
+<td>330 Ω, 5%, 1/2 W</td>
+<td>$0.10</td>
+</tr>
+<tr class="odd">
+<td>LED</td>
+<td>Red, diffused, T-1 3/4</td>
+<td>$0.34</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>$2.99</strong></td>
+</tr>
+</tbody>
+</table>
+<p>This total excludes jumper wires, a breadboard, and batteries, and would likely be cheaper if these components were ordered in mass quantities.</p>
+<div id="fig-ch01-economics-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch01-economics-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch01/mcu_blink_circuit.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch01-economics-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.4: Blink an LED using a microcontroller and a resistor.
+</figcaption>
+</figure>
+</div>
+<p>Now let’s consider the same task using a microcontroller, as shown in <a href="#fig-ch01-economics-2" class="quarto-xref">Figure&nbsp;<span>1.4</span></a>. Pricing these components individually gives us the following:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Description</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>LED</td>
+<td>Red, diffused, T-1 3/4</td>
+<td>$0.34</td>
+</tr>
+<tr class="even">
+<td>Resistor</td>
+<td>20 Ω, 1%, 1/4 W</td>
+<td>$0.10</td>
+</tr>
+<tr class="odd">
+<td>Microcontroller</td>
+<td>16-bit MCU, 2 KB Flash, DIP-14 package</td>
+<td>$1.89</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>$2.33</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Even though the microcontroller design replaces several discrete components (the relay and capacitor used to create the timing behavior) with an entire computer, the total cost is actually <em>lower</em> than the analog design ($2.33 vs.&nbsp;$2.99). This is because the microcontroller, despite being a far more complex device internally, is manufactured at an enormous scale across many different products and applications, driving its unit cost down below that of the specialized analog components it replaces. Like the analog design, this total also excludes a breadboard, jumper wires, and batteries, and would likely change if either design were purchased in mass quantities.</p>
+</section>
+</section>
+<section id="an-example-of-embedding-computers" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="an-example-of-embedding-computers"><span class="header-section-number">1.7</span> An Example of Embedding Computers</h2>
 <p>As an example, let’s examine how embedded systems have affected automobiles. A typical modern car has dozens of microcontrollers embedded within it. Let’s see why.</p>
 <p>Consider the windows of a typical car door. Often, they are controlled by a motor and a button is used to control lowering and raising them. The motor that controls these windows could be driven by a simple switch, but including a microcontroller allows us to create additional features. Using only a switch we could run into trouble when the windows are fully closed, but the motor continues to run as the window presses against the frame. This could cause the motor to stall, pulling more current than it should, which could in turn damage the circuit. With a microcontroller, we can read the button press through a program, then in turn drive the motor. Moreover, we could read some feedback from the motor in terms of an encoder – which could indicate when the motor has moved an appropriate distance to fully close the window – or we could include a current sensor – which could be used to programmatically shut off the motor controls when the stall current is detected.</p>
 <p>In addition to electronic safety features, we can also add child locks on the windows in the back passenger seats of the car. By networking the microcontroller with other microcontrollers in the vehicle, the driver may engage some safety lock feature which would digitally communicate to the other microcontrollers to disable the ability to roll the windows down.</p>
 </section>
-<section id="limitations-of-embedded-systems" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="limitations-of-embedded-systems"><span class="header-section-number">1.7</span> Limitations of Embedded Systems</h2>
+<section id="limitations-of-embedded-systems" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="limitations-of-embedded-systems"><span class="header-section-number">1.8</span> Limitations of Embedded Systems</h2>
 <p>While we have observed many benefits that can come from embedded systems, such as cost reductions and automation, there are also many limitations that must be considered when designing for them. It was mentioned earlier that embedded systems are not as powerful as the microprocessors found in your laptop computer, and therefore their computing power and other resources are limited. This must be kept in mind when selecting the embedded system appropriate for the application.</p>
 <p>If limited resources are such a concern, why not use a microcontroller with more memory and processing power than what’s required for the application? There are two reasons for this: cost and power consumption. Cost is the more obvious of the two – more resources, which equals more hardware, which equals higher cost. This cost may only increase the microcontroller’s cost by a few cents, but when the product that is utilizing the microcontroller is being manufactured on the scale of thousands to millions of units, these pennies begin to add up. Power consumptions is another major concern. More memory means more hardware components that require power, and faster processors have a higher clock frequency, which means more transistors switching, which means higher power consumption. Embedded systems often find themselves at home in battery-operated mobile devices, therefore keeping the power consumption low is of upmost importance to ensure battery life is elongated as much as possible. Have you ever purchased one device, such as a smartphone or laptop, over another because one had a longer battery life?</p>
 <p>Embedded systems are also sometimes limited by their input and output capabilities. Most embedded systems come with some features that allow them to produce digital signals, read analog voltages, and communicate with other devices using serial protocols. These features can vary from microcontroller to microcontroller, so one must be selected that contains the necessary interfacing hardware, cost, and computational resources. It is the embedded systems engineer’s responsibility to select the correct microcontroller based on the project’s demands for these criteria.</p>
 </section>
-<section id="developing-for-embedded-systems" class="level2" data-number="1.8">
-<h2 data-number="1.8" class="anchored" data-anchor-id="developing-for-embedded-systems"><span class="header-section-number">1.8</span> Developing for Embedded Systems</h2>
+<section id="developing-for-embedded-systems" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="developing-for-embedded-systems"><span class="header-section-number">1.9</span> Developing for Embedded Systems</h2>
 <p>When developing for an embedded system, the design must first go through a prototyping phase to verify functionality. This prototyping phase usually involves breadboarding the circuit that will integrate the selected microcontroller, and the microcontroller will often be interfaced through a <strong>development board</strong>.</p>
 <p>Development boards are prototyping boards that contain a microcontroller and onboard tools and components that aid in development and testing. These components often include the following:</p>
 <ul>
@@ -338,7 +467,7 @@ Figure&nbsp;1.2: Basic Structure of Von Neumann Computer
 <img src="../images/ch01/nucleo_overview.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch01-1-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1.3: An overview of the STM32 Nucleo-64 development board. (Source: STMicroelectronics, UM1724 STM32 Nucleo-64 boards user manual.)
+Figure&nbsp;1.5: An overview of the STM32 Nucleo-64 development board. (Source: STMicroelectronics, UM1724 STM32 Nucleo-64 boards user manual.)
 </figcaption>
 </figure>
 </div>
@@ -351,19 +480,19 @@ Figure&nbsp;1.3: An overview of the STM32 Nucleo-64 development board. (Source: 
 <img src="../images/ch01/nucleo_headers.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch01-1-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1.4: The STM32F091RC microcontroller (U5) and the surrounding Arduino-compatible (CN5, CN6, CN8, CN9) and ST Morpho (CN7, CN10) breakout headers that give access to its pins. (Source: STMicroelectronics, UM1724 STM32 Nucleo-64 boards user manual.)
+Figure&nbsp;1.6: The STM32F091RC microcontroller (U5) and the surrounding Arduino-compatible (CN5, CN6, CN8, CN9) and ST Morpho (CN7, CN10) breakout headers that give access to its pins. (Source: STMicroelectronics, UM1724 STM32 Nucleo-64 boards user manual.)
 </figcaption>
 </figure>
 </div>
 <p>In addition to the breakout pins, development board very commonly include components such as buttons and LEDs, as they are very often used in prototyping scenarios for easy getting user input via a button press or indicating the status of something through illuminating an LED.</p>
-<p>Separating the top “half” from the bottom, we see a “jumper isolation block”, labeled CN2 (the “ST-LINK/Nucleo selector”) in <a href="#fig-ch01-1-3" class="quarto-xref">Figure&nbsp;<span>1.3</span></a>. These jumpers bridge electrical connections between the debugger circuit and the microcontroller. These bridged connections allow power and communications to reach the lower part. However, if we were planning on someday building a custom circuit using the STM32F091RC, we wouldn’t be including a debugger/programmer, since we wouldn’t expect the person purchasing the embedded product, the “end user”, to reprogram the device. These jumpers allow us to disconnect the microcontroller and test the chip without the support of that circuit, emulating what it might behave like before we create a custom board.</p>
+<p>Separating the top “half” from the bottom, we see a “jumper isolation block”, labeled CN2 (the “ST-LINK/Nucleo selector”) in <a href="#fig-ch01-1-3" class="quarto-xref">Figure&nbsp;<span>1.5</span></a>. These jumpers bridge electrical connections between the debugger circuit and the microcontroller. These bridged connections allow power and communications to reach the lower part. However, if we were planning on someday building a custom circuit using the STM32F091RC, we wouldn’t be including a debugger/programmer, since we wouldn’t expect the person purchasing the embedded product, the “end user”, to reprogram the device. These jumpers allow us to disconnect the microcontroller and test the chip without the support of that circuit, emulating what it might behave like before we create a custom board.</p>
 </section>
-<section id="recap" class="level2" data-number="1.9">
-<h2 data-number="1.9" class="anchored" data-anchor-id="recap"><span class="header-section-number">1.9</span> Recap</h2>
+<section id="recap" class="level2" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="recap"><span class="header-section-number">1.10</span> Recap</h2>
 <p>An embedded system is an application-specific computer system which is built into a larger system or device. Using a computer system enables improved performance, more functions and features, lower cost, and greater dependability. With embedded computer systems, manufacturers can add sophisticated control and monitoring to devices and other systems, while leveraging the low-cost microcontrollers running custom software.</p>
 </section>
-<section id="references" class="level2" data-number="1.10">
-<h2 data-number="1.10" class="anchored" data-anchor-id="references"><span class="header-section-number">1.10</span> References</h2>
+<section id="references" class="level2" data-number="1.11">
+<h2 data-number="1.11" class="anchored" data-anchor-id="references"><span class="header-section-number">1.11</span> References</h2>
 <ol type="1">
 <li>P.-L. Ageneau, “Chaplier Fou,” Aug.&nbsp;25, 2023. [Online]. Available: <a href="https://chapelierfou.org/blog/a-usb-furby.html" class="uri">https://chapelierfou.org/blog/a-usb-furby.html</a></li>
 </ol>
