@@ -6,9 +6,8 @@ textbook built around an STMicroelectronics STM32 microcontroller.
 The book is written as a [Quarto](https://quarto.org) project and lives in
 [`book/`](book/). It can be rendered to a searchable HTML site and/or a PDF.
 
-This is a companion book to
-[Embedded Systems with the MSP430G2553](https://github.com/), following the
-same chapter structure and tooling pattern, but maintained as a separate
+This is a companion book to "Embedded Systems with the MSP430G2553",
+following the same chapter structure, but maintained as a separate
 repository since the two books target different microcontroller families
 and most chapter content (peripheral registers, memory maps, toolchain) does
 not translate directly between them.
@@ -27,23 +26,11 @@ book/                       Quarto project (the book itself)
   index.qmd                  Preface / front matter
   chapters/                  One .qmd file per chapter
   images/                    Figures, organized per-chapter (images/ch01, images/ch02, ...)
-scripts/
-  convert_docx_to_qmd.py     Template script that converts an Archive/ .docx
-                              chapter draft into a Quarto .qmd chapter + images,
-                              adapted from the MSP430 book's conversion script.
-                              The CHAPTERS list is currently empty -- fill it
-                              in once a chapter is drafted in Word.
-Archive/                     Place original Word (.docx) chapter drafts and
-                              diagram source files here, if writing chapters
-                              in Word first (optional -- you can also write
-                              .qmd chapters directly).
 ```
 
 ## Installing the required tools
 
-You only need **Quarto** (which bundles Pandoc) to build the book. Two
-additional tools are only needed if you want to build a PDF, or use the
-docx&rarr;qmd conversion script.
+You only need **Quarto** (which bundles Pandoc) to build the book.
 
 ### 1. Quarto (required)
 
@@ -71,17 +58,6 @@ quarto check
 ```bash
 quarto install tinytex
 ```
-
-### 3. Pandoc + LibreOffice (optional, only needed for the docx&rarr;qmd conversion script)
-
-Only required if you draft chapters in Word and convert them with
-`scripts/convert_docx_to_qmd.py`.
-
-- **Pandoc**: Debian/Ubuntu `sudo apt install pandoc`, macOS `brew install pandoc`,
-  or a portable build from <https://github.com/jgm/pandoc/releases>.
-- **LibreOffice** (`soffice` on `PATH`), used only to rasterize legacy vector
-  images (`.wmf` / `.emf`) that Word documents sometimes embed: Debian/Ubuntu
-  `sudo apt install libreoffice`, macOS `brew install --cask libreoffice`.
 
 ## Building the book
 
@@ -134,19 +110,3 @@ control.
   reference (e.g. "Figure 3.2").
 - Code listings use fenced code blocks (` ```c ... ``` `) for syntax
   highlighting.
-
-### Converting a chapter drafted in Word
-
-If you prefer to draft chapters in Word first, place the `.docx` under
-`Archive/`, add an entry to the `CHAPTERS` list at the top of
-`scripts/convert_docx_to_qmd.py`, then run:
-
-```bash
-python3 scripts/convert_docx_to_qmd.py        # convert all configured chapters
-python3 scripts/convert_docx_to_qmd.py 3      # convert only chapter 3
-```
-
-This requires `pandoc` (and `soffice`, if the chapter has `.wmf`/`.emf`
-images) to be on your `PATH` &mdash; see the installation section above. See
-the MSP430 book's README/script for a fully worked example of this workflow,
-including how to inspect a draft's Word paragraph styles before converting.
