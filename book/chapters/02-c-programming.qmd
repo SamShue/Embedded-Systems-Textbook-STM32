@@ -161,13 +161,12 @@ int main(){
 
 In this example, we’ve declared a variable called “x” and it has been designated to hold an integer by preceding our variable name with the keyword “int”. There are many different data types in C, but we’ll examine some of the basic types here:
 
--   int – holds only integer numbers
-
--   float – holds decimal point numbers
-
--   char – used to hold values that correspond to characters in the ASCII table
-
--   bool – used to hold true or false values. Short for “Boolean”
+| Data Type | Description |
+|----|----|
+| `int` | holds only integer numbers |
+| `float` | holds decimal point numbers |
+| `char` | used to hold values that correspond to characters in the ASCII table |
+| `bool` | used to hold true or false values. Short for “Boolean” |
 
 These variables can all be used in different scenarios depending on the need of the data type.
 
@@ -597,11 +596,11 @@ One question that might come to mind is why differentiate between data types? If
 
 To this end, C defines even more varieties of data types that give use even more control over the amount of memory reserved for each data type.
 
--   short – an integer that uses even less memory space than int, but holds smaller numbers
-
--   long – an integer that uses more memory space than int, but holds larger numbers
-
--   double – a decimal point number that uses more memory than float, but holds larger numbers
+| Data Type | Description |
+|----|----|
+| `short` | an integer that uses even less memory space than int, but holds smaller numbers |
+| `long` | an integer that uses more memory space than int, but holds larger numbers |
+| `double` | a decimal point number that uses more memory than float, but holds larger numbers |
 
 ### Modifiers and Qualifiers
 
