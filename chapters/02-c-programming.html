@@ -442,6 +442,19 @@ Figure&nbsp;2.1: An example of computer memory addressing
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> x<span class="op">;</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This declaration simply reserves space in memory for the variable “x”; it does not assign it an initial value.</p>
+</div>
+</div>
 <p>In this example, we’ve declared a variable called “x” and it has been designated to hold an integer by preceding our variable name with the keyword “int”. There are many different data types in C, but we’ll examine some of the basic types here:</p>
 <table class="caption-top table">
 <colgroup>
@@ -482,7 +495,19 @@ Figure&nbsp;2.1: An example of computer memory addressing
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Now after reserving the space for variable x, the value 5 will be written to that location. There are many more operators available in C, so let’s have a look at all the different types available.</p>
-<p>&lt;Add initialized vs uninitialized junk here&gt;</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If a variable is not assigned a value, the value it contains is undefined – it could be any leftover bit pattern that happened to already be at that memory location.</p>
+</div>
+</div>
 <section id="arithmetic-operators" class="level4">
 <h4 class="anchored" data-anchor-id="arithmetic-operators">Arithmetic Operators</h4>
 <p>Arithmetic operators are used to perform arithmetic operations, such as addition, subtractions, etc. These operations require variables or values to perform the operation with, and a destination variable to write the result. Let’s see an example of the addition operator:</p>
