@@ -2,12 +2,12 @@ project:
   type: book
 
 book:
-  title: "Embedded Systems with STM32"
+  title: "Embedded Systems with the STM32F091RC"
   author: "Sam Shue"
   date: today
   date-format: "MMMM YYYY"
   page-footer:
-    left: "Embedded Systems with STM32"
+    left: "Embedded Systems with the STM32F091RC"
     right: "Built with Quarto"
   chapters:
     - index.qmd

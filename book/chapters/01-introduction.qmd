@@ -104,16 +104,9 @@ Development boards are prototyping boards that contain a microcontroller and onb
 
 These components often appear on development boards because they are commonly needed by programmers to power the board, upload code, and test inputs and outputs.
 
-Let’s look at an example development board, the STM32 Nucleo board. This board has a lot going on, but what is most important is the chip at the center of the board, the STM32 microcontroller. This is the microcontroller, and all the other components here are to help with programming and testing of this chip.
+Let’s look at an example development board, the STM32 Nucleo-F091RC. This board has a lot going on, but what is most important is the chip at the center of the board, the STM32F091RC. This is the microcontroller, and all the other components here are to help with programming and testing of this chip.
 
-::: {.callout-note}
-## Image needed
-
-This section should include a photo of the STM32 Nucleo development board,
-labeled to show the ST-LINK debugger section, the target microcontroller,
-and the breakout headers (a direct STM32 equivalent of the original
-MSP-EXP430G2ET board photo used in the MSP430 edition of this chapter).
-:::
+![An overview of the STM32 Nucleo-64 development board. (Source: STMicroelectronics, UM1724 STM32 Nucleo-64 boards user manual.)](../images/ch01/nucleo_overview.png){#fig-ch01-1-3}
 
 The top half of the board contains the “ST-LINK” debugger circuitry. A debugger allows us to meticulously examine our microcontroller’s code behavior by setting breakpoints and stepping through the code line by line, while simultaneously being able to check memory contents. If this doesn’t make much sense right now, don’t worry, we will be elaborating on this again later in the book. This portion of the board also provides power regulation, which provides power to the microcontroller at a specific voltage. This part of the board also provides a virtual serial port connection from the microcontroller to your laptop or desktop computer, allowing communication between the two.
 
@@ -121,18 +114,11 @@ On the lower half of the board, beyond the jumper isolation block, we have the s
 
 Arguably, the most important addition here is the inclusion of “breakout” pins. Breakout pins are pins that are large and spaced out, designed to be easily connected to jumper wires for interfacing with a prototyping circuit. The pins on a typical microcontroller package are much too small to attempt to plug or solder wires directly into, so the development board contains traces (wires embedded into the board) that connect these tiny package pins to the breakout pins.
 
-::: {.callout-note}
-## Image needed
-
-This section should include a diagram showing how the STM32 microcontroller's
-package pins connect via PCB traces to the Nucleo board's breakout headers
-(a direct STM32 equivalent of the original MSP430 pin-to-header diagram used
-in the MSP430 edition of this chapter).
-:::
+![The STM32F091RC microcontroller (U5) and the surrounding Arduino-compatible (CN5, CN6, CN8, CN9) and ST Morpho (CN7, CN10) breakout headers that give access to its pins. (Source: STMicroelectronics, UM1724 STM32 Nucleo-64 boards user manual.)](../images/ch01/nucleo_headers.png){#fig-ch01-1-4}
 
 In addition to the breakout pins, development board very commonly include components such as buttons and LEDs, as they are very often used in prototyping scenarios for easy getting user input via a button press or indicating the status of something through illuminating an LED.
 
-Separating the top “half” from the bottom, we see a “jumper isolation block”. These jumpers bridge electrical connections between the debugger circuit and the microcontroller. These bridged connections allow power and communications to reach the lower part. However, if we were planning on someday building a custom circuit using the STM32, we wouldn’t be including a debugger/programmer, since we wouldn’t expect the person purchasing the embedded product, the “end user”, to reprogram the device. These jumpers allow us to disconnect the microcontroller and test the chip without the support of that circuit, emulating what it might behave like before we create a custom board.
+Separating the top “half” from the bottom, we see a “jumper isolation block”, labeled CN2 (the “ST-LINK/Nucleo selector”) in @fig-ch01-1-3. These jumpers bridge electrical connections between the debugger circuit and the microcontroller. These bridged connections allow power and communications to reach the lower part. However, if we were planning on someday building a custom circuit using the STM32F091RC, we wouldn’t be including a debugger/programmer, since we wouldn’t expect the person purchasing the embedded product, the “end user”, to reprogram the device. These jumpers allow us to disconnect the microcontroller and test the chip without the support of that circuit, emulating what it might behave like before we create a custom board.
 
 ## Recap
 

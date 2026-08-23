@@ -1,20 +1,22 @@
 # Preface {.unnumbered}
 
-This book is an introduction to embedded systems programming using an
-STMicroelectronics STM32 microcontroller.
+This book is an introduction to embedded systems programming using the
+STMicroelectronics STM32F091RC microcontroller and the STM32 Nucleo-F091RC
+development board.
 
 ::: {.callout-note}
 ## Draft status
 
-This book is a work in progress. Chapter content, the specific STM32 part
-number/development board, and toolchain (e.g. STM32CubeIDE) used throughout
-the book still need to be filled in.
+This book is a work in progress. Most chapter content still needs to be
+written.
 :::
 
 It is intended for readers who are new to embedded systems, and covers the
 fundamentals of microcontrollers, C programming for resource-constrained
 targets, general purpose input/output (GPIO), embedded programming
 patterns, timers, analog-to-digital conversion, and serial communication.
+Development is done using STM32CubeIDE, STMicroelectronics' free
+Eclipse-based IDE for STM32 microcontrollers.
 
 ## How this book is organized
 

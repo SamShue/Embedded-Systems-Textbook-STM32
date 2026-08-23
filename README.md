@@ -1,9 +1,10 @@
-# Embedded Systems with STM32
+# Embedded Systems with the STM32F091RC
 
 📖 **Read the book online:** <https://SamShue.github.io/Embedded-Systems-Textbook-STM32/>
 
 This repository contains the source for an introductory embedded systems
-textbook built around an STMicroelectronics STM32 microcontroller.
+textbook built around the STMicroelectronics STM32F091RC microcontroller
+and the STM32 Nucleo-F091RC development board.
 
 The book is written as a [Quarto](https://quarto.org) project and lives in
 [`book/`](book/). It can be rendered to a searchable HTML site and/or a PDF.
@@ -16,8 +17,9 @@ not translate directly between them.
 
 ## Status
 
-This book is a work in progress. No chapter content has been written yet
-&mdash; `book/chapters/*.qmd` are currently placeholders. See
+This book is a work in progress. Chapter 1 has been adapted from the
+MSP430 edition; the remaining chapters (`book/chapters/*.qmd`) are
+currently placeholders. See
 [`book/index.qmd`](book/index.qmd) for the planned table of contents.
 
 ## Repository layout
