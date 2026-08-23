@@ -443,12 +443,36 @@ Figure&nbsp;2.1: An example of computer memory addressing
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>In this example, we’ve declared a variable called “x” and it has been designated to hold an integer by preceding our variable name with the keyword “int”. There are many different data types in C, but we’ll examine some of the basic types here:</p>
-<ul>
-<li><p>int – holds only integer numbers</p></li>
-<li><p>float – holds decimal point numbers</p></li>
-<li><p>char – used to hold values that correspond to characters in the ASCII table</p></li>
-<li><p>bool – used to hold true or false values. Short for “Boolean”</p></li>
-</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>int</code></td>
+<td>holds only integer numbers</td>
+</tr>
+<tr class="even">
+<td><code>float</code></td>
+<td>holds decimal point numbers</td>
+</tr>
+<tr class="odd">
+<td><code>char</code></td>
+<td>used to hold values that correspond to characters in the ASCII table</td>
+</tr>
+<tr class="even">
+<td><code>bool</code></td>
+<td>used to hold true or false values. Short for “Boolean”</td>
+</tr>
+</tbody>
+</table>
 <p>These variables can all be used in different scenarios depending on the need of the data type.</p>
 <section id="operators" class="level3" data-number="2.5.1">
 <h3 data-number="2.5.1" class="anchored" data-anchor-id="operators"><span class="header-section-number">2.5.1</span> Operators</h3>
@@ -783,11 +807,32 @@ Figure&nbsp;2.1: An example of computer memory addressing
 <p>One question that might come to mind is why differentiate between data types? If you think about it, you should be able to do everything with a “float”. Decimal point numbers can represent integers, we could use them to hold corresponding character values as well, and even use them to represent true and false by designating a certain value to represent “true”. The answer comes down to speed and efficiency. Binary can naturally represent integer values, but it requires a special format to represent decimal numbers. Floating point numbers are also difficult to process and require special hardware. Floats also take up more memory than chars or bools, and depending on the machine, “int”s as well. Therefore, we define other data types for faster processing and better use of the limited memory available on our microprocessor.</p>
 <p>&lt;Add example here of two programs producing variables of different sizes&gt;</p>
 <p>To this end, C defines even more varieties of data types that give use even more control over the amount of memory reserved for each data type.</p>
-<ul>
-<li><p>short – an integer that uses even less memory space than int, but holds smaller numbers</p></li>
-<li><p>long – an integer that uses more memory space than int, but holds larger numbers</p></li>
-<li><p>double – a decimal point number that uses more memory than float, but holds larger numbers</p></li>
-</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>short</code></td>
+<td>an integer that uses even less memory space than int, but holds smaller numbers</td>
+</tr>
+<tr class="even">
+<td><code>long</code></td>
+<td>an integer that uses more memory space than int, but holds larger numbers</td>
+</tr>
+<tr class="odd">
+<td><code>double</code></td>
+<td>a decimal point number that uses more memory than float, but holds larger numbers</td>
+</tr>
+</tbody>
+</table>
 <section id="modifiers-and-qualifiers" class="level3" data-number="2.10.1">
 <h3 data-number="2.10.1" class="anchored" data-anchor-id="modifiers-and-qualifiers"><span class="header-section-number">2.10.1</span> Modifiers and Qualifiers</h3>
 <p>We also might want to be able to further control the data types and how they’re used, and to aid with this, C allows us to specify modifiers and qualifiers for our data types.</p>
