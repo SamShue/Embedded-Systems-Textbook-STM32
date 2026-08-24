@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -76,6 +111,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -199,8 +263,74 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives"><span class="header-section-number">3.1</span> Learning Objectives</a></li>
+  <li><a href="#interfacing-with-the-outside-world" id="toc-interfacing-with-the-outside-world" class="nav-link" data-scroll-target="#interfacing-with-the-outside-world"><span class="header-section-number">3.2</span> Interfacing with the Outside World</a></li>
+  <li><a href="#microcontroller-documentation" id="toc-microcontroller-documentation" class="nav-link" data-scroll-target="#microcontroller-documentation"><span class="header-section-number">3.3</span> Microcontroller Documentation</a>
+  <ul class="collapse">
+  <li><a href="#development-board-documentation" id="toc-development-board-documentation" class="nav-link" data-scroll-target="#development-board-documentation"><span class="header-section-number">3.3.1</span> Development Board Documentation</a></li>
+  <li><a href="#microcontroller-family-documentation" id="toc-microcontroller-family-documentation" class="nav-link" data-scroll-target="#microcontroller-family-documentation"><span class="header-section-number">3.3.2</span> Microcontroller Family Documentation</a></li>
+  <li><a href="#microcontroller-specific-documentation" id="toc-microcontroller-specific-documentation" class="nav-link" data-scroll-target="#microcontroller-specific-documentation"><span class="header-section-number">3.3.3</span> Microcontroller-Specific Documentation</a></li>
+  </ul></li>
+  <li><a href="#general-purpose-input-output" id="toc-general-purpose-input-output" class="nav-link" data-scroll-target="#general-purpose-input-output"><span class="header-section-number">3.4</span> General Purpose Input Output</a>
+  <ul class="collapse">
+  <li><a href="#how-to-find-operating-voltage" id="toc-how-to-find-operating-voltage" class="nav-link" data-scroll-target="#how-to-find-operating-voltage"><span class="header-section-number">3.4.1</span> How to Find Operating Voltage</a></li>
+  <li><a href="#controlling-an-led" id="toc-controlling-an-led" class="nav-link" data-scroll-target="#controlling-an-led"><span class="header-section-number">3.4.2</span> Controlling an LED</a></li>
+  <li><a href="#reading-a-button-press" id="toc-reading-a-button-press" class="nav-link" data-scroll-target="#reading-a-button-press"><span class="header-section-number">3.4.3</span> Reading a Button Press</a></li>
+  </ul></li>
+  <li><a href="#peripherals-and-the-memory-map" id="toc-peripherals-and-the-memory-map" class="nav-link" data-scroll-target="#peripherals-and-the-memory-map"><span class="header-section-number">3.5</span> Peripherals and the Memory Map</a>
+  <ul class="collapse">
+  <li><a href="#the-stm32f091-memory-map" id="toc-the-stm32f091-memory-map" class="nav-link" data-scroll-target="#the-stm32f091-memory-map"><span class="header-section-number">3.5.1</span> The STM32F091 Memory Map</a></li>
+  </ul></li>
+  <li><a href="#gpio-organization" id="toc-gpio-organization" class="nav-link" data-scroll-target="#gpio-organization"><span class="header-section-number">3.6</span> GPIO Organization</a>
+  <ul class="collapse">
+  <li><a href="#which-pins-are-gpio" id="toc-which-pins-are-gpio" class="nav-link" data-scroll-target="#which-pins-are-gpio"><span class="header-section-number">3.6.1</span> Which Pins are GPIO?</a></li>
+  <li><a href="#dev-board-pinout" id="toc-dev-board-pinout" class="nav-link" data-scroll-target="#dev-board-pinout"><span class="header-section-number">3.6.2</span> Dev Board Pinout</a></li>
+  </ul></li>
+  <li><a href="#controlling-the-gpio" id="toc-controlling-the-gpio" class="nav-link" data-scroll-target="#controlling-the-gpio"><span class="header-section-number">3.7</span> Controlling the GPIO</a></li>
+  <li><a href="#example-application-blink-an-led" id="toc-example-application-blink-an-led" class="nav-link" data-scroll-target="#example-application-blink-an-led"><span class="header-section-number">3.8</span> Example Application: Blink an LED</a>
+  <ul class="collapse">
+  <li><a href="#driving-an-led-with-gpio" id="toc-driving-an-led-with-gpio" class="nav-link" data-scroll-target="#driving-an-led-with-gpio"><span class="header-section-number">3.8.1</span> Driving an LED with GPIO</a></li>
+  <li><a href="#enabling-the-peripheral-clock" id="toc-enabling-the-peripheral-clock" class="nav-link" data-scroll-target="#enabling-the-peripheral-clock"><span class="header-section-number">3.8.2</span> Enabling the Peripheral Clock</a></li>
+  <li><a href="#setting-the-mode" id="toc-setting-the-mode" class="nav-link" data-scroll-target="#setting-the-mode"><span class="header-section-number">3.8.3</span> Setting the Mode</a></li>
+  <li><a href="#output-register" id="toc-output-register" class="nav-link" data-scroll-target="#output-register"><span class="header-section-number">3.8.4</span> Output Register</a></li>
+  <li><a href="#the-bit-setreset-register" id="toc-the-bit-setreset-register" class="nav-link" data-scroll-target="#the-bit-setreset-register"><span class="header-section-number">3.8.5</span> The Bit Set/Reset Register</a></li>
+  <li><a href="#accessing-registers" id="toc-accessing-registers" class="nav-link" data-scroll-target="#accessing-registers"><span class="header-section-number">3.8.6</span> Accessing Registers</a></li>
+  <li><a href="#finding-the-register-address" id="toc-finding-the-register-address" class="nav-link" data-scroll-target="#finding-the-register-address"><span class="header-section-number">3.8.7</span> Finding the Register Address</a></li>
+  <li><a href="#the-volatile-keyword" id="toc-the-volatile-keyword" class="nav-link" data-scroll-target="#the-volatile-keyword"><span class="header-section-number">3.8.8</span> The “volatile” Keyword</a></li>
+  <li><a href="#putting-it-together" id="toc-putting-it-together" class="nav-link" data-scroll-target="#putting-it-together"><span class="header-section-number">3.8.9</span> Putting it Together</a></li>
+  </ul></li>
+  <li><a href="#example-application-read-a-button-press" id="toc-example-application-read-a-button-press" class="nav-link" data-scroll-target="#example-application-read-a-button-press"><span class="header-section-number">3.9</span> Example Application: Read a Button Press</a>
+  <ul class="collapse">
+  <li><a href="#reading-a-button-press-with-gpio" id="toc-reading-a-button-press-with-gpio" class="nav-link" data-scroll-target="#reading-a-button-press-with-gpio"><span class="header-section-number">3.9.1</span> Reading a Button Press with GPIO</a></li>
+  <li><a href="#configuring-the-gpio-as-an-input" id="toc-configuring-the-gpio-as-an-input" class="nav-link" data-scroll-target="#configuring-the-gpio-as-an-input"><span class="header-section-number">3.9.2</span> Configuring the GPIO as an Input</a></li>
+  <li><a href="#reading-a-voltage" id="toc-reading-a-voltage" class="nav-link" data-scroll-target="#reading-a-voltage"><span class="header-section-number">3.9.3</span> Reading a Voltage</a></li>
+  <li><a href="#do-we-need-a-pull-up-resistor" id="toc-do-we-need-a-pull-up-resistor" class="nav-link" data-scroll-target="#do-we-need-a-pull-up-resistor"><span class="header-section-number">3.9.4</span> Do We Need a Pull-Up Resistor?</a></li>
+  <li><a href="#internal-pull-up-and-pull-down-resistors" id="toc-internal-pull-up-and-pull-down-resistors" class="nav-link" data-scroll-target="#internal-pull-up-and-pull-down-resistors"><span class="header-section-number">3.9.5</span> Internal Pull-Up and Pull-Down Resistors</a></li>
+  <li><a href="#putting-it-together-1" id="toc-putting-it-together-1" class="nav-link" data-scroll-target="#putting-it-together-1"><span class="header-section-number">3.9.6</span> Putting it Together</a></li>
+  </ul></li>
+  <li><a href="#gpio-hardware" id="toc-gpio-hardware" class="nav-link" data-scroll-target="#gpio-hardware"><span class="header-section-number">3.10</span> GPIO Hardware</a></li>
+  <li><a href="#register-macros" id="toc-register-macros" class="nav-link" data-scroll-target="#register-macros"><span class="header-section-number">3.11</span> Register Macros</a></li>
+  <li><a href="#bit-masking" id="toc-bit-masking" class="nav-link" data-scroll-target="#bit-masking"><span class="header-section-number">3.12</span> Bit Masking</a>
+  <ul class="collapse">
+  <li><a href="#understanding-the-problem" id="toc-understanding-the-problem" class="nav-link" data-scroll-target="#understanding-the-problem"><span class="header-section-number">3.12.1</span> Understanding the Problem</a></li>
+  <li><a href="#creating-a-bit-mask" id="toc-creating-a-bit-mask" class="nav-link" data-scroll-target="#creating-a-bit-mask"><span class="header-section-number">3.12.2</span> Creating a Bit Mask</a></li>
+  <li><a href="#bit-masking-for-setting-and-clearing-bits" id="toc-bit-masking-for-setting-and-clearing-bits" class="nav-link" data-scroll-target="#bit-masking-for-setting-and-clearing-bits"><span class="header-section-number">3.12.3</span> Bit Masking for Setting and Clearing Bits</a></li>
+  <li><a href="#creating-readable-masks-with-the-shift-operator" id="toc-creating-readable-masks-with-the-shift-operator" class="nav-link" data-scroll-target="#creating-readable-masks-with-the-shift-operator"><span class="header-section-number">3.12.4</span> Creating Readable Masks with the Shift Operator</a></li>
+  <li><a href="#masking-registers-with-paired-values" id="toc-masking-registers-with-paired-values" class="nav-link" data-scroll-target="#masking-registers-with-paired-values"><span class="header-section-number">3.12.5</span> Masking Registers with Paired Values</a></li>
+  </ul></li>
+  <li><a href="#additional-notes" id="toc-additional-notes" class="nav-link" data-scroll-target="#additional-notes"><span class="header-section-number">3.13</span> Additional Notes</a>
+  <ul class="collapse">
+  <li><a href="#polling-for-inputs" id="toc-polling-for-inputs" class="nav-link" data-scroll-target="#polling-for-inputs"><span class="header-section-number">3.13.1</span> Polling for Inputs</a></li>
+  <li><a href="#button-debouncing" id="toc-button-debouncing" class="nav-link" data-scroll-target="#button-debouncing"><span class="header-section-number">3.13.2</span> Button Debouncing</a></li>
+  </ul></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap"><span class="header-section-number">3.14</span> Recap</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -224,21 +354,673 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="learning-objectives" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">3.1</span> Learning Objectives</h2>
+<p>In this chapter we will learn:</p>
+<ul>
+<li><p>What peripherals are</p></li>
+<li><p>How to find and use microcontroller documentation</p></li>
+<li><p>What General Purpose Input/Output is</p></li>
+<li><p>How to control peripherals by writing to memory-mapped registers</p></li>
+<li><p>The STM32 GPIO register set</p></li>
+<li><p>Bit masking</p></li>
+</ul>
+</section>
+<section id="interfacing-with-the-outside-world" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="interfacing-with-the-outside-world"><span class="header-section-number">3.2</span> Interfacing with the Outside World</h2>
+<p>A microcontroller isn’t very useful if it can’t interface with the world around it. In order to read a button press, illuminate an LED, or communicate with another chip, the microcontroller needs specialized hardware built into it beyond the processor and memory we’ve discussed so far. This specialized hardware is referred to as a <strong>peripheral</strong>. A peripheral is a piece of hardware, separate from the processor core, that is included in the microcontroller to provide some additional capability, typically related to input or output.</p>
+<p>The STM32F091RC, like most microcontrollers, includes many different peripherals, each specialized for a different task. Some peripherals produce or read digital voltages, some convert analog voltages to digital values (and vice versa), some keep track of time, and others communicate with external devices using a specific protocol. <a href="#fig-ch03-peripherals" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> shows an illustration of some of the peripherals commonly found on a microcontroller.</p>
+<div id="fig-ch03-peripherals" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-peripherals-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-peripheral-blocks.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-peripherals-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Peripherals are specialized hardware blocks built into the microcontroller alongside the processor core
+</figcaption>
+</figure>
+</div>
+<p>In this chapter, we will focus on the most fundamental of these peripherals: the <strong>General-Purpose Input/Output</strong> (GPIO) peripheral. Before we get into the specifics of GPIO, however, let’s discuss where we will find the information necessary to use any peripheral on the STM32F091RC.</p>
+</section>
+<section id="microcontroller-documentation" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="microcontroller-documentation"><span class="header-section-number">3.3</span> Microcontroller Documentation</h2>
+<p>Nearly everything we do as embedded systems programmers requires us to consult documentation. Since a peripheral’s behavior is dictated by hardware, and every microcontroller’s hardware is designed a little differently, we cannot simply guess how to configure it. Instead, we must rely on documentation provided by the manufacturer, in our case, STMicroelectronics.</p>
+<p>It’s tempting to think of this documentation as a single document, but in practice, you’ll find that manufacturers split their documentation into several different documents, each covering a different level of detail. For the STM32F091RC on our NUCLEO-F091RC development board, we will regularly reference three different kinds of documents:</p>
+<ul>
+<li><p>Documentation specific to our development board (the NUCLEO-F091RC)</p></li>
+<li><p>Documentation specific to our microcontroller family (the STM32F0 series)</p></li>
+<li><p>Documentation specific to our exact microcontroller (the STM32F091RC)</p></li>
+</ul>
+<p>Each of these documents serves a different purpose, and knowing which one to open for a given question will save you a lot of time.</p>
+<section id="development-board-documentation" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="development-board-documentation"><span class="header-section-number">3.3.1</span> Development Board Documentation</h3>
+<p>The development board documentation describes the board itself, not the microcontroller. This document will help us identify the specifics of our particular development board, such as where the buttons and LEDs are connected, how the on-board debugger works, and the layout of the board’s schematic. For our NUCLEO-F091RC, this information is found in ST’s <em>UM1724</em> user manual, shown in <a href="#fig-ch03-doc-devboard" class="quarto-xref">Figure&nbsp;<span>3.2</span></a>.</p>
+<div id="fig-ch03-doc-devboard" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-doc-devboard-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-doc-devboard-manual.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-doc-devboard-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: The UM1724 user manual documents the NUCLEO-64 family of development boards, including the NUCLEO-F091RC
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="microcontroller-family-documentation" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="microcontroller-family-documentation"><span class="header-section-number">3.3.2</span> Microcontroller Family Documentation</h3>
+<p>The microcontroller family documentation, more commonly called the <strong>reference manual</strong>, contains details that are common across an entire family of microcontrollers. This is usually the document we will reference the most while programming, as it contains detailed descriptions of each peripheral and its associated registers. For the STM32F091RC, this is ST’s <em>RM0091</em> reference manual, shown in <a href="#fig-ch03-doc-refman" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>, which covers the entire STM32F0x1/F0x2/F0x8 family of microcontrollers, of which the STM32F091RC is a member.</p>
+<div id="fig-ch03-doc-refman" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-doc-refman-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-doc-reference-manual.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-doc-refman-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.3: The RM0091 reference manual documents the peripherals shared across the entire STM32F0 family
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="microcontroller-specific-documentation" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="microcontroller-specific-documentation"><span class="header-section-number">3.3.3</span> Microcontroller-Specific Documentation</h3>
+<p>Finally, the <strong>datasheet</strong> is the documentation most specific to our exact chip. This document typically contains mechanical drawings of the physical package, the pinout diagram, and electrical characteristics, such as the operating voltage range and current limits. For the STM32F091RC, this information can be found in the datasheet shown in <a href="#fig-ch03-doc-datasheet" class="quarto-xref">Figure&nbsp;<span>3.4</span></a>.</p>
+<div id="fig-ch03-doc-datasheet" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-doc-datasheet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-doc-datasheet.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-doc-datasheet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.4: The datasheet contains details specific to the STM32F091xB/xC devices, such as pinout and electrical characteristics
+</figcaption>
+</figure>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Draft status
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This chapter has not yet been written. It will cover memory-mapped peripherals, the STM32 GPIO peripheral registers, controlling GPIO pins directly and via HAL/LL drivers, and bit masking.</p>
+<p>Throughout this chapter, we will regularly point out which of these three documents contains the information we’re discussing, so you can get comfortable navigating between them.</p>
 </div>
 </div>
+</section>
+</section>
+<section id="general-purpose-input-output" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="general-purpose-input-output"><span class="header-section-number">3.4</span> General Purpose Input Output</h2>
+<p>Now that we know where to look for information, let’s discuss the GPIO peripheral itself. The GPIO peripheral allows the microcontroller to read or set digital voltages on the pins of the chip. This gives us the ability to create some of the most fundamental forms of input and output, such as illuminating an LED or reading a button press.</p>
+<p>Let’s recall what is meant by a “digital” voltage. A digital voltage represents either a 1 or a 0. A 0 is typically represented by 0 volts, and a 1 is represented by the microcontroller’s operating voltage. When speaking generally about these voltages, we use the terms <strong>high</strong> and <strong>low</strong> to refer to whatever voltage represents a 1 and 0 in the system, respectively. Voltages between these two extremes may be interpreted inconsistently by the microcontroller and should be avoided when working with GPIO.</p>
+<div id="fig-ch03-digital-signal" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-digital-signal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-digital-signal.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-digital-signal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.5: A digital signal alternates between a high (on) and low (off) voltage
+</figcaption>
+</figure>
+</div>
+<section id="how-to-find-operating-voltage" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="how-to-find-operating-voltage"><span class="header-section-number">3.4.1</span> How to Find Operating Voltage</h3>
+<p>The operating voltage of a microcontroller is defined in its datasheet. The STM32F091RC typically operates within a range of 2.0 V to 3.6 V. The NUCLEO-F091RC development board is powered over USB, which supplies 5 V. This 5 V is regulated down to 3.3 V before being supplied to the microcontroller, so 3.3 V is the voltage we should expect to see representing a digital high on this board.</p>
+</section>
+<section id="controlling-an-led" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="controlling-an-led"><span class="header-section-number">3.4.2</span> Controlling an LED</h3>
+<p>Let’s consider an example of illuminating an LED using a GPIO pin. Say we have a GPIO peripheral controlling a pin labeled “P1,” which is connected to a small current-limiting resistor in series with an LED, which is then connected to ground, as shown in <a href="#fig-ch03-generic-led" class="quarto-xref">Figure&nbsp;<span>3.6</span></a>.</p>
+<div id="fig-ch03-generic-led" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-generic-led-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-generic-led-circuit.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-generic-led-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.6: A GPIO pin driving an LED through a current-limiting resistor
+</figcaption>
+</figure>
+</div>
+<p>When the GPIO provides a high voltage on P1, current flows from P1, through the resistor, through the LED, and to ground, causing the LED to illuminate. When the GPIO writes a low voltage (0 V), there is no longer any electrical potential across the LED, since ground is also at 0 V. With no potential difference, no current flows, and the LED turns off.</p>
+</section>
+<section id="reading-a-button-press" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="reading-a-button-press"><span class="header-section-number">3.4.3</span> Reading a Button Press</h3>
+<p>Now let’s consider reading a button press. To do this, we need a switch that can control whether a high or low voltage is presented to a GPIO input pin. We’ll connect P1 to a resistor that is wired to a high voltage source, and also to a switch that connects the pin to ground, as shown in <a href="#fig-ch03-generic-switch" class="quarto-xref">Figure&nbsp;<span>3.7</span></a>.</p>
+<div id="fig-ch03-generic-switch" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-generic-switch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-generic-switch-circuit.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-generic-switch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.7: A GPIO pin reading the state of a switch through a pull-up resistor
+</figcaption>
+</figure>
+</div>
+<p>When the switch is closed, P1 is directly connected to ground and reads 0 V; nearly all the voltage is dissipated across the resistor, and negligible current flows into the microcontroller. When the switch is open, there is no longer a direct path to ground, so current flows into P1 instead. Since the input of a GPIO pin has extremely high resistance, nearly all the voltage is dissipated across the microcontroller’s input rather than the resistor, and P1 reads a high voltage.</p>
+<p>We’ve now covered the two most fundamental input/output scenarios for an embedded system. Let’s see how this is achieved on the STM32F091RC.</p>
+</section>
+</section>
+<section id="peripherals-and-the-memory-map" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="peripherals-and-the-memory-map"><span class="header-section-number">3.5</span> Peripherals and the Memory Map</h2>
+<p>From the perspective of a single instruction, there are only two things a line of code can control: the operation performed (add, subtract, etc.) and the memory location where the result is written. In order for our program instructions to control a peripheral, that peripheral must therefore appear as a memory location so our instructions can write to it. Each peripheral contains many <strong>control registers</strong>, which behave like any other memory location, except that the values written to them dictate how the peripheral’s hardware behaves. For GPIO, this might mean configuring whether a pin is an input or an output, writing a high or low voltage to a pin, or reading whether a pin currently holds a high or low voltage.</p>
+<div id="fig-ch03-mem-mapped" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-mem-mapped-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-memory-mapped-peripherals.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-mem-mapped-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.8: Peripherals are wired into the same address space that instructions use to access memory, allowing a single memory bus to reach both RAM and hardware peripherals
+</figcaption>
+</figure>
+</div>
+<p>Since the only thing an instruction can interact with is memory, peripherals need to appear as memory! Specific memory addresses are wired directly to the peripheral hardware, so writing to those addresses controls entirely separate pieces of hardware, completely independent from RAM.</p>
+<p>We can access these memory-mapped locations using a pointer. If we have a pointer that points to the memory address associated with a peripheral’s register, we can dereference it to write data directly to that peripheral and control it.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">uint16_t</span> value <span class="op">=</span> <span class="bn">0x0010</span><span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">uint16_t</span><span class="op">*</span> p <span class="op">=</span> <span class="op">(</span><span class="dt">uint16_t</span><span class="op">*)</span> <span class="bn">0x48000014</span><span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">*</span>p <span class="op">=</span> value<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="the-stm32f091-memory-map" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="the-stm32f091-memory-map"><span class="header-section-number">3.5.1</span> The STM32F091 Memory Map</h3>
+<p>Each microcontroller has its own memory map, so to know where a peripheral’s control registers reside, we consult the reference manual. <a href="#fig-ch03-memory-map" class="quarto-xref">Figure&nbsp;<span>3.9</span></a> shows the memory map for the STM32F091RC. The regions we’re already familiar with, such as the stack, heap, and program instructions, are all found within the “CODE” and “SRAM” regions here. New regions, labeled APB, AHB1, and AHB2, are associated with the various peripherals, including GPIO.</p>
+<div id="fig-ch03-memory-map" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-memory-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-stm32f091-memory-map.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-memory-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.9: The STM32F091RC memory map, showing the regions dedicated to CODE, SRAM, and the memory-mapped peripheral buses
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="gpio-organization" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="gpio-organization"><span class="header-section-number">3.6</span> GPIO Organization</h2>
+<p>On the STM32, a single GPIO peripheral can only control up to 16 pins. Since the STM32F091RC has far more pins than this, the microcontroller includes several copies of the GPIO peripheral, each controlling a different set of pins. Each copy of the GPIO peripheral is referred to as a <strong>Port</strong>, and each port is identified by a letter (A, B, C, and so on).</p>
+<div id="fig-ch03-gpio-ports" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-gpio-ports-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-gpio-organization-ports.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-gpio-ports-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.10: Each GPIO port is a separate copy of the GPIO peripheral hardware, controlling up to 16 pins of the chip, and each is connected to the CPU through the same memory bus
+</figcaption>
+</figure>
+</div>
+<p>Individual pins on a port are identified by number, from 0 to 15. To refer to a specific pin, we use the notation <strong>PXN</strong>, where X is the port letter and N is the pin number. For example, “PA5” refers to Port A, Pin 5, and “PC13” refers to Port C, Pin 13.</p>
+<section id="which-pins-are-gpio" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="which-pins-are-gpio"><span class="header-section-number">3.6.1</span> Which Pins are GPIO?</h3>
+<p>Not every pin on the microcontroller can be controlled by the GPIO peripheral; some pins are dedicated to power, ground, or the reset line. To determine which pins are available for GPIO, we consult the datasheet. The datasheet includes a pinout diagram of the chip’s package, such as the one shown in <a href="#fig-ch03-pinout" class="quarto-xref">Figure&nbsp;<span>3.11</span></a>. Pins labeled with the PXN format, such as PA5 or PC13, are the ones controlled by GPIO. Many of these pins can also be shared with other peripherals, which we’ll discuss further when we cover pin alternate functions in a later chapter.</p>
+<div id="fig-ch03-pinout" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-pinout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-lqfp48-pinout.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-pinout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.11: An example pinout diagram from the datasheet. Pins labeled in the PXN format are controlled by the GPIO peripheral
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="dev-board-pinout" class="level3" data-number="3.6.2">
+<h3 data-number="3.6.2" class="anchored" data-anchor-id="dev-board-pinout"><span class="header-section-number">3.6.2</span> Dev Board Pinout</h3>
+<p>Since we’re using a development board, the pins of the microcontroller’s package have already been broken out to header pins along the edges of the board. The NUCLEO-F091RC’s user manual includes diagrams, shown in <a href="#fig-ch03-devboard-pinout-left" class="quarto-xref">Figure&nbsp;<span>3.12</span></a> and <a href="#fig-ch03-devboard-pinout-right" class="quarto-xref">Figure&nbsp;<span>3.13</span></a>, that make it easy to identify which port and pin is connected to each header.</p>
+<div id="fig-ch03-devboard-pinout-left" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-devboard-pinout-left-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-devboard-pinout-left.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-devboard-pinout-left-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.12: NUCLEO-F091RC header pinout (CN7/CN8, left side of the board)
+</figcaption>
+</figure>
+</div>
+<div id="fig-ch03-devboard-pinout-right" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-devboard-pinout-right-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-devboard-pinout-right.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-devboard-pinout-right-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.13: NUCLEO-F091RC header pinout (CN5/CN9/CN10, right side of the board)
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="controlling-the-gpio" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="controlling-the-gpio"><span class="header-section-number">3.7</span> Controlling the GPIO</h2>
+<p>Now that we know the why and where of GPIO, let’s discuss the how. Most microcontrollers’ GPIO peripherals have four core registers used to control them:</p>
+<dl>
+<dt>Directional Register (<code>MODER</code>)</dt>
+<dd>
+Configures a pin as an input or output
+</dd>
+<dt>Output Register (<code>ODR</code>)</dt>
+<dd>
+Sets the value of a pin configured as an output (high or low)
+</dd>
+<dt>Input Register (<code>IDR</code>)</dt>
+<dd>
+Reads the current value of a pin
+</dd>
+<dt>Resistor Enable Register (<code>PUPDR</code>)</dt>
+<dd>
+Enables a pull-up or pull-down resistor on an input pin
+</dd>
+</dl>
+<p>Let’s walk through a complete example using each of these registers: blinking the green LED (LD2) built into the NUCLEO-F091RC.</p>
+</section>
+<section id="example-application-blink-an-led" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="example-application-blink-an-led"><span class="header-section-number">3.8</span> Example Application: Blink an LED</h2>
+<section id="driving-an-led-with-gpio" class="level3" data-number="3.8.1">
+<h3 data-number="3.8.1" class="anchored" data-anchor-id="driving-an-led-with-gpio"><span class="header-section-number">3.8.1</span> Driving an LED with GPIO</h3>
+<p>The development board has an LED already connected to a GPIO pin. To find out which pin, we consult the development board’s schematic in the UM1724 user manual, shown in <a href="#fig-ch03-led-schematic" class="quarto-xref">Figure&nbsp;<span>3.14</span></a>. From this, we can see that a green LED is connected to PA5.</p>
+<div id="fig-ch03-led-schematic" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-led-schematic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-led-schematic.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-led-schematic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.14: The green user LED (LD2) on the NUCLEO-F091RC is connected to PA5
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="enabling-the-peripheral-clock" class="level3" data-number="3.8.2">
+<h3 data-number="3.8.2" class="anchored" data-anchor-id="enabling-the-peripheral-clock"><span class="header-section-number">3.8.2</span> Enabling the Peripheral Clock</h3>
+<p>Before we can configure any of GPIOA’s registers, there’s an important STM32-specific step we must take: enabling the peripheral’s clock. To conserve power, most peripherals on the STM32 are disabled by default and are not supplied with a clock signal until we explicitly enable them. This is controlled through the <strong>Reset and Clock Control</strong> (RCC) peripheral. Each GPIO port has a corresponding enable bit in the <code>RCC_AHBENR</code> register. GPIOA’s clock enable bit is bit 17 (<code>IOPAEN</code>). If we forget this step, writes to GPIOA’s registers will have no effect, since the peripheral isn’t receiving a clock signal at all!</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">volatile</span> <span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*</span> rcc_ahbenr <span class="op">=</span> <span class="op">(</span><span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*)</span> <span class="bn">0x40021014</span><span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">*</span>rcc_ahbenr <span class="op">=</span> <span class="bn">0x00020000</span><span class="op">;</span> <span class="co">// Enable GPIOA (IOPAEN, bit 17)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="setting-the-mode" class="level3" data-number="3.8.3">
+<h3 data-number="3.8.3" class="anchored" data-anchor-id="setting-the-mode"><span class="header-section-number">3.8.3</span> Setting the Mode</h3>
+<p>In order to set the voltage on a GPIO pin high, we must first configure that pin as an output. This is done using the mode register, <code>GPIOx_MODER</code>. From the reference manual, we can see that the mode register is 32 bits wide, and unlike a single enable bit, a <em>pair</em> of bits is used to configure the mode of each pin, as shown in <a href="#fig-ch03-moder" class="quarto-xref">Figure&nbsp;<span>3.15</span></a>.</p>
+<div id="fig-ch03-moder" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-moder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-moder-register.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-moder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.15: The GPIO port mode register (GPIOx_MODER) uses two bits per pin to select between input, output, alternate function, and analog modes
+</figcaption>
+</figure>
+</div>
+<p>Each pin’s two bits can be set to one of four values:</p>
+<ul>
+<li><p><code>00</code>: Input mode (the reset/default state)</p></li>
+<li><p><code>01</code>: General purpose output mode</p></li>
+<li><p><code>10</code>: Alternate function mode</p></li>
+<li><p><code>11</code>: Analog mode</p></li>
+</ul>
+<p>For example, to set PA5 as an output, we need to write <code>01</code> to bits 11 and 10 (pin 5’s field within the register):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">volatile</span> <span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*</span> gpioa_moder <span class="op">=</span> <span class="op">(</span><span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*)</span> <span class="bn">0x48000000</span><span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">*</span>gpioa_moder <span class="op">=</span> <span class="bn">0x00000400</span><span class="op">;</span> <span class="co">// MODER5 = 01 -&gt; bits [11:10]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sometimes a pin is shared with another peripheral, such as a timer or an ADC. The GPIO peripheral acts as the “gatekeeper” for the pin and must be configured with the alternate function mode (<code>10</code>) to let those other peripherals’ signals pass through to the pin.</p>
+</div>
+</div>
+</section>
+<section id="output-register" class="level3" data-number="3.8.4">
+<h3 data-number="3.8.4" class="anchored" data-anchor-id="output-register"><span class="header-section-number">3.8.4</span> Output Register</h3>
+<p>The output register, <code>GPIOx_ODR</code>, sets the value of each pin that has been configured as an output. Unlike the mode register, each bit in the output register corresponds to a single pin, as shown in <a href="#fig-ch03-odr" class="quarto-xref">Figure&nbsp;<span>3.16</span></a>. Writing a 1 sets the pin high, and writing a 0 sets it low.</p>
+<div id="fig-ch03-odr" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-odr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-odr-register.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-odr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.16: The GPIO port output data register (GPIOx_ODR) sets the voltage of each output pin
+</figcaption>
+</figure>
+</div>
+<p>To write a high voltage to PA5, we need to write a 1 to bit 5 of the output register:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">volatile</span> <span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*</span> gpioa_odr <span class="op">=</span> <span class="op">(</span><span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*)</span> <span class="bn">0x48000014</span><span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">*</span>gpioa_odr <span class="op">=</span> <span class="bn">0x00000020</span><span class="op">;</span> <span class="co">// ODR5 = 1 -&gt; PA5 high</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="the-bit-setreset-register" class="level3" data-number="3.8.5">
+<h3 data-number="3.8.5" class="anchored" data-anchor-id="the-bit-setreset-register"><span class="header-section-number">3.8.5</span> The Bit Set/Reset Register</h3>
+<p>The STM32 also provides a second way to write to the output register: the bit set/reset register, <code>GPIOx_BSRR</code>. This register is split into two halves. Bits 15:0 (<code>BS</code>) set the corresponding output bit to 1, and bits 31:16 (<code>BR</code>) reset the corresponding output bit to 0. Writes to this register are atomic, meaning individual bits can be safely set or cleared without disturbing an interrupt that might be modifying other bits in <code>ODR</code> at the same time, something that isn’t guaranteed when reading, modifying, and writing back the entire <code>ODR</code> register directly. We’ll make use of <code>BSRR</code> again once we introduce interrupts later in this book.</p>
+</section>
+<section id="accessing-registers" class="level3" data-number="3.8.6">
+<h3 data-number="3.8.6" class="anchored" data-anchor-id="accessing-registers"><span class="header-section-number">3.8.6</span> Accessing Registers</h3>
+<p>Now that we know which registers to use, how do we access them in C? Just as with any other memory-mapped location, we create a pointer to the register’s address, then dereference that pointer to read or write its value.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">uint32_t</span><span class="op">*</span> reg_p <span class="op">=</span> <span class="op">(</span><span class="dt">uint32_t</span><span class="op">*)</span> <span class="bn">0x48000000</span><span class="op">;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="op">*</span>reg_p <span class="op">=</span> <span class="bn">0x00000005</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="finding-the-register-address" class="level3" data-number="3.8.7">
+<h3 data-number="3.8.7" class="anchored" data-anchor-id="finding-the-register-address"><span class="header-section-number">3.8.7</span> Finding the Register Address</h3>
+<p>In the reference manual, each register lists an <strong>address offset</strong>, indicating how far that register is from the GPIO port’s <strong>base address</strong>. For example, <code>GPIOx_ODR</code> has an address offset of <code>0x14</code>.</p>
+<p>To find the base address for a specific port, we consult the peripheral boundary address table in the reference manual, shown in <a href="#fig-ch03-peripheral-addrs" class="quarto-xref">Figure&nbsp;<span>3.17</span></a>.</p>
+<div id="fig-ch03-peripheral-addrs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-peripheral-addrs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-peripheral-boundary-addresses.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-peripheral-addrs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.17: Peripheral boundary addresses from the reference manual. Each GPIO port occupies its own 1 KB block of address space
+</figcaption>
+</figure>
+</div>
+<p>GPIOA’s base address is <code>0x4800 0000</code>. Adding the <code>ODR</code> offset gives us the address of GPIOA’s output register:</p>
+<p><span class="math display">\[0\text{x}4800\ 0000 + 0\text{x}14 = 0\text{x}4800\ 0014\]</span></p>
+</section>
+<section id="the-volatile-keyword" class="level3" data-number="3.8.8">
+<h3 data-number="3.8.8" class="anchored" data-anchor-id="the-volatile-keyword"><span class="header-section-number">3.8.8</span> The “volatile” Keyword</h3>
+<p>Notice that all our register pointers have been declared with the <code>volatile</code> keyword. The <code>volatile</code> keyword is a type qualifier that forces the compiler to generate an instruction for every access to that variable. The compiler’s optimizer will often notice that some lines of embedded code appear to “do nothing” from an algorithmic perspective (nothing ever reads the variable we just wrote, as far as the compiler can tell) and will optimize those instructions out of the program entirely. Since we know these writes affect physical hardware, and not just program state, the <code>volatile</code> keyword prevents the compiler from making this mistake.</p>
+</section>
+<section id="putting-it-together" class="level3" data-number="3.8.9">
+<h3 data-number="3.8.9" class="anchored" data-anchor-id="putting-it-together"><span class="header-section-number">3.8.9</span> Putting it Together</h3>
+<p>Combining everything we’ve covered, here is a complete program that blinks the green LED on the NUCLEO-F091RC:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ---- Enable GPIOA clock ----</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">volatile</span> <span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*</span> rcc_ahbenr <span class="op">=</span> <span class="op">(</span><span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*)</span><span class="bn">0x40021014</span><span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>rcc_ahbenr <span class="op">=</span> <span class="bn">0x00020000</span><span class="op">;</span> <span class="co">// Enable GPIOA (IOPAEN)</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ---- GPIOA registers ----</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">volatile</span> <span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*</span> gpioa_moder <span class="op">=</span> <span class="op">(</span><span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*)</span><span class="bn">0x48000000</span><span class="op">;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">volatile</span> <span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*</span> gpioa_odr   <span class="op">=</span> <span class="op">(</span><span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*)</span><span class="bn">0x48000014</span><span class="op">;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Set PA5 as output</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">// MODER5 = 01 -&gt; bits [11:10]</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>gpioa_moder <span class="op">=</span> <span class="bn">0x00000400</span><span class="op">;</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">volatile</span> <span class="dt">unsigned</span> <span class="dt">int</span> i<span class="op">;</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span><span class="dv">1</span><span class="op">)</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        <span class="co">// LED ON (PA5 = 1)</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        <span class="op">*</span>gpioa_odr <span class="op">=</span> <span class="bn">0x00000020</span><span class="op">;</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span>i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">100000</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span> <span class="op">}</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        <span class="co">// LED OFF (PA5 = 0)</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        <span class="op">*</span>gpioa_odr <span class="op">=</span> <span class="bn">0x00000000</span><span class="op">;</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span>i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">100000</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span> <span class="op">}</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This program will run indefinitely, blinking the LED on and off, until power is removed from the board. The <code>while(1)</code> loop is an infinite loop, and is found in nearly all embedded systems programs; we want our application to keep running so long as the device is powered, rather than terminate.</p>
+</section>
+</section>
+<section id="example-application-read-a-button-press" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="example-application-read-a-button-press"><span class="header-section-number">3.9</span> Example Application: Read a Button Press</h2>
+<p>Let’s apply what we’ve learned to a second example: reading the state of the on-board user button (B1) and using it to control the LED.</p>
+<section id="reading-a-button-press-with-gpio" class="level3" data-number="3.9.1">
+<h3 data-number="3.9.1" class="anchored" data-anchor-id="reading-a-button-press-with-gpio"><span class="header-section-number">3.9.1</span> Reading a Button Press with GPIO</h3>
+<p>Just as with the LED, we first need to identify which pin the button is connected to. Consulting the development board schematic, shown in <a href="#fig-ch03-button-schematic" class="quarto-xref">Figure&nbsp;<span>3.18</span></a>, we find that the button is connected to PC13. Note also that these buttons are “normally open,” meaning the switch is open (not connected) when the button is not being pressed.</p>
+<div id="fig-ch03-button-schematic" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-button-schematic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-button-schematic.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-button-schematic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.18: The NUCLEO-F091RC’s user button (B1) is connected to PC13
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="configuring-the-gpio-as-an-input" class="level3" data-number="3.9.2">
+<h3 data-number="3.9.2" class="anchored" data-anchor-id="configuring-the-gpio-as-an-input"><span class="header-section-number">3.9.2</span> Configuring the GPIO as an Input</h3>
+<p>In order to read a voltage on a GPIO pin, we must:</p>
+<ul>
+<li><p>Set the pin as an input (mode register)</p></li>
+<li><p>Configure a pull-up resistor, if one doesn’t already exist externally (resistor enable register)</p></li>
+<li><p>Read the value of the pin (input data register)</p></li>
+</ul>
+<p>Setting PC13 as an input requires writing <code>00</code> to its corresponding two-bit field in <code>GPIOC_MODER</code> (bits 27:26):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">volatile</span> <span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*</span> gpioc_moder <span class="op">=</span> <span class="op">(</span><span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*)</span> <span class="bn">0x48000800</span><span class="op">;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="op">*</span>gpioc_moder <span class="op">=</span> <span class="bn">0x00000000</span><span class="op">;</span> <span class="co">// MODER13 = 00 -&gt; bits [27:26]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="reading-a-voltage" class="level3" data-number="3.9.3">
+<h3 data-number="3.9.3" class="anchored" data-anchor-id="reading-a-voltage"><span class="header-section-number">3.9.3</span> Reading a Voltage</h3>
+<p>The input data register, <code>GPIOx_IDR</code>, is used to read a voltage. If the voltage on an input pin is high, a 1 will appear in the corresponding bit position of this register; if the voltage is low, a 0 will appear.</p>
+</section>
+<section id="do-we-need-a-pull-up-resistor" class="level3" data-number="3.9.4">
+<h3 data-number="3.9.4" class="anchored" data-anchor-id="do-we-need-a-pull-up-resistor"><span class="header-section-number">3.9.4</span> Do We Need a Pull-Up Resistor?</h3>
+<p>If we look again at the schematic in <a href="#fig-ch03-button-schematic" class="quarto-xref">Figure&nbsp;<span>3.18</span></a>, we can see the board already includes a 4.7 kΩ pull-up resistor connected to the button. This means the pin will read a high voltage whenever the button isn’t pressed, and a low voltage when it is pressed, without our needing to configure an internal pull-up resistor. <a href="#fig-ch03-pullup-present" class="quarto-xref">Figure&nbsp;<span>3.19</span></a> highlights this resistor on the schematic.</p>
+<div id="fig-ch03-pullup-present" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-pullup-present-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-pullup-already-present.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-pullup-present-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.19: The NUCLEO-F091RC already includes an external pull-up resistor (R30) on the user button circuit
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="internal-pull-up-and-pull-down-resistors" class="level3" data-number="3.9.5">
+<h3 data-number="3.9.5" class="anchored" data-anchor-id="internal-pull-up-and-pull-down-resistors"><span class="header-section-number">3.9.5</span> Internal Pull-Up and Pull-Down Resistors</h3>
+<p>It’s worth noting, however, that many circuits don’t have the luxury of an external pull-up or pull-down resistor already in place. Because these resistors are so commonly needed (any switch or open-drain output requires one), most GPIO peripherals, including the STM32’s, allow us to configure an <em>internal</em> resistor instead, saving us from having to add external hardware. <a href="#fig-ch03-internal-pullup" class="quarto-xref">Figure&nbsp;<span>3.20</span></a> shows a simplified illustration of how this internal resistor is wired into the GPIO hardware.</p>
+<div id="fig-ch03-internal-pullup" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-internal-pullup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-internal-pullup-pulldown.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-internal-pullup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.20: Most GPIO peripherals include an internal pull-up or pull-down resistor that can be enabled in software, avoiding the need for external hardware
+</figcaption>
+</figure>
+</div>
+<p>This internal resistor is configured using the <code>GPIOx_PUPDR</code> register, shown in <a href="#fig-ch03-pupdr" class="quarto-xref">Figure&nbsp;<span>3.21</span></a>. Just like the mode register, two bits are used to configure each pin:</p>
+<ul>
+<li><p><code>00</code>: No pull-up or pull-down</p></li>
+<li><p><code>01</code>: Pull-up</p></li>
+<li><p><code>10</code>: Pull-down</p></li>
+<li><p><code>11</code>: Reserved</p></li>
+</ul>
+<div id="fig-ch03-pupdr" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-pupdr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-pupdr-register.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-pupdr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.21: The GPIO port pull-up/pull-down register (GPIOx_PUPDR) configures an internal pull resistor for each pin
+</figcaption>
+</figure>
+</div>
+<p>Since our button already has an external pull-up, we’ll leave <code>PUPDR</code> at its reset value (<code>00</code>, no internal resistor) for this example.</p>
+</section>
+<section id="putting-it-together-1" class="level3" data-number="3.9.6">
+<h3 data-number="3.9.6" class="anchored" data-anchor-id="putting-it-together-1"><span class="header-section-number">3.9.6</span> Putting it Together</h3>
+<p>Here’s a complete program that reads the state of the button on PC13 and turns the LED on PA5 on when it is pressed:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">){</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Enable GPIOA + GPIOC clocks (RCC_AHBENR)</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">volatile</span> <span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*</span> rcc_ahbenr <span class="op">=</span> <span class="op">(</span><span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*)</span><span class="bn">0x40021014</span><span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>rcc_ahbenr <span class="op">=</span> <span class="bn">0x00080000</span> <span class="op">|</span> <span class="bn">0x00020000</span><span class="op">;</span> <span class="co">// IOPCEN (bit 19) + IOPAEN (bit 17)</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// GPIOA registers (LED on PA5)</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">volatile</span> <span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*</span> gpioa_moder <span class="op">=</span> <span class="op">(</span><span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*)</span><span class="bn">0x48000000</span><span class="op">;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">volatile</span> <span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*</span> gpioa_odr   <span class="op">=</span> <span class="op">(</span><span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*)</span><span class="bn">0x48000014</span><span class="op">;</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// GPIOC registers (Button on PC13)</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">volatile</span> <span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*</span> gpioc_moder <span class="op">=</span> <span class="op">(</span><span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*)</span><span class="bn">0x48000800</span><span class="op">;</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">volatile</span> <span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*</span> gpioc_idr   <span class="op">=</span> <span class="op">(</span><span class="dt">unsigned</span> <span class="dt">int</span><span class="op">*)</span><span class="bn">0x48000810</span><span class="op">;</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ---- Configure PA5 as output (MODER5 = 01 -&gt; bits [11:10]) ----</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>gpioa_moder <span class="op">=</span> <span class="bn">0x00000400</span><span class="op">;</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ---- Configure PC13 as input (MODER13 = 00 -&gt; bits [27:26]) ----</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>gpioc_moder <span class="op">=</span> <span class="bn">0x00000000</span><span class="op">;</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Initialize LED OFF (PA5 = 0)</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>gpioa_odr <span class="op">=</span> <span class="bn">0x00000000</span><span class="op">;</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span><span class="op">(</span><span class="dv">1</span><span class="op">){</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>        <span class="co">// If the button reads 0, turn the LED on.</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span><span class="op">(*</span>gpioc_idr <span class="op">==</span> <span class="bn">0x00000000</span><span class="op">){</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>            <span class="op">*</span>gpioa_odr <span class="op">=</span> <span class="bn">0x00000020</span><span class="op">;</span> <span class="co">// PA5 high</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>            <span class="op">*</span>gpioa_odr <span class="op">=</span> <span class="bn">0x00000000</span><span class="op">;</span> <span class="co">// PA5 low</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This code will run until power is removed, constantly checking the button and setting the LED accordingly.</p>
+</section>
+</section>
+<section id="gpio-hardware" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="gpio-hardware"><span class="header-section-number">3.10</span> GPIO Hardware</h2>
+<p>Let’s take a moment to observe how the control registers we’ve discussed create the hardware behavior we’ve described. <a href="#fig-ch03-hw-schematic" class="quarto-xref">Figure&nbsp;<span>3.22</span></a> shows a simplified schematic of the internals of the GPIO peripheral hardware.</p>
+<div id="fig-ch03-hw-schematic" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-hw-schematic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-gpio-hardware-schematic.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-hw-schematic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.22: Simplified internal schematic of the GPIO peripheral hardware, showing the input driver, output driver, and their associated control registers
+</figcaption>
+</figure>
+</div>
+<p>On the output side, the bit set/reset registers and output data register feed into an output control block, which drives the pin using a push-pull or open-drain configuration, depending on how the pin has been configured. On the input side, a Schmitt trigger reads the voltage on the pin and stores a 1 or 0 into the input data register, which our program can then read.</p>
+</section>
+<section id="register-macros" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="register-macros"><span class="header-section-number">3.11</span> Register Macros</h2>
+<p>Using pointers, we can write to any register we need and have total control over the hardware. However, it’s tedious to create a pointer and dereference it every time we want to access a peripheral. We can condense this using preprocessor macros.</p>
+<p>Preprocessor macros are lines of code that begin with a “#” symbol. These lines get replaced with actual C syntax by the preprocessor before the compiler runs, according to what the macro defines. We can use the <code>#define</code> directive to create macros that expand into dereferenced pointers:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#define GPIOA_MODER </span><span class="op">*((</span><span class="dt">unsigned</span><span class="pp"> </span><span class="dt">int</span><span class="op">*)</span><span class="pp"> </span><span class="bn">0x48000000</span><span class="op">)</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#define GPIOA_ODR   </span><span class="op">*((</span><span class="dt">unsigned</span><span class="pp"> </span><span class="dt">int</span><span class="op">*)</span><span class="pp"> </span><span class="bn">0x48000014</span><span class="op">)</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#define GPIOC_MODER </span><span class="op">*((</span><span class="dt">unsigned</span><span class="pp"> </span><span class="dt">int</span><span class="op">*)</span><span class="pp"> </span><span class="bn">0x48000800</span><span class="op">)</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="pp">#define GPIOC_IDR   </span><span class="op">*((</span><span class="dt">unsigned</span><span class="pp"> </span><span class="dt">int</span><span class="op">*)</span><span class="pp"> </span><span class="bn">0x48000810</span><span class="op">)</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="pp">#define RCC_AHBENR  </span><span class="op">*((</span><span class="dt">unsigned</span><span class="pp"> </span><span class="dt">int</span><span class="op">*)</span><span class="pp"> </span><span class="bn">0x40021014</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The preprocessor will replace every instance of <code>GPIOA_ODR</code> in our code with <code>*((unsigned int*) 0x48000014)</code>, letting us both read and write the register just by using its name. Let’s update our button/LED example to use these macros:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#define RCC_AHBENR  </span><span class="op">*((</span><span class="dt">unsigned</span><span class="pp"> </span><span class="dt">int</span><span class="op">*)</span><span class="pp"> </span><span class="bn">0x40021014</span><span class="op">)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#define GPIOA_MODER </span><span class="op">*((</span><span class="dt">unsigned</span><span class="pp"> </span><span class="dt">int</span><span class="op">*)</span><span class="pp"> </span><span class="bn">0x48000000</span><span class="op">)</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#define GPIOA_ODR   </span><span class="op">*((</span><span class="dt">unsigned</span><span class="pp"> </span><span class="dt">int</span><span class="op">*)</span><span class="pp"> </span><span class="bn">0x48000014</span><span class="op">)</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="pp">#define GPIOC_MODER </span><span class="op">*((</span><span class="dt">unsigned</span><span class="pp"> </span><span class="dt">int</span><span class="op">*)</span><span class="pp"> </span><span class="bn">0x48000800</span><span class="op">)</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="pp">#define GPIOC_IDR   </span><span class="op">*((</span><span class="dt">unsigned</span><span class="pp"> </span><span class="dt">int</span><span class="op">*)</span><span class="pp"> </span><span class="bn">0x48000810</span><span class="op">)</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">){</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Enable GPIOA (bit 17) and GPIOC (bit 19) clocks</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    RCC_AHBENR <span class="op">=</span> <span class="bn">0x00020000</span> <span class="op">|</span> <span class="bn">0x00080000</span><span class="op">;</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ---- Configure PA5 as output ----</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    GPIOA_MODER <span class="op">=</span> <span class="bn">0x00000400</span><span class="op">;</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ---- Configure PC13 as input ----</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    GPIOC_MODER <span class="op">=</span> <span class="bn">0x00000000</span><span class="op">;</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Turn LED OFF initially</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    GPIOA_ODR <span class="op">=</span> <span class="bn">0x00000000</span><span class="op">;</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span><span class="op">(</span><span class="dv">1</span><span class="op">){</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span><span class="op">(</span>GPIOC_IDR <span class="op">==</span> <span class="bn">0x00000000</span><span class="op">){</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>            GPIOA_ODR <span class="op">=</span> <span class="bn">0x00000020</span><span class="op">;</span> <span class="co">// PA5 = 1 (LED ON)</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>            GPIOA_ODR <span class="op">=</span> <span class="bn">0x00000000</span><span class="op">;</span> <span class="co">// PA5 = 0 (LED OFF)</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Manufacturers understand this need quite well, and to make their products more attractive to programmers, they typically provide a header file with these macros already defined for every register on the chip. For the STM32, this comes in the form of a CMSIS-style device header, <code>stm32f0xx.h</code>, which groups each peripheral’s registers into a C <code>struct</code>, accessed through a pointer named after the peripheral:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">"stm32f0xx.h"</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">){</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Enable GPIOA (bit 17) and GPIOC (bit 19) clocks</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    RCC<span class="op">-&gt;</span>AHBENR <span class="op">=</span> <span class="bn">0x00020000</span> <span class="op">|</span> <span class="bn">0x00080000</span><span class="op">;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ---- Configure PA5 as output ----</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    GPIOA<span class="op">-&gt;</span>MODER <span class="op">=</span> <span class="bn">0x00000400</span><span class="op">;</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ---- Configure PC13 as input ----</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    GPIOC<span class="op">-&gt;</span>MODER <span class="op">=</span> <span class="bn">0x00000000</span><span class="op">;</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Turn LED OFF initially</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    GPIOA<span class="op">-&gt;</span>ODR <span class="op">=</span> <span class="bn">0x00000000</span><span class="op">;</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span><span class="op">(</span><span class="dv">1</span><span class="op">){</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span><span class="op">(</span>GPIOC<span class="op">-&gt;</span>IDR <span class="op">==</span> <span class="bn">0x00000000</span><span class="op">){</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>            GPIOA<span class="op">-&gt;</span>ODR <span class="op">=</span> <span class="bn">0x00000020</span><span class="op">;</span> <span class="co">// PA5 high</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>            GPIOA<span class="op">-&gt;</span>ODR <span class="op">=</span> <span class="bn">0x00000000</span><span class="op">;</span> <span class="co">// PA5 low</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>By including <code>"stm32f0xx.h"</code>, we gain access to <code>GPIOA</code>, <code>GPIOC</code>, and <code>RCC</code>, each already pointing to the correct base address for our target device, along with named fields (<code>MODER</code>, <code>ODR</code>, <code>IDR</code>, etc.) for every register they contain.</p>
+</section>
+<section id="bit-masking" class="level2" data-number="3.12">
+<h2 data-number="3.12" class="anchored" data-anchor-id="bit-masking"><span class="header-section-number">3.12</span> Bit Masking</h2>
+<p>When manipulating individual bits in a control register, one of our biggest concerns is being able to read from and write to individual bits without disturbing the others. Since memory is divided into byte-addressable (or larger) locations, we can’t read or write a single bit in isolation; we always have to operate on the entire register. To isolate a single bit (or a handful of bits), we use a <strong>bit mask</strong>.</p>
+<section id="understanding-the-problem" class="level3" data-number="3.12.1">
+<h3 data-number="3.12.1" class="anchored" data-anchor-id="understanding-the-problem"><span class="header-section-number">3.12.1</span> Understanding the Problem</h3>
+<p>Consider our earlier example, where we checked the entire input register to see if the button was pressed:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span><span class="op">(</span>GPIOC<span class="op">-&gt;</span>IDR <span class="op">==</span> <span class="bn">0x00000000</span><span class="op">){</span> <span class="co">/* ... */</span> <span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This only works because PC13 is the only pin we care about on GPIOC. If another input, say a second button on PC2, were also being read, and it happened to be high, <code>GPIOC-&gt;IDR</code> would no longer equal <code>0x00000000</code> even when our button of interest was pressed. We need a way to check the state of bit 13 alone, ignoring every other bit in the register.</p>
+</section>
+<section id="creating-a-bit-mask" class="level3" data-number="3.12.2">
+<h3 data-number="3.12.2" class="anchored" data-anchor-id="creating-a-bit-mask"><span class="header-section-number">3.12.2</span> Creating a Bit Mask</h3>
+<p>A bit mask is a binary value constructed so that, when combined with another value using a bitwise operator, it isolates, sets, or clears specific bits while leaving the rest untouched. <a href="#fig-ch03-bitmask-and" class="quarto-xref">Figure&nbsp;<span>3.23</span></a> illustrates how a bitwise AND operation with a mask isolates a single bit, zeroing out every other bit in the result.</p>
+<div id="fig-ch03-bitmask-and" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-bitmask-and-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-bitwise-and-mask.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-bitmask-and-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.23: A bitwise AND with a mask isolates the bits of interest, zeroing out every other bit
+</figcaption>
+</figure>
+</div>
+<p>To check only bit 13 of <code>GPIOC-&gt;IDR</code>, we construct a mask with a single 1 in the bit 13 position (<code>0x00002000</code>) and apply it with a bitwise AND:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span><span class="op">((</span>GPIOC<span class="op">-&gt;</span>IDR <span class="op">&amp;</span> <span class="bn">0x00002000</span><span class="op">)</span> <span class="op">==</span> <span class="bn">0x00000000</span><span class="op">){</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// button is pressed</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="bit-masking-for-setting-and-clearing-bits" class="level3" data-number="3.12.3">
+<h3 data-number="3.12.3" class="anchored" data-anchor-id="bit-masking-for-setting-and-clearing-bits"><span class="header-section-number">3.12.3</span> Bit Masking for Setting and Clearing Bits</h3>
+<p>We can use a similar approach to set or clear individual bits without disturbing the rest of a register. To <em>set</em> a bit, we use the bitwise OR operator (<code>|</code>) with a mask containing a 1 in the position we want to set:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>GPIOA<span class="op">-&gt;</span>ODR <span class="op">=</span> GPIOA<span class="op">-&gt;</span>ODR <span class="op">|</span> <span class="bn">0x00000020</span><span class="op">;</span> <span class="co">// set PA5, leave other bits alone</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>To <em>clear</em> a bit, we use the bitwise AND operator with the <em>inverse</em> of our mask, which places a 0 in the position we want to clear and 1’s everywhere else:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>GPIOA<span class="op">-&gt;</span>ODR <span class="op">=</span> GPIOA<span class="op">-&gt;</span>ODR <span class="op">&amp;</span> <span class="op">~(</span><span class="bn">0x00000020</span><span class="op">);</span> <span class="co">// clear PA5, leave other bits alone</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>C provides shorthand assignment operators for both of these operations:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>GPIOA<span class="op">-&gt;</span>ODR <span class="op">|=</span> <span class="bn">0x00000020</span><span class="op">;</span>    <span class="co">// equivalent to: GPIOA-&gt;ODR = GPIOA-&gt;ODR | 0x00000020;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>GPIOA<span class="op">-&gt;</span>ODR <span class="op">&amp;=</span> <span class="op">~(</span><span class="bn">0x00000020</span><span class="op">);</span> <span class="co">// equivalent to: GPIOA-&gt;ODR = GPIOA-&gt;ODR &amp; ~(0x00000020);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="creating-readable-masks-with-the-shift-operator" class="level3" data-number="3.12.4">
+<h3 data-number="3.12.4" class="anchored" data-anchor-id="creating-readable-masks-with-the-shift-operator"><span class="header-section-number">3.12.4</span> Creating Readable Masks with the Shift Operator</h3>
+<p>Hand-writing hex masks like <code>0x00000020</code> makes it difficult to tell, at a glance, which bit is being targeted. We can improve readability by using the left-shift operator (<code>&lt;&lt;</code>) to construct the mask instead:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>GPIOA<span class="op">-&gt;</span>ODR <span class="op">|=</span> <span class="op">(</span><span class="dv">1</span><span class="bu">u</span> <span class="op">&lt;&lt;</span> <span class="dv">5</span><span class="op">);</span>     <span class="co">// set PA5</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>GPIOA<span class="op">-&gt;</span>ODR <span class="op">&amp;=</span> <span class="op">~(</span><span class="dv">1</span><span class="bu">u</span> <span class="op">&lt;&lt;</span> <span class="dv">5</span><span class="op">);</span>    <span class="co">// clear PA5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The <code>1u &lt;&lt; 5</code> expression takes the value <code>1</code> and shifts it left five times, landing a single 1 bit in position 5. This is functionally identical to writing <code>0x00000020</code>, but immediately communicates which pin we’re targeting. Most compilers will recognize this as a constant expression and generate the same code as if we had hardcoded the value; we get the readability improvement without any runtime cost.</p>
+</section>
+<section id="masking-registers-with-paired-values" class="level3" data-number="3.12.5">
+<h3 data-number="3.12.5" class="anchored" data-anchor-id="masking-registers-with-paired-values"><span class="header-section-number">3.12.5</span> Masking Registers with Paired Values</h3>
+<p>Recall that some STM32 registers, like <code>MODER</code> and <code>PUPDR</code>, use two bits per pin rather than one. This introduces a subtlety that we didn’t encounter with single-bit registers like <code>ODR</code>. Suppose we want to set PC4 as an output by writing <code>01</code> to bits 9:8 of <code>GPIOC-&gt;MODER</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>GPIOC<span class="op">-&gt;</span>MODER <span class="op">|=</span> <span class="op">(</span><span class="bn">0x1</span><span class="bu">u</span> <span class="op">&lt;&lt;</span> <span class="dv">8</span><span class="op">);</span> <span class="co">// NOT guaranteed to work correctly!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Using only an OR here is <em>not</em> safe. If bit 9 already happened to contain a 1 (perhaps left over from a different mode), the OR operation would leave it set, resulting in an unintended mode such as <code>11</code> (analog) rather than the <code>01</code> (output) we wanted. Since OR can only set bits, never clear them, we must first clear both bits in the field before setting the ones we want:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>GPIOC<span class="op">-&gt;</span>MODER <span class="op">&amp;=</span> <span class="op">~(</span><span class="bn">0x3</span><span class="bu">u</span> <span class="op">&lt;&lt;</span> <span class="op">(</span><span class="dv">4</span> <span class="op">*</span> <span class="dv">2</span><span class="op">));</span> <span class="co">// clear bits [9:8]</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>GPIOC<span class="op">-&gt;</span>MODER <span class="op">|=</span> <span class="op">(</span><span class="bn">0x1</span><span class="bu">u</span> <span class="op">&lt;&lt;</span> <span class="op">(</span><span class="dv">4</span> <span class="op">*</span> <span class="dv">2</span><span class="op">));</span>  <span class="co">// set to 01 (output)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Here, <code>0x3u</code> (<code>0b11</code>) is used as the clearing mask, since it spans both bits of the two-bit field, and <code>4 * 2</code> computes the starting bit position for pin 4’s field (each pin occupies 2 bits, so pin <em>N</em>’s field begins at bit <code>N * 2</code>). This two-step clear-then-set pattern is required any time we’re working with a multi-bit field, and you’ll use it constantly when configuring <code>MODER</code> and <code>PUPDR</code>.</p>
+</section>
+</section>
+<section id="additional-notes" class="level2" data-number="3.13">
+<h2 data-number="3.13" class="anchored" data-anchor-id="additional-notes"><span class="header-section-number">3.13</span> Additional Notes</h2>
+<p>A few practical considerations are worth keeping in mind as you begin writing your own GPIO applications.</p>
+<section id="polling-for-inputs" class="level3" data-number="3.13.1">
+<h3 data-number="3.13.1" class="anchored" data-anchor-id="polling-for-inputs"><span class="header-section-number">3.13.1</span> Polling for Inputs</h3>
+<p>In our button example, our <code>while(1)</code> loop constantly re-checks the state of the button on every iteration. This technique is called <strong>polling</strong>. Polling is simple to implement, but it should only be used for inputs that don’t need to be responded to immediately or that don’t change very frequently. If we need to respond to an input the instant it changes, or if checking that input is too costly to do constantly, we’ll need to use an <strong>interrupt</strong> instead, which we will cover in a later chapter.</p>
+</section>
+<section id="button-debouncing" class="level3" data-number="3.13.2">
+<h3 data-number="3.13.2" class="anchored" data-anchor-id="button-debouncing"><span class="header-section-number">3.13.2</span> Button Debouncing</h3>
+<p>When a mechanical button is pressed, the signal often “bounces” between high and low several times over a very short period before settling, due to the physical contacts inside the switch. If read naively, this can cause our program to register several presses instead of one. A short delay inserted after detecting the first change in the button’s state is a simple way to filter out this bouncing; the appropriate delay length varies by switch and is often determined empirically.</p>
+</section>
+</section>
+<section id="recap" class="level2" data-number="3.14">
+<h2 data-number="3.14" class="anchored" data-anchor-id="recap"><span class="header-section-number">3.14</span> Recap</h2>
+<p>In this chapter we’ve learned:</p>
+<ul>
+<li><p>How peripherals let a microcontroller interface with the outside world</p></li>
+<li><p>Where to find the documentation for a development board, a microcontroller family, and a specific microcontroller</p></li>
+<li><p>How to control peripherals by writing to memory-mapped control registers</p></li>
+<li><p>How to configure and use the STM32 GPIO peripheral’s <code>MODER</code>, <code>ODR</code>, <code>IDR</code>, <code>PUPDR</code>, and <code>BSRR</code> registers</p></li>
+<li><p>Why STM32 peripherals require their clock to be enabled through the RCC before they can be used</p></li>
+<li><p>How to use pointers, preprocessor macros, and the vendor-provided device header to access control registers</p></li>
+<li><p>How to use bit masking to isolate, set, and clear individual bits (or multi-bit fields) without disturbing the rest of a register</p></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
