@@ -902,12 +902,36 @@ Figure&nbsp;2.3: The updated stack state after the swap call returns to <code>ma
 <section id="modifiers" class="level4">
 <h4 class="anchored" data-anchor-id="modifiers">Modifiers</h4>
 <p>Some common modifiers are:</p>
-<ul>
-<li><p><code>long</code></p></li>
-<li><p><code>short</code></p></li>
-<li><p><code>unsigned</code></p></li>
-<li><p><code>signed</code></p></li>
-</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Modifier</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>long</code></td>
+<td>increases the memory allocated to a data type, allowing it to hold larger values</td>
+</tr>
+<tr class="even">
+<td><code>short</code></td>
+<td>decreases the memory allocated to a data type, allowing it to hold smaller values while using less memory</td>
+</tr>
+<tr class="odd">
+<td><code>unsigned</code></td>
+<td>treats a variable as holding only non-negative values, doubling the range of positive values it can represent</td>
+</tr>
+<tr class="even">
+<td><code>signed</code></td>
+<td>treats a variable as being able to hold both positive and negative values (the default for most data types)</td>
+</tr>
+</tbody>
+</table>
 <p>These modifiers can be used in conjunction with most basic data types. For instance, I can declare:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="dt">long</span> <span class="dt">int</span> x<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Which makes an integer that on most desktop machines holds 64 bits rather than 32 bits. I can also use the “short” modifier to make a 16-bit integer. Other modifiers can determine whether a variable is treated as having negative values or not:</p>
@@ -917,11 +941,32 @@ Figure&nbsp;2.3: The updated stack state after the swap call returns to <code>ma
 <section id="qualifiers" class="level4">
 <h4 class="anchored" data-anchor-id="qualifiers">Qualifiers</h4>
 <p>C also supports type qualifiers. Qualifiers specify how the variable can be used within a program. Some common qualifiers include:</p>
-<ul>
-<li><p>const</p></li>
-<li><p>static</p></li>
-<li><p>volatile</p></li>
-</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Qualifier</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>const</code></td>
+<td>specifies that a variable’s value is constant and cannot be changed after it is assigned</td>
+</tr>
+<tr class="even">
+<td><code>static</code></td>
+<td>allows a variable to retain its value between function calls, even after going out of scope</td>
+</tr>
+<tr class="odd">
+<td><code>volatile</code></td>
+<td>forces the compiler to build every instruction involving the variable, preventing it from being optimized out</td>
+</tr>
+</tbody>
+</table>
 <p>The const qualifier specifies the value of a variable is constant. This means after the variable has been assigned a value, it cannot be changed. This is useful for defining actual mathematical constants in our program, such as pi:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="dt">const</span> <span class="dt">float</span> PI <span class="op">=</span> <span class="fl">3.14</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>While you could hard-code 3.14 everywhere in memory where you wanted to use pi, this enhances the readability of the code. It can also be useful for values that serve as thresholds that may need to be adjusted throughout a program’s development.</p>
