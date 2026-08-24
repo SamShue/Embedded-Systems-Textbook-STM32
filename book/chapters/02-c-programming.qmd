@@ -567,6 +567,33 @@ int main(){
 
 In this example, we called swap by using “&” to get the addresses of “a” and “b” to pass to the function. The function dereferences those pointers to make changes to variables “a” and “b”, which aren’t normally accessible by “swap”. After the swap function is called, the value of “a” is 2 and the value of “b” is 1.
 
+#### Additional Example: Swapping values in memory with pointers
+
+This example highlights what is happening in memory during the function call. The pointer arguments do not pass copies of the values; instead, they pass the addresses of the original variables. The function stores one of the values in a temporary local variable, writes the new value to the first address, and then writes the saved value to the second address.
+
+```c
+void swap(int *x, int *y){
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+int main(void){
+    int a = 1;
+    int b = 2;
+    swap(&a, &b);
+    return 0;
+}
+```
+
+Before the call, the stack contains the variables `a` and `b` in `main`. During the function call, the addresses of those variables are passed to `swap`, which creates its own temporary value, `temp`, on the stack. After the assignments complete, the original memory locations for `a` and `b` have been updated, even though the variables themselves are still defined in `main`.
+
+![Stack frame layout showing how a function call stores local variables and parameters in memory](../images/ch02/stack_foo_frame.png){#fig-ch02-pointer-swap-stack-frame}
+
+![The updated stack state after the swap call returns to `main`](../images/ch02/stack_main_frame.png){#fig-ch02-pointer-swap-after-return}
+
+This is also why pointer parameters are so useful in embedded systems: they allow a function to modify data that is stored elsewhere in memory without needing to copy the whole variable. A pointer provides a direct route to the memory location that must be changed.
+
 ### Pointers and Arrays
 
 Arrays have a unique relationship with pointers as well. Earlier, we mentioned that arrays only retain the location in memory where the array begins. Because of this, we can use the name of the array as a pointer. For example:
