@@ -643,13 +643,12 @@ We also might want to be able to further control the data types and how they’r
 
 Some common modifiers are:
 
--   `long`
-
--   `short`
-
--   `unsigned`
-
--   `signed`
+| Modifier | Description |
+|----|----|
+| `long` | increases the memory allocated to a data type, allowing it to hold larger values |
+| `short` | decreases the memory allocated to a data type, allowing it to hold smaller values while using less memory |
+| `unsigned` | treats a variable as holding only non-negative values, doubling the range of positive values it can represent |
+| `signed` | treats a variable as being able to hold both positive and negative values (the default for most data types) |
 
 These modifiers can be used in conjunction with most basic data types. For instance, I can declare:
 
@@ -669,11 +668,11 @@ This prevents “x” from being treated as though it has a negative value. From
 
 C also supports type qualifiers. Qualifiers specify how the variable can be used within a program. Some common qualifiers include:
 
--   const
-
--   static
-
--   volatile
+| Qualifier | Description |
+|----|----|
+| `const` | specifies that a variable's value is constant and cannot be changed after it is assigned |
+| `static` | allows a variable to retain its value between function calls, even after going out of scope |
+| `volatile` | forces the compiler to build every instruction involving the variable, preventing it from being optimized out |
 
 The const qualifier specifies the value of a variable is constant. This means after the variable has been assigned a value, it cannot be changed. This is useful for defining actual mathematical constants in our program, such as pi:
 
