@@ -514,97 +514,6 @@ int main() {
 
 Notice that we can now declare variables of type “Point” directly, without needing to write “struct Point” each time.
 
-## Pointers
-
-Pointers are one of the most confusing and unique aspects of both C and C++ programming. A pointer is a variable that holds the memory address of another variable, thus causing them to “point” to another variable. While confusing in nature, this allows specific control and access of memory locations, which we will see is very important for microcontroller programming. Many languages try to hide this aspect of programming from the programmer, as mismanagement of pointers can lead to some very serious bugs.
-
-Let’s see an example of a pointer:
-
-```c
-int* p;
-```
-
-From this, we can see that pointers are declared like any other variable. What makes the declaration different is the addition of the asterisk following the data type. This is what defined the variable as a pointer, by indicating what type of data the pointer will hold the address. In this case, variable “p” will hold the address of another integer variable.
-
-So to actually use the pointer, we need another variable to point to.
-
-```c
-int* p;
-int x = 5;
-p = &x;
-```
-
-Now we’ve added an integer variable x, and used a new operator, “&”, which extracts the address from the variable it precedes. This takes the address of x and stores it in p. Now, I can use “p” to manipulate “x” through the memory address it holds.
-
-```c
-*p = 10;
-```
-
-This line of code assigns the value 10 to the variable “x”. This is done by use of the asterisk that precedes “p”. This is called “**dereferencing**” the pointer variable, which means that we follow the pointer back to the memory address it holds and use the variable that exists there. This allows us to both read and write that’s variables data.
-
-\<Create visual reference for what’s happening in memory here\>
-
-### Pointers and Functions
-
-So far we’ve introduced pointer syntax, but how is it useful? In C, one of the most valuable usages of a pointer is to allow other functions to utilize a variable that is out of scope. Instead of passing a variable to a function, which results in a copy being made, we can pass a pointer to variable, which allows a function to make permanent changes to a variable outside of its scope. For example, we can write:
-
-```c
-void swap(int* x, int * y){
-    int temp = *x;
-    *x = *y;
-    *y = temp;
-}
-```
-
-This function will permanently switch the values of the integers passed to this function as pointers.
-
-```c
-int main(){
-    int a = 1;
-    int b = 2;
-    swap(&a, &b);
-```
-
-In this example, we called swap by using “&” to get the addresses of “a” and “b” to pass to the function. The function dereferences those pointers to make changes to variables “a” and “b”, which aren’t normally accessible by “swap”. After the swap function is called, the value of “a” is 2 and the value of “b” is 1.
-
-#### Additional Example: Swapping values in memory with pointers
-
-This example highlights what is happening in memory during the function call. The pointer arguments do not pass copies of the values; instead, they pass the addresses of the original variables. The function stores one of the values in a temporary local variable, writes the new value to the first address, and then writes the saved value to the second address.
-
-```c
-void swap(int *x, int *y){
-    int temp = *x;
-    *x = *y;
-    *y = temp;
-}
-
-int main(void){
-    int a = 1;
-    int b = 2;
-    swap(&a, &b);
-    return 0;
-}
-```
-
-Before the call, the stack contains the variables `a` and `b` in `main`. During the function call, the addresses of those variables are passed to `swap`, which creates its own temporary value, `temp`, on the stack. After the assignments complete, the original memory locations for `a` and `b` have been updated, even though the variables themselves are still defined in `main`.
-
-![Stack frame layout showing how a function call stores local variables and parameters in memory](../images/ch02/stack_foo_frame.png){#fig-ch02-pointer-swap-stack-frame}
-
-![The updated stack state after the swap call returns to `main`](../images/ch02/stack_main_frame.png){#fig-ch02-pointer-swap-after-return}
-
-This is also why pointer parameters are so useful in embedded systems: they allow a function to modify data that is stored elsewhere in memory without needing to copy the whole variable. A pointer provides a direct route to the memory location that must be changed.
-
-### Pointers and Arrays
-
-Arrays have a unique relationship with pointers as well. Earlier, we mentioned that arrays only retain the location in memory where the array begins. Because of this, we can use the name of the array as a pointer. For example:
-
-```c
-int a[] = {1, 2, 3, 4}
-int* p = a;
-```
-
-Here, I can use “a” to assign integer pointer, “p”, as the name of the array refers to the address where the array begins. Because of this relationship, we can then pass pointers to arrays to other functions to modify the original location of an array, just as we did with other variables. The important thing to observe here is the absence of the & operator. Since the name of the array already refers to the address, we do not have to & prior to extract the address.
-
 ### Strings
 
 When writing programs, especially any that display information to a user, we are interested in storing entire words and sentences. Earlier we introduced the char data type, which was used to store individual characters.
@@ -623,7 +532,7 @@ This array is a string that holds the word “Hello”. Note that the last eleme
 
 ## Variable Sizes in Embedded Systems
 
-One question that might come to mind is why differentiate between data types? If you think about it, you should be able to do everything with a “float”. Decimal point numbers can represent integers, we could use them to hold corresponding character values as well, and even use them to represent true and false by designating a certain value to represent “true”. The answer comes down to speed and efficiency. Binary can naturally represent integer values, but it requires a special format to represent decimal numbers. Floating point numbers are also difficult to process and require special hardware. Floats also take up more memory than chars or bools, and depending on the machine, “int”s as well. Therefore, we define other data types for faster processing and better use of the limited memory available on our microprocessor.
+One question that might come to mind is why differentiate between data types? If you think about it, you should be able to do everything with a “float”. Decimal point numbers can represent integers, we could use them to hold corresponding character values as well, and even use them to represent true and false by designating a certain value to represent “true”. The answer comes down to speed and efficiency. Binary can naturally represent integer values, but it requires a special format to represent decimal numbers. Floating point numbers are also difficult to process and require special hardware to be processed efficiently. Floats also take up more memory than chars or bools, and depending on the machine, “int”s as well. Therefore, we define other data types for faster processing and better use of the limited memory available on our microprocessor.
 
 \<Add example here of two programs producing variables of different sizes\>
 
@@ -695,6 +604,27 @@ int increment(){
 In this example, the first call to the function will return 1, then the following call will return 2, as the initialization of the static variable, “x”, only occurs on the first call, and it retains its data between subsequent calls.
 
 The volatile qualifier is especially relevant for embedded systems as we will see in coming chapters. The volatile keyword forces the compiler to explicitly build all instructions that the variable is involved in. Sometimes the compiler will attempt to analyze and optimize C code as it translates it into assembly, and because of this process, it may exclude some operations that it evaluates as unnecessary. The volatile keyword prevents this from happening, and forces all of its operations to be built.
+
+### Integer Sizes Across Microcontrollers
+
+Sometimes, a project's requirements may change during development, which may demand the developers select a different microcontroller with more appropriate features. Since we're programming in C, this isn't as laborious of a process as if we were programming in assembly, in which case the program would have to entire re-written for the new microntroller! However, there are still some discrepencies that may still affect a language like C that provides us greater portability. This discrepency is the standard `int` datatype size.
+
+On most desktop computers, the C compiler defines that a standard `int` is 32 bits. Howver, for embedded C compilers, this may be inconsistent. A compiler for a 16-bit TI MSP430 might define an `int` as being 16 bits, while hte compiler for a 32-bit STM32 ARM compiler might define it as 32-bits. If the embedded programmer wants to be mindful about memory consumption and is carefully selecting the integers based on their size, this can be a problem when moving a project's C code from one microcontroller architecture to another.
+
+To resolve this issue, most embedded C compilers define a library called `stdint.h`. This library provides custom integer data type definitions that will preserve the integer size across architectures.
+
+| Integer Type Name | Description |
+|---|---|
+|`uint8_t`| 8 bit unsigned integer |
+|`uint16_t`| 16 bit unsigned integer |
+|`uint32_t` | 32 bit unsigned integer |
+|`uint64_t` | 64 bit unsigned integer |
+|`int8_t`| 8 bit signed integer |
+|`int16_t`| 16 bit signed integer |
+|`int32_t` | 32 bit signed integer |
+|`int64_t` | 64 bit signed integer |
+
+When writing C code for embedded systems, it is considered best practice to utilize the standard integer data types rather than the native `int` for consistency.
 
 ## C Programming Conventions
 
@@ -797,6 +727,95 @@ Each function in C is given its own “stack frame” when called. We can see th
 ![Example C code and the condition of the stack up to the indicated break point.](../images/ch02/stack_foo_frame.png){#fig-ch02-2-7}
 
 In this figure we can see the “foo” stack frame stacked on top of the “main” stack frame. Note that the stack frame of “foo” contains all of the local variables (including input parameters) along with a “return address”. The return address is used to indicate where in the instruction memory to return to once the “foo” function concludes. We can note between @fig-ch02-2-6 and @fig-ch02-2-7, the return address in @fig-ch02-2-7 is 4 bytes greater than the value of the Program Counter in @fig-ch02-2-6, which makes sense as the next instruction is a few bytes away from the instruction that called “foo”, and, once “foo” is complete, we should call the next instruction after “main” would have called “foo”.
+
+## Pointers
+
+Pointers are one of the most confusing and unique aspects of both C and C++ programming. A pointer is a variable that holds the memory address of another variable, thus causing them to “point” to another variable. While confusing in nature, this allows specific control and access of memory locations, which we will see is very important for microcontroller programming. Many languages try to hide this aspect of programming from the programmer, as mismanagement of pointers can lead to some very serious bugs.
+
+Let’s see an example of a pointer:
+
+```c
+int* p;
+```
+
+From this, we can see that pointers are declared like any other variable. What makes the declaration different is the addition of the asterisk following the data type. This is what defined the variable as a pointer, by indicating what type of data the pointer will hold the address. In this case, variable “p” will hold the address of another integer variable.
+
+So to actually use the pointer, we need another variable to point to.
+
+```c
+int* p;
+int x = 5;
+p = &x;
+```
+
+Now we’ve added an integer variable x, and used a new operator, “&”, which extracts the address from the variable it precedes. This takes the address of x and stores it in p. Now, I can use “p” to manipulate “x” through the memory address it holds.
+
+```c
+*p = 10;
+```
+
+This line of code assigns the value 10 to the variable “x”. This is done by use of the asterisk that precedes “p”. This is called “**dereferencing**” the pointer variable, which means that we follow the pointer back to the memory address it holds and use the variable that exists there. This allows us to both read and write that’s variables data.
+
+\<Create visual reference for what’s happening in memory here\>
+
+### Pointers and Functions
+
+So far we’ve introduced pointer syntax, but how is it useful? In C, one of the most valuable usages of a pointer is to allow other functions to utilize a variable that is out of scope. Instead of passing a variable to a function, which results in a copy being made, we can pass a pointer to variable, which allows a function to make permanent changes to a variable outside of its scope. For example, we can write:
+
+```c
+void swap(int* x, int * y){
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+```
+
+This function will permanently switch the values of the integers passed to this function as pointers.
+
+```c
+int main(){
+    int a = 1;
+    int b = 2;
+    swap(&a, &b);
+```
+
+In this example, we called swap by using “&” to get the addresses of “a” and “b” to pass to the function. The function dereferences those pointers to make changes to variables “a” and “b”, which aren’t normally accessible by “swap”. After the swap function is called, the value of “a” is 2 and the value of “b” is 1.
+
+```c
+void swap(int *x, int *y){
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+int main(void){
+    int a = 1;
+    int b = 2;
+    swap(&a, &b);
+    return 0;
+}
+```
+
+Before the call, the stack contains the variables `a` and `b` in `main`. During the function call, the addresses of those variables are passed to `swap`, which creates its own temporary value, `temp`, on the stack. 
+
+![Stack frame layout showing how a function call stores local variables and parameters in memory](../images/ch02/ch02-swap-before.png){#fig-ch02-pointer-swap-stack-frame}
+
+After the assignments complete, the original memory locations for `a` and `b` have been updated, even though the variables themselves are still defined in `main`. When the function returns and the main stack frame is restored, we can see that the variables in main have been swapped.
+
+![The updated stack state after the swap call returns to `main`](../images/ch02/ch02-swap-after.png){#fig-ch02-pointer-swap-after-return}
+
+This is also why pointer parameters are so useful in embedded systems: they allow a function to modify data that is stored elsewhere in memory without needing to copy the whole variable. A pointer provides a direct route to the memory location that must be changed.
+
+### Pointers and Arrays
+
+Arrays have a unique relationship with pointers as well. Earlier, we mentioned that arrays only retain the location in memory where the array begins. Because of this, we can use the name of the array as a pointer. For example:
+
+```c
+int a[] = {1, 2, 3, 4}
+int* p = a;
+```
+
+Here, I can use “a” to assign integer pointer, “p”, as the name of the array refers to the address where the array begins. Because of this relationship, we can then pass pointers to arrays to other functions to modify the original location of an array, just as we did with other variables. The important thing to observe here is the absence of the & operator. Since the name of the array already refers to the address, we do not have to & prior to extract the address.
 
 ### Dynamic Memory Allocation in C
 

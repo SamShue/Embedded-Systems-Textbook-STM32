@@ -76,6 +76,8 @@ Let's recall what is meant by a "digital" voltage. A digital voltage represents 
 
 The operating voltage of a microcontroller is defined in its datasheet. The STM32F091RC typically operates within a range of 2.0 V to 3.6 V. The NUCLEO-F091RC development board is powered over USB, which supplies 5 V. This 5 V is regulated down to 3.3 V before being supplied to the microcontroller, so 3.3 V is the voltage we should expect to see representing a digital high on this board.
 
+![Power Regulation for the NUCLEO-F091RC](../images/ch03/ch03-nucleo-power-regulation.png){#fig-ch03-nucleo-power}
+
 ### Controlling an LED
 
 Let's consider an example of illuminating an LED using a GPIO pin. Say we have a GPIO peripheral controlling a pin labeled "P1," which is connected to a small current-limiting resistor in series with an LED, which is then connected to ground, as shown in @fig-ch03-generic-led.
@@ -96,7 +98,11 @@ We've now covered the two most fundamental input/output scenarios for an embedde
 
 ## Peripherals and the Memory Map
 
-From the perspective of a single instruction, there are only two things a line of code can control: the operation performed (add, subtract, etc.) and the memory location where the result is written. In order for our program instructions to control a peripheral, that peripheral must therefore appear as a memory location so our instructions can write to it. Each peripheral contains many **control registers**, which behave like any other memory location, except that the values written to them dictate how the peripheral's hardware behaves. For GPIO, this might mean configuring whether a pin is an input or an output, writing a high or low voltage to a pin, or reading whether a pin currently holds a high or low voltage.
+A processor is really only capable of reading and writing data to its memory. Generally speaking, programs are sequences of instructions that moves data out, performs operations on that data, then writes it back.
+
+![The processory reads instructions from memory, which then read and write to the data in RAM.](../images/ch03/ch03-processor-and-memory.png){#fig-ch03-proc-mem}
+
+In order for our program instructions to control a peripheral, that peripheral must therefore appear as a memory location so our instructions can write to it. Each peripheral contains many **control registers**, which behave like any other memory location, except that the values written to them dictate how the peripheral's hardware behaves. For GPIO, this might mean configuring whether a pin is an input or an output, writing a high or low voltage to a pin, or reading whether a pin currently holds a high or low voltage.
 
 ![Peripherals are wired into the same address space that instructions use to access memory, allowing a single memory bus to reach both RAM and hardware peripherals](../images/ch03/ch03-memory-mapped-peripherals.png){#fig-ch03-mem-mapped}
 
@@ -216,6 +222,9 @@ volatile unsigned int* gpioa_odr = (unsigned int*) 0x48000014;
 ### The Bit Set/Reset Register
 
 The STM32 also provides a second way to write to the output register: the bit set/reset register, `GPIOx_BSRR`. This register is split into two halves. Bits 15:0 (`BS`) set the corresponding output bit to 1, and bits 31:16 (`BR`) reset the corresponding output bit to 0. Writes to this register are atomic, meaning individual bits can be safely set or cleared without disturbing an interrupt that might be modifying other bits in `ODR` at the same time, something that isn't guaranteed when reading, modifying, and writing back the entire `ODR` register directly. We'll make use of `BSRR` again once we introduce interrupts later in this book.
+
+![The GPIO bit set/reset register (GPIOx_ODR) provides atomic writes to set or reset a GPIO output pin.](../images/ch03/ch03-bsrr-register.png){#fig-ch03-bsrr}
+
 
 ### Accessing Registers
 
