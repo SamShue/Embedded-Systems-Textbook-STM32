@@ -268,25 +268,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#arrays" id="toc-arrays" class="nav-link" data-scroll-target="#arrays"><span class="header-section-number">2.8.1</span> Arrays</a></li>
   <li><a href="#structs" id="toc-structs" class="nav-link" data-scroll-target="#structs"><span class="header-section-number">2.8.2</span> Structs</a></li>
   <li><a href="#the-typedef-keyword" id="toc-the-typedef-keyword" class="nav-link" data-scroll-target="#the-typedef-keyword"><span class="header-section-number">2.8.3</span> The Typedef Keyword</a></li>
+  <li><a href="#strings" id="toc-strings" class="nav-link" data-scroll-target="#strings"><span class="header-section-number">2.8.4</span> Strings</a></li>
   </ul></li>
-  <li><a href="#pointers" id="toc-pointers" class="nav-link" data-scroll-target="#pointers"><span class="header-section-number">2.9</span> Pointers</a>
+  <li><a href="#variable-sizes-in-embedded-systems" id="toc-variable-sizes-in-embedded-systems" class="nav-link" data-scroll-target="#variable-sizes-in-embedded-systems"><span class="header-section-number">2.9</span> Variable Sizes in Embedded Systems</a>
   <ul class="collapse">
-  <li><a href="#pointers-and-functions" id="toc-pointers-and-functions" class="nav-link" data-scroll-target="#pointers-and-functions"><span class="header-section-number">2.9.1</span> Pointers and Functions</a></li>
-  <li><a href="#pointers-and-arrays" id="toc-pointers-and-arrays" class="nav-link" data-scroll-target="#pointers-and-arrays"><span class="header-section-number">2.9.2</span> Pointers and Arrays</a></li>
-  <li><a href="#strings" id="toc-strings" class="nav-link" data-scroll-target="#strings"><span class="header-section-number">2.9.3</span> Strings</a></li>
+  <li><a href="#modifiers-and-qualifiers" id="toc-modifiers-and-qualifiers" class="nav-link" data-scroll-target="#modifiers-and-qualifiers"><span class="header-section-number">2.9.1</span> Modifiers and Qualifiers</a></li>
+  <li><a href="#integer-sizes-across-microcontrollers" id="toc-integer-sizes-across-microcontrollers" class="nav-link" data-scroll-target="#integer-sizes-across-microcontrollers"><span class="header-section-number">2.9.2</span> Integer Sizes Across Microcontrollers</a></li>
   </ul></li>
-  <li><a href="#variable-sizes-in-embedded-systems" id="toc-variable-sizes-in-embedded-systems" class="nav-link" data-scroll-target="#variable-sizes-in-embedded-systems"><span class="header-section-number">2.10</span> Variable Sizes in Embedded Systems</a>
+  <li><a href="#c-programming-conventions" id="toc-c-programming-conventions" class="nav-link" data-scroll-target="#c-programming-conventions"><span class="header-section-number">2.10</span> C Programming Conventions</a>
   <ul class="collapse">
-  <li><a href="#modifiers-and-qualifiers" id="toc-modifiers-and-qualifiers" class="nav-link" data-scroll-target="#modifiers-and-qualifiers"><span class="header-section-number">2.10.1</span> Modifiers and Qualifiers</a></li>
+  <li><a href="#avoiding-magic-numbers" id="toc-avoiding-magic-numbers" class="nav-link" data-scroll-target="#avoiding-magic-numbers"><span class="header-section-number">2.10.1</span> Avoiding “Magic” Numbers</a></li>
   </ul></li>
-  <li><a href="#c-programming-conventions" id="toc-c-programming-conventions" class="nav-link" data-scroll-target="#c-programming-conventions"><span class="header-section-number">2.11</span> C Programming Conventions</a>
+  <li><a href="#variables-and-memory" id="toc-variables-and-memory" class="nav-link" data-scroll-target="#variables-and-memory"><span class="header-section-number">2.11</span> Variables and Memory</a>
   <ul class="collapse">
-  <li><a href="#avoiding-magic-numbers" id="toc-avoiding-magic-numbers" class="nav-link" data-scroll-target="#avoiding-magic-numbers"><span class="header-section-number">2.11.1</span> Avoiding “Magic” Numbers</a></li>
+  <li><a href="#memory-map" id="toc-memory-map" class="nav-link" data-scroll-target="#memory-map"><span class="header-section-number">2.11.1</span> Memory Map</a></li>
+  <li><a href="#advanced-considerations-memory-behavior" id="toc-advanced-considerations-memory-behavior" class="nav-link" data-scroll-target="#advanced-considerations-memory-behavior"><span class="header-section-number">2.11.2</span> Advanced Considerations: Memory Behavior</a></li>
   </ul></li>
-  <li><a href="#variables-and-memory" id="toc-variables-and-memory" class="nav-link" data-scroll-target="#variables-and-memory"><span class="header-section-number">2.12</span> Variables and Memory</a>
+  <li><a href="#pointers" id="toc-pointers" class="nav-link" data-scroll-target="#pointers"><span class="header-section-number">2.12</span> Pointers</a>
   <ul class="collapse">
-  <li><a href="#memory-map" id="toc-memory-map" class="nav-link" data-scroll-target="#memory-map"><span class="header-section-number">2.12.1</span> Memory Map</a></li>
-  <li><a href="#advanced-considerations-memory-behavior" id="toc-advanced-considerations-memory-behavior" class="nav-link" data-scroll-target="#advanced-considerations-memory-behavior"><span class="header-section-number">2.12.2</span> Advanced Considerations: Memory Behavior</a></li>
+  <li><a href="#pointers-and-functions" id="toc-pointers-and-functions" class="nav-link" data-scroll-target="#pointers-and-functions"><span class="header-section-number">2.12.1</span> Pointers and Functions</a></li>
+  <li><a href="#pointers-and-arrays" id="toc-pointers-and-arrays" class="nav-link" data-scroll-target="#pointers-and-arrays"><span class="header-section-number">2.12.2</span> Pointers and Arrays</a></li>
   <li><a href="#dynamic-memory-allocation-in-c" id="toc-dynamic-memory-allocation-in-c" class="nav-link" data-scroll-target="#dynamic-memory-allocation-in-c"><span class="header-section-number">2.12.3</span> Dynamic Memory Allocation in C</a></li>
   </ul></li>
   <li><a href="#c-build-process" id="toc-c-build-process" class="nav-link" data-scroll-target="#c-build-process"><span class="header-section-number">2.13</span> C Build Process</a>
@@ -781,93 +782,18 @@ Note
 <span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Notice that we can now declare variables of type “Point” directly, without needing to write “struct Point” each time.</p>
 </section>
-</section>
-<section id="pointers" class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="pointers"><span class="header-section-number">2.9</span> Pointers</h2>
-<p>Pointers are one of the most confusing and unique aspects of both C and C++ programming. A pointer is a variable that holds the memory address of another variable, thus causing them to “point” to another variable. While confusing in nature, this allows specific control and access of memory locations, which we will see is very important for microcontroller programming. Many languages try to hide this aspect of programming from the programmer, as mismanagement of pointers can lead to some very serious bugs.</p>
-<p>Let’s see an example of a pointer:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">*</span> p<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>From this, we can see that pointers are declared like any other variable. What makes the declaration different is the addition of the asterisk following the data type. This is what defined the variable as a pointer, by indicating what type of data the pointer will hold the address. In this case, variable “p” will hold the address of another integer variable.</p>
-<p>So to actually use the pointer, we need another variable to point to.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">*</span> p<span class="op">;</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="op">&amp;</span>x<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Now we’ve added an integer variable x, and used a new operator, “&amp;”, which extracts the address from the variable it precedes. This takes the address of x and stores it in p.&nbsp;Now, I can use “p” to manipulate “x” through the memory address it holds.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="op">*</span>p <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This line of code assigns the value 10 to the variable “x”. This is done by use of the asterisk that precedes “p”. This is called “<strong>dereferencing</strong>” the pointer variable, which means that we follow the pointer back to the memory address it holds and use the variable that exists there. This allows us to both read and write that’s variables data.</p>
-<p>&lt;Create visual reference for what’s happening in memory here&gt;</p>
-<section id="pointers-and-functions" class="level3" data-number="2.9.1">
-<h3 data-number="2.9.1" class="anchored" data-anchor-id="pointers-and-functions"><span class="header-section-number">2.9.1</span> Pointers and Functions</h3>
-<p>So far we’ve introduced pointer syntax, but how is it useful? In C, one of the most valuable usages of a pointer is to allow other functions to utilize a variable that is out of scope. Instead of passing a variable to a function, which results in a copy being made, we can pass a pointer to variable, which allows a function to make permanent changes to a variable outside of its scope. For example, we can write:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> swap<span class="op">(</span><span class="dt">int</span><span class="op">*</span> x<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span> y<span class="op">){</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> temp <span class="op">=</span> <span class="op">*</span>x<span class="op">;</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>x <span class="op">=</span> <span class="op">*</span>y<span class="op">;</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>y <span class="op">=</span> temp<span class="op">;</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This function will permanently switch the values of the integers passed to this function as pointers.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(){</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> a <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> b <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    swap<span class="op">(&amp;</span>a<span class="op">,</span> <span class="op">&amp;</span>b<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>In this example, we called swap by using “&amp;” to get the addresses of “a” and “b” to pass to the function. The function dereferences those pointers to make changes to variables “a” and “b”, which aren’t normally accessible by “swap”. After the swap function is called, the value of “a” is 2 and the value of “b” is 1.</p>
-<section id="additional-example-swapping-values-in-memory-with-pointers" class="level4">
-<h4 class="anchored" data-anchor-id="additional-example-swapping-values-in-memory-with-pointers">Additional Example: Swapping values in memory with pointers</h4>
-<p>This example highlights what is happening in memory during the function call. The pointer arguments do not pass copies of the values; instead, they pass the addresses of the original variables. The function stores one of the values in a temporary local variable, writes the new value to the first address, and then writes the saved value to the second address.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> swap<span class="op">(</span><span class="dt">int</span> <span class="op">*</span>x<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span>y<span class="op">){</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> temp <span class="op">=</span> <span class="op">*</span>x<span class="op">;</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>x <span class="op">=</span> <span class="op">*</span>y<span class="op">;</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>y <span class="op">=</span> temp<span class="op">;</span></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">){</span></span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> a <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> b <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>    swap<span class="op">(&amp;</span>a<span class="op">,</span> <span class="op">&amp;</span>b<span class="op">);</span></span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Before the call, the stack contains the variables <code>a</code> and <code>b</code> in <code>main</code>. During the function call, the addresses of those variables are passed to <code>swap</code>, which creates its own temporary value, <code>temp</code>, on the stack. After the assignments complete, the original memory locations for <code>a</code> and <code>b</code> have been updated, even though the variables themselves are still defined in <code>main</code>.</p>
-<div id="fig-ch02-pointer-swap-stack-frame" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-ch02-pointer-swap-stack-frame-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/ch02/stack_foo_frame.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch02-pointer-swap-stack-frame-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.2: Stack frame layout showing how a function call stores local variables and parameters in memory
-</figcaption>
-</figure>
-</div>
-<div id="fig-ch02-pointer-swap-after-return" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-ch02-pointer-swap-after-return-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/ch02/stack_main_frame.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch02-pointer-swap-after-return-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.3: The updated stack state after the swap call returns to <code>main</code>
-</figcaption>
-</figure>
-</div>
-<p>This is also why pointer parameters are so useful in embedded systems: they allow a function to modify data that is stored elsewhere in memory without needing to copy the whole variable. A pointer provides a direct route to the memory location that must be changed.</p>
-</section>
-</section>
-<section id="pointers-and-arrays" class="level3" data-number="2.9.2">
-<h3 data-number="2.9.2" class="anchored" data-anchor-id="pointers-and-arrays"><span class="header-section-number">2.9.2</span> Pointers and Arrays</h3>
-<p>Arrays have a unique relationship with pointers as well. Earlier, we mentioned that arrays only retain the location in memory where the array begins. Because of this, we can use the name of the array as a pointer. For example:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> a<span class="op">[]</span> <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">}</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">*</span> p <span class="op">=</span> a<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Here, I can use “a” to assign integer pointer, “p”, as the name of the array refers to the address where the array begins. Because of this relationship, we can then pass pointers to arrays to other functions to modify the original location of an array, just as we did with other variables. The important thing to observe here is the absence of the &amp; operator. Since the name of the array already refers to the address, we do not have to &amp; prior to extract the address.</p>
-</section>
-<section id="strings" class="level3" data-number="2.9.3">
-<h3 data-number="2.9.3" class="anchored" data-anchor-id="strings"><span class="header-section-number">2.9.3</span> Strings</h3>
+<section id="strings" class="level3" data-number="2.8.4">
+<h3 data-number="2.8.4" class="anchored" data-anchor-id="strings"><span class="header-section-number">2.8.4</span> Strings</h3>
 <p>When writing programs, especially any that display information to a user, we are interested in storing entire words and sentences. Earlier we introduced the char data type, which was used to store individual characters.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> c <span class="op">=</span> <span class="ch">'A'</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> c <span class="op">=</span> <span class="ch">'A'</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>However, we need to be able to store a group of characters to form words or sentences. This is where the concept of a string comes in. A <strong>string</strong> refers to an array of characters ending with a null character.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> s<span class="op">[]</span> <span class="op">=</span> <span class="op">{</span><span class="ch">'H'</span><span class="op">,</span> <span class="ch">'e'</span><span class="op">,</span> <span class="ch">'l'</span><span class="op">,</span> <span class="ch">'l'</span><span class="op">,</span> <span class="ch">'o'</span><span class="op">,</span> <span class="ch">'</span><span class="sc">\0</span><span class="ch">'</span><span class="op">};</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> s<span class="op">[]</span> <span class="op">=</span> <span class="op">{</span><span class="ch">'H'</span><span class="op">,</span> <span class="ch">'e'</span><span class="op">,</span> <span class="ch">'l'</span><span class="op">,</span> <span class="ch">'l'</span><span class="op">,</span> <span class="ch">'o'</span><span class="op">,</span> <span class="ch">'</span><span class="sc">\0</span><span class="ch">'</span><span class="op">};</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This array is a string that holds the word “Hello”. Note that the last element contains ‘\0’, which represents the null character. A null character is used to indicate the end of a string, and is essential when attempting to determine where a string ends, as arrays do not know how long they are. By including a null character at the end, we can create loops that iterate through a string and stop when they encounter ‘\0’ as that indicates the end of the string has been reached.</p>
 </section>
 </section>
-<section id="variable-sizes-in-embedded-systems" class="level2" data-number="2.10">
-<h2 data-number="2.10" class="anchored" data-anchor-id="variable-sizes-in-embedded-systems"><span class="header-section-number">2.10</span> Variable Sizes in Embedded Systems</h2>
-<p>One question that might come to mind is why differentiate between data types? If you think about it, you should be able to do everything with a “float”. Decimal point numbers can represent integers, we could use them to hold corresponding character values as well, and even use them to represent true and false by designating a certain value to represent “true”. The answer comes down to speed and efficiency. Binary can naturally represent integer values, but it requires a special format to represent decimal numbers. Floating point numbers are also difficult to process and require special hardware. Floats also take up more memory than chars or bools, and depending on the machine, “int”s as well. Therefore, we define other data types for faster processing and better use of the limited memory available on our microprocessor.</p>
+<section id="variable-sizes-in-embedded-systems" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="variable-sizes-in-embedded-systems"><span class="header-section-number">2.9</span> Variable Sizes in Embedded Systems</h2>
+<p>One question that might come to mind is why differentiate between data types? If you think about it, you should be able to do everything with a “float”. Decimal point numbers can represent integers, we could use them to hold corresponding character values as well, and even use them to represent true and false by designating a certain value to represent “true”. The answer comes down to speed and efficiency. Binary can naturally represent integer values, but it requires a special format to represent decimal numbers. Floating point numbers are also difficult to process and require special hardware to be processed efficiently. Floats also take up more memory than chars or bools, and depending on the machine, “int”s as well. Therefore, we define other data types for faster processing and better use of the limited memory available on our microprocessor.</p>
 <p>&lt;Add example here of two programs producing variables of different sizes&gt;</p>
 <p>To this end, C defines even more varieties of data types that give use even more control over the amount of memory reserved for each data type.</p>
 <table class="caption-top table">
@@ -896,8 +822,8 @@ Figure&nbsp;2.3: The updated stack state after the swap call returns to <code>ma
 </tr>
 </tbody>
 </table>
-<section id="modifiers-and-qualifiers" class="level3" data-number="2.10.1">
-<h3 data-number="2.10.1" class="anchored" data-anchor-id="modifiers-and-qualifiers"><span class="header-section-number">2.10.1</span> Modifiers and Qualifiers</h3>
+<section id="modifiers-and-qualifiers" class="level3" data-number="2.9.1">
+<h3 data-number="2.9.1" class="anchored" data-anchor-id="modifiers-and-qualifiers"><span class="header-section-number">2.9.1</span> Modifiers and Qualifiers</h3>
 <p>We also might want to be able to further control the data types and how they’re used, and to aid with this, C allows us to specify modifiers and qualifiers for our data types.</p>
 <section id="modifiers" class="level4">
 <h4 class="anchored" data-anchor-id="modifiers">Modifiers</h4>
@@ -933,9 +859,9 @@ Figure&nbsp;2.3: The updated stack state after the swap call returns to <code>ma
 </tbody>
 </table>
 <p>These modifiers can be used in conjunction with most basic data types. For instance, I can declare:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="dt">long</span> <span class="dt">int</span> x<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="dt">long</span> <span class="dt">int</span> x<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Which makes an integer that on most desktop machines holds 64 bits rather than 32 bits. I can also use the “short” modifier to make a 16-bit integer. Other modifiers can determine whether a variable is treated as having negative values or not:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">int</span> x<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">int</span> x<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This prevents “x” from being treated as though it has a negative value. From a numerical perspective, this allows a greater range of positive values, as we no longer have to dedicate the sign bit to representing negatives. This modifier is used a lot in microcontroller programming, as we are often modifying data that exists in memory locations where each bit’s value is important, and the numerical value of the data isn’t of interest. This will be contextualized in the following chapter.</p>
 </section>
 <section id="qualifiers" class="level4">
@@ -968,24 +894,73 @@ Figure&nbsp;2.3: The updated stack state after the swap call returns to <code>ma
 </tbody>
 </table>
 <p>The const qualifier specifies the value of a variable is constant. This means after the variable has been assigned a value, it cannot be changed. This is useful for defining actual mathematical constants in our program, such as pi:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="dt">const</span> <span class="dt">float</span> PI <span class="op">=</span> <span class="fl">3.14</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="dt">const</span> <span class="dt">float</span> PI <span class="op">=</span> <span class="fl">3.14</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>While you could hard-code 3.14 everywhere in memory where you wanted to use pi, this enhances the readability of the code. It can also be useful for values that serve as thresholds that may need to be adjusted throughout a program’s development.</p>
 <p>The static keyword allows a variable to hold its value even after going out of scope. This allows functions to essentially have their own variable that retains its memory between function calls.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> increment<span class="op">(){</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">static</span> <span class="dt">int</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> x <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">;</span></span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> increment<span class="op">(){</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">static</span> <span class="dt">int</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> x <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">;</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>In this example, the first call to the function will return 1, then the following call will return 2, as the initialization of the static variable, “x”, only occurs on the first call, and it retains its data between subsequent calls.</p>
 <p>The volatile qualifier is especially relevant for embedded systems as we will see in coming chapters. The volatile keyword forces the compiler to explicitly build all instructions that the variable is involved in. Sometimes the compiler will attempt to analyze and optimize C code as it translates it into assembly, and because of this process, it may exclude some operations that it evaluates as unnecessary. The volatile keyword prevents this from happening, and forces all of its operations to be built.</p>
 </section>
 </section>
+<section id="integer-sizes-across-microcontrollers" class="level3" data-number="2.9.2">
+<h3 data-number="2.9.2" class="anchored" data-anchor-id="integer-sizes-across-microcontrollers"><span class="header-section-number">2.9.2</span> Integer Sizes Across Microcontrollers</h3>
+<p>Sometimes, a project’s requirements may change during development, which may demand the developers select a different microcontroller with more appropriate features. Since we’re programming in C, this isn’t as laborious of a process as if we were programming in assembly, in which case the program would have to entire re-written for the new microntroller! However, there are still some discrepencies that may still affect a language like C that provides us greater portability. This discrepency is the standard <code>int</code> datatype size.</p>
+<p>On most desktop computers, the C compiler defines that a standard <code>int</code> is 32 bits. Howver, for embedded C compilers, this may be inconsistent. A compiler for a 16-bit TI MSP430 might define an <code>int</code> as being 16 bits, while hte compiler for a 32-bit STM32 ARM compiler might define it as 32-bits. If the embedded programmer wants to be mindful about memory consumption and is carefully selecting the integers based on their size, this can be a problem when moving a project’s C code from one microcontroller architecture to another.</p>
+<p>To resolve this issue, most embedded C compilers define a library called <code>stdint.h</code>. This library provides custom integer data type definitions that will preserve the integer size across architectures.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Integer Type Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>uint8_t</code></td>
+<td>8 bit unsigned integer</td>
+</tr>
+<tr class="even">
+<td><code>uint16_t</code></td>
+<td>16 bit unsigned integer</td>
+</tr>
+<tr class="odd">
+<td><code>uint32_t</code></td>
+<td>32 bit unsigned integer</td>
+</tr>
+<tr class="even">
+<td><code>uint64_t</code></td>
+<td>64 bit unsigned integer</td>
+</tr>
+<tr class="odd">
+<td><code>int8_t</code></td>
+<td>8 bit signed integer</td>
+</tr>
+<tr class="even">
+<td><code>int16_t</code></td>
+<td>16 bit signed integer</td>
+</tr>
+<tr class="odd">
+<td><code>int32_t</code></td>
+<td>32 bit signed integer</td>
+</tr>
+<tr class="even">
+<td><code>int64_t</code></td>
+<td>64 bit signed integer</td>
+</tr>
+</tbody>
+</table>
+<p>When writing C code for embedded systems, it is considered best practice to utilize the standard integer data types rather than the native <code>int</code> for consistency.</p>
 </section>
-<section id="c-programming-conventions" class="level2" data-number="2.11">
-<h2 data-number="2.11" class="anchored" data-anchor-id="c-programming-conventions"><span class="header-section-number">2.11</span> C Programming Conventions</h2>
+</section>
+<section id="c-programming-conventions" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="c-programming-conventions"><span class="header-section-number">2.10</span> C Programming Conventions</h2>
 <p>As programs grow larger and are worked on by more than one person, following good conventions becomes just as important as understanding the syntax itself. One common convention worth adopting early is avoiding “magic” numbers.</p>
-<section id="avoiding-magic-numbers" class="level3" data-number="2.11.1">
-<h3 data-number="2.11.1" class="anchored" data-anchor-id="avoiding-magic-numbers"><span class="header-section-number">2.11.1</span> Avoiding “Magic” Numbers</h3>
+<section id="avoiding-magic-numbers" class="level3" data-number="2.10.1">
+<h3 data-number="2.10.1" class="anchored" data-anchor-id="avoiding-magic-numbers"><span class="header-section-number">2.10.1</span> Avoiding “Magic” Numbers</h3>
 <p>A “magic” number is any number that is hard coded into a line of code with no context and is specific to that application. This could be something like a threshold value or a count value.</p>
 <p>While these numbers are necessary, you can avoid making them “magic” numbers by either using a <code>#define</code> macro or a <code>const</code> variable:</p>
 <ul>
@@ -994,29 +969,29 @@ Figure&nbsp;2.3: The updated stack state after the swap call returns to <code>ma
 <li><p>These numbers should be formatted in <code>ALL_CAPS_SNAKE_CASE</code>.</p></li>
 </ul>
 <p>Consider this C program that prints the area of a circle to the terminal:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">){</span></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Compute area of circle and print to terminal</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"area: </span><span class="sc">%f</span><span class="st">"</span><span class="op">,</span> <span class="fl">3.14</span> <span class="op">*</span> <span class="fl">2.0</span> <span class="op">*</span> <span class="fl">2.0</span><span class="op">);</span></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">){</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Compute area of circle and print to terminal</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"area: </span><span class="sc">%f</span><span class="st">"</span><span class="op">,</span> <span class="fl">3.14</span> <span class="op">*</span> <span class="fl">2.0</span> <span class="op">*</span> <span class="fl">2.0</span><span class="op">);</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The values <code>3.14</code> and <code>2.0</code> are magic numbers – a reader has no way of knowing at a glance that <code>3.14</code> represents pi or that <code>2.0</code> represents a radius. Removing the magic numbers gives us:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#define RADIUS </span><span class="fl">2.0</span></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#define PI     </span><span class="fl">3.14</span></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">){</span></span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Compute area of circle and print to terminal</span></span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"area: </span><span class="sc">%f</span><span class="st">"</span><span class="op">,</span> PI<span class="op">*</span>RADIUS<span class="op">*</span>RADIUS<span class="op">);</span></span>
-<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#define RADIUS </span><span class="fl">2.0</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#define PI     </span><span class="fl">3.14</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">){</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Compute area of circle and print to terminal</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"area: </span><span class="sc">%f</span><span class="st">"</span><span class="op">,</span> PI<span class="op">*</span>RADIUS<span class="op">*</span>RADIUS<span class="op">);</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This version is both easier to read and easier to maintain, since the radius or the precision of pi used only need to be changed in one place.</p>
 </section>
 </section>
-<section id="variables-and-memory" class="level2" data-number="2.12">
-<h2 data-number="2.12" class="anchored" data-anchor-id="variables-and-memory"><span class="header-section-number">2.12</span> Variables and Memory</h2>
+<section id="variables-and-memory" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="variables-and-memory"><span class="header-section-number">2.11</span> Variables and Memory</h2>
 <p>When programming microcontrollers in C, it is especially important for the programmer to be aware of how their code is affecting the use of memory, especially since this tends to be a limited resource. Depending on where a variable is declared within the lifetime of a program, it may be stored in a different location and exist for either a limited amount of time or for the duration of the program.</p>
-<section id="memory-map" class="level3" data-number="2.12.1">
-<h3 data-number="2.12.1" class="anchored" data-anchor-id="memory-map"><span class="header-section-number">2.12.1</span> Memory Map</h3>
+<section id="memory-map" class="level3" data-number="2.11.1">
+<h3 data-number="2.11.1" class="anchored" data-anchor-id="memory-map"><span class="header-section-number">2.11.1</span> Memory Map</h3>
 <p>Memory in a computer is generally divided up into different regions, each with a specific purpose. diagram below shows the most common memory regions. The diagram below shows these regions. The order and address ranges of these regions may differ between microcontroller architectures, or even include additional memory regions, but across all architectures the ones presented here will be present.</p>
 <div id="fig-ch02-2-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1024,7 +999,7 @@ Figure&nbsp;2.3: The updated stack state after the swap call returns to <code>ma
 <img src="../images/ch02/image20.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch02-2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.4: Generic Microcontroller Memory Map
+Figure&nbsp;2.2: Generic Microcontroller Memory Map
 </figcaption>
 </figure>
 </div>
@@ -1050,68 +1025,140 @@ Figure&nbsp;2.4: Generic Microcontroller Memory Map
 <img src="../images/ch02/image30.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch02-2-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.5: Example C code and the associated memory location of each variable. Note that some compilers may optimize const variables during compilation and place them within the text region.
+Figure&nbsp;2.3: Example C code and the associated memory location of each variable. Note that some compilers may optimize const variables during compilation and place them within the text region.
 </figcaption>
 </figure>
 </div>
 </section>
 </section>
-<section id="advanced-considerations-memory-behavior" class="level3" data-number="2.12.2">
-<h3 data-number="2.12.2" class="anchored" data-anchor-id="advanced-considerations-memory-behavior"><span class="header-section-number">2.12.2</span> Advanced Considerations: Memory Behavior</h3>
+<section id="advanced-considerations-memory-behavior" class="level3" data-number="2.11.2">
+<h3 data-number="2.11.2" class="anchored" data-anchor-id="advanced-considerations-memory-behavior"><span class="header-section-number">2.11.2</span> Advanced Considerations: Memory Behavior</h3>
 <section id="instructions-and-the-text-region" class="level4">
 <h4 class="anchored" data-anchor-id="instructions-and-the-text-region">Instructions and the Text Region</h4>
-<p>The text region contains the individual instructions that comprise the compiled program. These instructions are the binary representation of the Arm Thumb instruction set used by the STM32F091RC (a Cortex-M0 microcontroller). <a href="#fig-ch02-2-4" class="quarto-xref">Figure&nbsp;<span>2.6</span></a> shows how a compiled C line of code could be represented by a set of assembly instructions. Here, a single line of multiple addition operations would result in multiple assembly addition instructions.</p>
+<p>The text region contains the individual instructions that comprise the compiled program. These instructions are the binary representation of the Arm Thumb instruction set used by the STM32F091RC (a Cortex-M0 microcontroller). <a href="#fig-ch02-2-4" class="quarto-xref">Figure&nbsp;<span>2.4</span></a> shows how a compiled C line of code could be represented by a set of assembly instructions. Here, a single line of multiple addition operations would result in multiple assembly addition instructions.</p>
 <div id="fig-ch02-2-4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ch02-2-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/ch02/compiler_to_asm.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch02-2-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.6: Example section of the text region containing compiled instructions.
+Figure&nbsp;2.4: Example section of the text region containing compiled instructions.
 </figcaption>
 </figure>
 </div>
 <p>These instructions are then placed in the text region and read out and executed by the processor in a linear sequence. The processor has a special register called the “Program Counter” (PC) that tracks the memory location of the current instruction being read. As the program is executed, the program counter will increment to the memory location of the next instruction.</p>
-<p>For example, to execute the example code in <a href="#fig-ch02-2-5" class="quarto-xref">Figure&nbsp;<span>2.7</span></a>, the program counter would start at address 0x08000100 to read out the instruction “ADDS R5, #10”. Since the current instruction requires 2 bytes (all Thumb instructions on the Cortex-M0 are 16 bits wide), the next instruction is 2 bytes away from the current instruction address, so 2 will be added to the program counter’s value. The program counter would then read out the instruction “ADDS R5, #15”. The process will then continue. The program counter will simply increment to the next instruction unless a branching condition, such as an if statement or a function call, would cause the program counter to jump to another location in code.</p>
+<p>For example, to execute the example code in <a href="#fig-ch02-2-5" class="quarto-xref">Figure&nbsp;<span>2.5</span></a>, the program counter would start at address 0x08000100 to read out the instruction “ADDS R5, #10”. Since the current instruction requires 2 bytes (all Thumb instructions on the Cortex-M0 are 16 bits wide), the next instruction is 2 bytes away from the current instruction address, so 2 will be added to the program counter’s value. The program counter would then read out the instruction “ADDS R5, #15”. The process will then continue. The program counter will simply increment to the next instruction unless a branching condition, such as an if statement or a function call, would cause the program counter to jump to another location in code.</p>
 <div id="fig-ch02-2-5" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ch02-2-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/ch02/instruction_memory_table.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch02-2-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.7: Example section of the text region containing compiled instructions.
+Figure&nbsp;2.5: Example section of the text region containing compiled instructions.
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="stack-behavior" class="level4">
 <h4 class="anchored" data-anchor-id="stack-behavior">Stack Behavior</h4>
-<p>All variables that are declared inside of a function (with some exceptions, such as const and static variables), are stored within the stack. The stack functions in a way that is intuitive to its naming: variables are piled up on top of each other in memory – growing from high addresses to lower addresses. For a simple C program, we might see stack contents similar to the diagram in <a href="#fig-ch02-2-6" class="quarto-xref">Figure&nbsp;<span>2.8</span></a>.</p>
+<p>All variables that are declared inside of a function (with some exceptions, such as const and static variables), are stored within the stack. The stack functions in a way that is intuitive to its naming: variables are piled up on top of each other in memory – growing from high addresses to lower addresses. For a simple C program, we might see stack contents similar to the diagram in <a href="#fig-ch02-2-6" class="quarto-xref">Figure&nbsp;<span>2.6</span></a>.</p>
 <div id="fig-ch02-2-6" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ch02-2-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/ch02/stack_main_frame.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch02-2-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.8: Example C code and the condition of the stack up to the indicated break point. “X” indicates bit values that have been uninitialized.
+Figure&nbsp;2.6: Example C code and the condition of the stack up to the indicated break point. “X” indicates bit values that have been uninitialized.
 </figcaption>
 </figure>
 </div>
-<p>Note that in <a href="#fig-ch02-2-6" class="quarto-xref">Figure&nbsp;<span>2.8</span></a> the compiler has created space on the stack to hold all of the local variables within main. Since the code is paused before the call to the “foo” function, the contents of variable “y” are still uninitialized; only space on the stack has been allocated for “y” to exist – the contents of “y” are unknown at this time, as they are whatever bit values happened to be in that memory location prior to allocation of space for “y”.</p>
+<p>Note that in <a href="#fig-ch02-2-6" class="quarto-xref">Figure&nbsp;<span>2.6</span></a> the compiler has created space on the stack to hold all of the local variables within main. Since the code is paused before the call to the “foo” function, the contents of variable “y” are still uninitialized; only space on the stack has been allocated for “y” to exist – the contents of “y” are unknown at this time, as they are whatever bit values happened to be in that memory location prior to allocation of space for “y”.</p>
 <p>We can also observe the memory contents for each variable in this figure. Note that “x” is allocated 4 memory locations, as integers require 32 bits on the STM32F091RC (an Arm Cortex-M0 processor, which is a 32-bit architecture), and memory is addressed in 8-bit segments. If we used 32 bits to represent 5 in binary, it would look like “0000 0000 0000 0000 0000 0000 0000 0101”. But if we look at the memory location used to hold “x”, we see the least significant byte, “0000 0101” comes before the rest of the zero bytes. This is because the Arm architecture (as configured on the STM32) is “little endian”, which refers to the order that data is broken up into when stored in memory. “Little endian” means the least significant byte goes in the lowest memory address. This contrasts with “big endian”, which would store the bytes in reverse. The order bytes are stored in memory is architecture-specific, but ultimately has no consequence on the device performance and is an arbitrary decision.</p>
-<p>Each function in C is given its own “stack frame” when called. We can see that in <a href="#fig-ch02-2-6" class="quarto-xref">Figure&nbsp;<span>2.8</span></a> where a contiguous section in memory is carved out for all of “main’s” variables. If we let the program break at a point in “foo”, we’ll see another stack frame created for the “foo” function, as illustrated in <a href="#fig-ch02-2-7" class="quarto-xref">Figure&nbsp;<span>2.9</span></a>.</p>
+<p>Each function in C is given its own “stack frame” when called. We can see that in <a href="#fig-ch02-2-6" class="quarto-xref">Figure&nbsp;<span>2.6</span></a> where a contiguous section in memory is carved out for all of “main’s” variables. If we let the program break at a point in “foo”, we’ll see another stack frame created for the “foo” function, as illustrated in <a href="#fig-ch02-2-7" class="quarto-xref">Figure&nbsp;<span>2.7</span></a>.</p>
 <div id="fig-ch02-2-7" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ch02-2-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/ch02/stack_foo_frame.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch02-2-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.9: Example C code and the condition of the stack up to the indicated break point.
+Figure&nbsp;2.7: Example C code and the condition of the stack up to the indicated break point.
 </figcaption>
 </figure>
 </div>
-<p>In this figure we can see the “foo” stack frame stacked on top of the “main” stack frame. Note that the stack frame of “foo” contains all of the local variables (including input parameters) along with a “return address”. The return address is used to indicate where in the instruction memory to return to once the “foo” function concludes. We can note between <a href="#fig-ch02-2-6" class="quarto-xref">Figure&nbsp;<span>2.8</span></a> and <a href="#fig-ch02-2-7" class="quarto-xref">Figure&nbsp;<span>2.9</span></a>, the return address in <a href="#fig-ch02-2-7" class="quarto-xref">Figure&nbsp;<span>2.9</span></a> is 4 bytes greater than the value of the Program Counter in <a href="#fig-ch02-2-6" class="quarto-xref">Figure&nbsp;<span>2.8</span></a>, which makes sense as the next instruction is a few bytes away from the instruction that called “foo”, and, once “foo” is complete, we should call the next instruction after “main” would have called “foo”.</p>
+<p>In this figure we can see the “foo” stack frame stacked on top of the “main” stack frame. Note that the stack frame of “foo” contains all of the local variables (including input parameters) along with a “return address”. The return address is used to indicate where in the instruction memory to return to once the “foo” function concludes. We can note between <a href="#fig-ch02-2-6" class="quarto-xref">Figure&nbsp;<span>2.6</span></a> and <a href="#fig-ch02-2-7" class="quarto-xref">Figure&nbsp;<span>2.7</span></a>, the return address in <a href="#fig-ch02-2-7" class="quarto-xref">Figure&nbsp;<span>2.7</span></a> is 4 bytes greater than the value of the Program Counter in <a href="#fig-ch02-2-6" class="quarto-xref">Figure&nbsp;<span>2.6</span></a>, which makes sense as the next instruction is a few bytes away from the instruction that called “foo”, and, once “foo” is complete, we should call the next instruction after “main” would have called “foo”.</p>
 </section>
+</section>
+</section>
+<section id="pointers" class="level2" data-number="2.12">
+<h2 data-number="2.12" class="anchored" data-anchor-id="pointers"><span class="header-section-number">2.12</span> Pointers</h2>
+<p>Pointers are one of the most confusing and unique aspects of both C and C++ programming. A pointer is a variable that holds the memory address of another variable, thus causing them to “point” to another variable. While confusing in nature, this allows specific control and access of memory locations, which we will see is very important for microcontroller programming. Many languages try to hide this aspect of programming from the programmer, as mismanagement of pointers can lead to some very serious bugs.</p>
+<p>Let’s see an example of a pointer:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">*</span> p<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>From this, we can see that pointers are declared like any other variable. What makes the declaration different is the addition of the asterisk following the data type. This is what defined the variable as a pointer, by indicating what type of data the pointer will hold the address. In this case, variable “p” will hold the address of another integer variable.</p>
+<p>So to actually use the pointer, we need another variable to point to.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">*</span> p<span class="op">;</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="op">&amp;</span>x<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Now we’ve added an integer variable x, and used a new operator, “&amp;”, which extracts the address from the variable it precedes. This takes the address of x and stores it in p.&nbsp;Now, I can use “p” to manipulate “x” through the memory address it holds.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="op">*</span>p <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This line of code assigns the value 10 to the variable “x”. This is done by use of the asterisk that precedes “p”. This is called “<strong>dereferencing</strong>” the pointer variable, which means that we follow the pointer back to the memory address it holds and use the variable that exists there. This allows us to both read and write that’s variables data.</p>
+<p>&lt;Create visual reference for what’s happening in memory here&gt;</p>
+<section id="pointers-and-functions" class="level3" data-number="2.12.1">
+<h3 data-number="2.12.1" class="anchored" data-anchor-id="pointers-and-functions"><span class="header-section-number">2.12.1</span> Pointers and Functions</h3>
+<p>So far we’ve introduced pointer syntax, but how is it useful? In C, one of the most valuable usages of a pointer is to allow other functions to utilize a variable that is out of scope. Instead of passing a variable to a function, which results in a copy being made, we can pass a pointer to variable, which allows a function to make permanent changes to a variable outside of its scope. For example, we can write:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> swap<span class="op">(</span><span class="dt">int</span><span class="op">*</span> x<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span> y<span class="op">){</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> temp <span class="op">=</span> <span class="op">*</span>x<span class="op">;</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>x <span class="op">=</span> <span class="op">*</span>y<span class="op">;</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>y <span class="op">=</span> temp<span class="op">;</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This function will permanently switch the values of the integers passed to this function as pointers.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(){</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> a <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> b <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    swap<span class="op">(&amp;</span>a<span class="op">,</span> <span class="op">&amp;</span>b<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In this example, we called swap by using “&amp;” to get the addresses of “a” and “b” to pass to the function. The function dereferences those pointers to make changes to variables “a” and “b”, which aren’t normally accessible by “swap”. After the swap function is called, the value of “a” is 2 and the value of “b” is 1.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> swap<span class="op">(</span><span class="dt">int</span> <span class="op">*</span>x<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span>y<span class="op">){</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> temp <span class="op">=</span> <span class="op">*</span>x<span class="op">;</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>x <span class="op">=</span> <span class="op">*</span>y<span class="op">;</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>y <span class="op">=</span> temp<span class="op">;</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">){</span></span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> a <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> b <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>    swap<span class="op">(&amp;</span>a<span class="op">,</span> <span class="op">&amp;</span>b<span class="op">);</span></span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Before the call, the stack contains the variables <code>a</code> and <code>b</code> in <code>main</code>. During the function call, the addresses of those variables are passed to <code>swap</code>, which creates its own temporary value, <code>temp</code>, on the stack.</p>
+<div id="fig-ch02-pointer-swap-stack-frame" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch02-pointer-swap-stack-frame-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch02/ch02-swap-before.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch02-pointer-swap-stack-frame-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.8: Stack frame layout showing how a function call stores local variables and parameters in memory
+</figcaption>
+</figure>
+</div>
+<p>After the assignments complete, the original memory locations for <code>a</code> and <code>b</code> have been updated, even though the variables themselves are still defined in <code>main</code>. When the function returns and the main stack frame is restored, we can see that the variables in main have been swapped.</p>
+<div id="fig-ch02-pointer-swap-after-return" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch02-pointer-swap-after-return-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch02/ch02-swap-after.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch02-pointer-swap-after-return-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.9: The updated stack state after the swap call returns to <code>main</code>
+</figcaption>
+</figure>
+</div>
+<p>This is also why pointer parameters are so useful in embedded systems: they allow a function to modify data that is stored elsewhere in memory without needing to copy the whole variable. A pointer provides a direct route to the memory location that must be changed.</p>
+</section>
+<section id="pointers-and-arrays" class="level3" data-number="2.12.2">
+<h3 data-number="2.12.2" class="anchored" data-anchor-id="pointers-and-arrays"><span class="header-section-number">2.12.2</span> Pointers and Arrays</h3>
+<p>Arrays have a unique relationship with pointers as well. Earlier, we mentioned that arrays only retain the location in memory where the array begins. Because of this, we can use the name of the array as a pointer. For example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> a<span class="op">[]</span> <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">}</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">*</span> p <span class="op">=</span> a<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Here, I can use “a” to assign integer pointer, “p”, as the name of the array refers to the address where the array begins. Because of this relationship, we can then pass pointers to arrays to other functions to modify the original location of an array, just as we did with other variables. The important thing to observe here is the absence of the &amp; operator. Since the name of the array already refers to the address, we do not have to &amp; prior to extract the address.</p>
 </section>
 <section id="dynamic-memory-allocation-in-c" class="level3" data-number="2.12.3">
 <h3 data-number="2.12.3" class="anchored" data-anchor-id="dynamic-memory-allocation-in-c"><span class="header-section-number">2.12.3</span> Dynamic Memory Allocation in C</h3>

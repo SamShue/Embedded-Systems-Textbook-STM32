@@ -465,17 +465,27 @@ Figure&nbsp;3.5: A digital signal alternates between a high (on) and low (off) v
 <section id="how-to-find-operating-voltage" class="level3" data-number="3.4.1">
 <h3 data-number="3.4.1" class="anchored" data-anchor-id="how-to-find-operating-voltage"><span class="header-section-number">3.4.1</span> How to Find Operating Voltage</h3>
 <p>The operating voltage of a microcontroller is defined in its datasheet. The STM32F091RC typically operates within a range of 2.0 V to 3.6 V. The NUCLEO-F091RC development board is powered over USB, which supplies 5 V. This 5 V is regulated down to 3.3 V before being supplied to the microcontroller, so 3.3 V is the voltage we should expect to see representing a digital high on this board.</p>
+<div id="fig-ch03-nucleo-power" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-nucleo-power-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-nucleo-power-regulation.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-nucleo-power-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.6: Power Regulation for the NUCLEO-F091RC
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="controlling-an-led" class="level3" data-number="3.4.2">
 <h3 data-number="3.4.2" class="anchored" data-anchor-id="controlling-an-led"><span class="header-section-number">3.4.2</span> Controlling an LED</h3>
-<p>Let’s consider an example of illuminating an LED using a GPIO pin. Say we have a GPIO peripheral controlling a pin labeled “P1,” which is connected to a small current-limiting resistor in series with an LED, which is then connected to ground, as shown in <a href="#fig-ch03-generic-led" class="quarto-xref">Figure&nbsp;<span>3.6</span></a>.</p>
+<p>Let’s consider an example of illuminating an LED using a GPIO pin. Say we have a GPIO peripheral controlling a pin labeled “P1,” which is connected to a small current-limiting resistor in series with an LED, which is then connected to ground, as shown in <a href="#fig-ch03-generic-led" class="quarto-xref">Figure&nbsp;<span>3.7</span></a>.</p>
 <div id="fig-ch03-generic-led" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ch03-generic-led-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/ch03/ch03-generic-led-circuit.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-generic-led-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.6: A GPIO pin driving an LED through a current-limiting resistor
+Figure&nbsp;3.7: A GPIO pin driving an LED through a current-limiting resistor
 </figcaption>
 </figure>
 </div>
@@ -483,14 +493,14 @@ Figure&nbsp;3.6: A GPIO pin driving an LED through a current-limiting resistor
 </section>
 <section id="reading-a-button-press" class="level3" data-number="3.4.3">
 <h3 data-number="3.4.3" class="anchored" data-anchor-id="reading-a-button-press"><span class="header-section-number">3.4.3</span> Reading a Button Press</h3>
-<p>Now let’s consider reading a button press. To do this, we need a switch that can control whether a high or low voltage is presented to a GPIO input pin. We’ll connect P1 to a resistor that is wired to a high voltage source, and also to a switch that connects the pin to ground, as shown in <a href="#fig-ch03-generic-switch" class="quarto-xref">Figure&nbsp;<span>3.7</span></a>.</p>
+<p>Now let’s consider reading a button press. To do this, we need a switch that can control whether a high or low voltage is presented to a GPIO input pin. We’ll connect P1 to a resistor that is wired to a high voltage source, and also to a switch that connects the pin to ground, as shown in <a href="#fig-ch03-generic-switch" class="quarto-xref">Figure&nbsp;<span>3.8</span></a>.</p>
 <div id="fig-ch03-generic-switch" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ch03-generic-switch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/ch03/ch03-generic-switch-circuit.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-generic-switch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.7: A GPIO pin reading the state of a switch through a pull-up resistor
+Figure&nbsp;3.8: A GPIO pin reading the state of a switch through a pull-up resistor
 </figcaption>
 </figure>
 </div>
@@ -500,14 +510,25 @@ Figure&nbsp;3.7: A GPIO pin reading the state of a switch through a pull-up resi
 </section>
 <section id="peripherals-and-the-memory-map" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="peripherals-and-the-memory-map"><span class="header-section-number">3.5</span> Peripherals and the Memory Map</h2>
-<p>From the perspective of a single instruction, there are only two things a line of code can control: the operation performed (add, subtract, etc.) and the memory location where the result is written. In order for our program instructions to control a peripheral, that peripheral must therefore appear as a memory location so our instructions can write to it. Each peripheral contains many <strong>control registers</strong>, which behave like any other memory location, except that the values written to them dictate how the peripheral’s hardware behaves. For GPIO, this might mean configuring whether a pin is an input or an output, writing a high or low voltage to a pin, or reading whether a pin currently holds a high or low voltage.</p>
+<p>A processor is really only capable of reading and writing data to its memory. Generally speaking, programs are sequences of instructions that moves data out, performs operations on that data, then writes it back.</p>
+<div id="fig-ch03-proc-mem" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-proc-mem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-processor-and-memory.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-proc-mem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.9: The processory reads instructions from memory, which then read and write to the data in RAM.
+</figcaption>
+</figure>
+</div>
+<p>In order for our program instructions to control a peripheral, that peripheral must therefore appear as a memory location so our instructions can write to it. Each peripheral contains many <strong>control registers</strong>, which behave like any other memory location, except that the values written to them dictate how the peripheral’s hardware behaves. For GPIO, this might mean configuring whether a pin is an input or an output, writing a high or low voltage to a pin, or reading whether a pin currently holds a high or low voltage.</p>
 <div id="fig-ch03-mem-mapped" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ch03-mem-mapped-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/ch03/ch03-memory-mapped-peripherals.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-mem-mapped-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.8: Peripherals are wired into the same address space that instructions use to access memory, allowing a single memory bus to reach both RAM and hardware peripherals
+Figure&nbsp;3.10: Peripherals are wired into the same address space that instructions use to access memory, allowing a single memory bus to reach both RAM and hardware peripherals
 </figcaption>
 </figure>
 </div>
@@ -518,14 +539,14 @@ Figure&nbsp;3.8: Peripherals are wired into the same address space that instruct
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">*</span>p <span class="op">=</span> value<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="the-stm32f091-memory-map" class="level3" data-number="3.5.1">
 <h3 data-number="3.5.1" class="anchored" data-anchor-id="the-stm32f091-memory-map"><span class="header-section-number">3.5.1</span> The STM32F091 Memory Map</h3>
-<p>Each microcontroller has its own memory map, so to know where a peripheral’s control registers reside, we consult the reference manual. <a href="#fig-ch03-memory-map" class="quarto-xref">Figure&nbsp;<span>3.9</span></a> shows the memory map for the STM32F091RC. The regions we’re already familiar with, such as the stack, heap, and program instructions, are all found within the “CODE” and “SRAM” regions here. New regions, labeled APB, AHB1, and AHB2, are associated with the various peripherals, including GPIO.</p>
+<p>Each microcontroller has its own memory map, so to know where a peripheral’s control registers reside, we consult the reference manual. <a href="#fig-ch03-memory-map" class="quarto-xref">Figure&nbsp;<span>3.11</span></a> shows the memory map for the STM32F091RC. The regions we’re already familiar with, such as the stack, heap, and program instructions, are all found within the “CODE” and “SRAM” regions here. New regions, labeled APB, AHB1, and AHB2, are associated with the various peripherals, including GPIO.</p>
 <div id="fig-ch03-memory-map" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ch03-memory-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/ch03/ch03-stm32f091-memory-map.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-memory-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.9: The STM32F091RC memory map, showing the regions dedicated to CODE, SRAM, and the memory-mapped peripheral buses
+Figure&nbsp;3.11: The STM32F091RC memory map, showing the regions dedicated to CODE, SRAM, and the memory-mapped peripheral buses
 </figcaption>
 </figure>
 </div>
@@ -540,35 +561,35 @@ Figure&nbsp;3.9: The STM32F091RC memory map, showing the regions dedicated to CO
 <img src="../images/ch03/ch03-gpio-organization-ports.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-gpio-ports-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.10: Each GPIO port is a separate copy of the GPIO peripheral hardware, controlling up to 16 pins of the chip, and each is connected to the CPU through the same memory bus
+Figure&nbsp;3.12: Each GPIO port is a separate copy of the GPIO peripheral hardware, controlling up to 16 pins of the chip, and each is connected to the CPU through the same memory bus
 </figcaption>
 </figure>
 </div>
 <p>Individual pins on a port are identified by number, from 0 to 15. To refer to a specific pin, we use the notation <strong>PXN</strong>, where X is the port letter and N is the pin number. For example, “PA5” refers to Port A, Pin 5, and “PC13” refers to Port C, Pin 13.</p>
 <section id="which-pins-are-gpio" class="level3" data-number="3.6.1">
 <h3 data-number="3.6.1" class="anchored" data-anchor-id="which-pins-are-gpio"><span class="header-section-number">3.6.1</span> Which Pins are GPIO?</h3>
-<p>Not every pin on the microcontroller can be controlled by the GPIO peripheral; some pins are dedicated to power, ground, or the reset line. To determine which pins are available for GPIO, we consult the datasheet. The datasheet includes a pinout diagram of the chip’s package, such as the one shown in <a href="#fig-ch03-pinout" class="quarto-xref">Figure&nbsp;<span>3.11</span></a>. Pins labeled with the PXN format, such as PA5 or PC13, are the ones controlled by GPIO. Many of these pins can also be shared with other peripherals, which we’ll discuss further when we cover pin alternate functions in a later chapter.</p>
+<p>Not every pin on the microcontroller can be controlled by the GPIO peripheral; some pins are dedicated to power, ground, or the reset line. To determine which pins are available for GPIO, we consult the datasheet. The datasheet includes a pinout diagram of the chip’s package, such as the one shown in <a href="#fig-ch03-pinout" class="quarto-xref">Figure&nbsp;<span>3.13</span></a>. Pins labeled with the PXN format, such as PA5 or PC13, are the ones controlled by GPIO. Many of these pins can also be shared with other peripherals, which we’ll discuss further when we cover pin alternate functions in a later chapter.</p>
 <div id="fig-ch03-pinout" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ch03-pinout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/ch03/ch03-lqfp48-pinout.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-pinout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.11: An example pinout diagram from the datasheet. Pins labeled in the PXN format are controlled by the GPIO peripheral
+Figure&nbsp;3.13: An example pinout diagram from the datasheet. Pins labeled in the PXN format are controlled by the GPIO peripheral
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="dev-board-pinout" class="level3" data-number="3.6.2">
 <h3 data-number="3.6.2" class="anchored" data-anchor-id="dev-board-pinout"><span class="header-section-number">3.6.2</span> Dev Board Pinout</h3>
-<p>Since we’re using a development board, the pins of the microcontroller’s package have already been broken out to header pins along the edges of the board. The NUCLEO-F091RC’s user manual includes diagrams, shown in <a href="#fig-ch03-devboard-pinout-left" class="quarto-xref">Figure&nbsp;<span>3.12</span></a> and <a href="#fig-ch03-devboard-pinout-right" class="quarto-xref">Figure&nbsp;<span>3.13</span></a>, that make it easy to identify which port and pin is connected to each header.</p>
+<p>Since we’re using a development board, the pins of the microcontroller’s package have already been broken out to header pins along the edges of the board. The NUCLEO-F091RC’s user manual includes diagrams, shown in <a href="#fig-ch03-devboard-pinout-left" class="quarto-xref">Figure&nbsp;<span>3.14</span></a> and <a href="#fig-ch03-devboard-pinout-right" class="quarto-xref">Figure&nbsp;<span>3.15</span></a>, that make it easy to identify which port and pin is connected to each header.</p>
 <div id="fig-ch03-devboard-pinout-left" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ch03-devboard-pinout-left-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/ch03/ch03-devboard-pinout-left.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-devboard-pinout-left-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.12: NUCLEO-F091RC header pinout (CN7/CN8, left side of the board)
+Figure&nbsp;3.14: NUCLEO-F091RC header pinout (CN7/CN8, left side of the board)
 </figcaption>
 </figure>
 </div>
@@ -578,7 +599,7 @@ Figure&nbsp;3.12: NUCLEO-F091RC header pinout (CN7/CN8, left side of the board)
 <img src="../images/ch03/ch03-devboard-pinout-right.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-devboard-pinout-right-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.13: NUCLEO-F091RC header pinout (CN5/CN9/CN10, right side of the board)
+Figure&nbsp;3.15: NUCLEO-F091RC header pinout (CN5/CN9/CN10, right side of the board)
 </figcaption>
 </figure>
 </div>
@@ -611,14 +632,14 @@ Enables a pull-up or pull-down resistor on an input pin
 <h2 data-number="3.8" class="anchored" data-anchor-id="example-application-blink-an-led"><span class="header-section-number">3.8</span> Example Application: Blink an LED</h2>
 <section id="driving-an-led-with-gpio" class="level3" data-number="3.8.1">
 <h3 data-number="3.8.1" class="anchored" data-anchor-id="driving-an-led-with-gpio"><span class="header-section-number">3.8.1</span> Driving an LED with GPIO</h3>
-<p>The development board has an LED already connected to a GPIO pin. To find out which pin, we consult the development board’s schematic in the UM1724 user manual, shown in <a href="#fig-ch03-led-schematic" class="quarto-xref">Figure&nbsp;<span>3.14</span></a>. From this, we can see that a green LED is connected to PA5.</p>
+<p>The development board has an LED already connected to a GPIO pin. To find out which pin, we consult the development board’s schematic in the UM1724 user manual, shown in <a href="#fig-ch03-led-schematic" class="quarto-xref">Figure&nbsp;<span>3.16</span></a>. From this, we can see that a green LED is connected to PA5.</p>
 <div id="fig-ch03-led-schematic" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ch03-led-schematic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/ch03/ch03-led-schematic.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-led-schematic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.14: The green user LED (LD2) on the NUCLEO-F091RC is connected to PA5
+Figure&nbsp;3.16: The green user LED (LD2) on the NUCLEO-F091RC is connected to PA5
 </figcaption>
 </figure>
 </div>
@@ -631,14 +652,14 @@ Figure&nbsp;3.14: The green user LED (LD2) on the NUCLEO-F091RC is connected to 
 </section>
 <section id="setting-the-mode" class="level3" data-number="3.8.3">
 <h3 data-number="3.8.3" class="anchored" data-anchor-id="setting-the-mode"><span class="header-section-number">3.8.3</span> Setting the Mode</h3>
-<p>In order to set the voltage on a GPIO pin high, we must first configure that pin as an output. This is done using the mode register, <code>GPIOx_MODER</code>. From the reference manual, we can see that the mode register is 32 bits wide, and unlike a single enable bit, a <em>pair</em> of bits is used to configure the mode of each pin, as shown in <a href="#fig-ch03-moder" class="quarto-xref">Figure&nbsp;<span>3.15</span></a>.</p>
+<p>In order to set the voltage on a GPIO pin high, we must first configure that pin as an output. This is done using the mode register, <code>GPIOx_MODER</code>. From the reference manual, we can see that the mode register is 32 bits wide, and unlike a single enable bit, a <em>pair</em> of bits is used to configure the mode of each pin, as shown in <a href="#fig-ch03-moder" class="quarto-xref">Figure&nbsp;<span>3.17</span></a>.</p>
 <div id="fig-ch03-moder" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ch03-moder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/ch03/ch03-moder-register.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-moder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.15: The GPIO port mode register (GPIOx_MODER) uses two bits per pin to select between input, output, alternate function, and analog modes
+Figure&nbsp;3.17: The GPIO port mode register (GPIOx_MODER) uses two bits per pin to select between input, output, alternate function, and analog modes
 </figcaption>
 </figure>
 </div>
@@ -668,14 +689,14 @@ Note
 </section>
 <section id="output-register" class="level3" data-number="3.8.4">
 <h3 data-number="3.8.4" class="anchored" data-anchor-id="output-register"><span class="header-section-number">3.8.4</span> Output Register</h3>
-<p>The output register, <code>GPIOx_ODR</code>, sets the value of each pin that has been configured as an output. Unlike the mode register, each bit in the output register corresponds to a single pin, as shown in <a href="#fig-ch03-odr" class="quarto-xref">Figure&nbsp;<span>3.16</span></a>. Writing a 1 sets the pin high, and writing a 0 sets it low.</p>
+<p>The output register, <code>GPIOx_ODR</code>, sets the value of each pin that has been configured as an output. Unlike the mode register, each bit in the output register corresponds to a single pin, as shown in <a href="#fig-ch03-odr" class="quarto-xref">Figure&nbsp;<span>3.18</span></a>. Writing a 1 sets the pin high, and writing a 0 sets it low.</p>
 <div id="fig-ch03-odr" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ch03-odr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/ch03/ch03-odr-register.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-odr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.16: The GPIO port output data register (GPIOx_ODR) sets the voltage of each output pin
+Figure&nbsp;3.18: The GPIO port output data register (GPIOx_ODR) sets the voltage of each output pin
 </figcaption>
 </figure>
 </div>
@@ -686,6 +707,16 @@ Figure&nbsp;3.16: The GPIO port output data register (GPIOx_ODR) sets the voltag
 <section id="the-bit-setreset-register" class="level3" data-number="3.8.5">
 <h3 data-number="3.8.5" class="anchored" data-anchor-id="the-bit-setreset-register"><span class="header-section-number">3.8.5</span> The Bit Set/Reset Register</h3>
 <p>The STM32 also provides a second way to write to the output register: the bit set/reset register, <code>GPIOx_BSRR</code>. This register is split into two halves. Bits 15:0 (<code>BS</code>) set the corresponding output bit to 1, and bits 31:16 (<code>BR</code>) reset the corresponding output bit to 0. Writes to this register are atomic, meaning individual bits can be safely set or cleared without disturbing an interrupt that might be modifying other bits in <code>ODR</code> at the same time, something that isn’t guaranteed when reading, modifying, and writing back the entire <code>ODR</code> register directly. We’ll make use of <code>BSRR</code> again once we introduce interrupts later in this book.</p>
+<div id="fig-ch03-bsrr" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch03-bsrr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ch03/ch03-bsrr-register.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-bsrr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.19: The GPIO bit set/reset register (GPIOx_ODR) provides atomic writes to set or reset a GPIO output pin.
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="accessing-registers" class="level3" data-number="3.8.6">
 <h3 data-number="3.8.6" class="anchored" data-anchor-id="accessing-registers"><span class="header-section-number">3.8.6</span> Accessing Registers</h3>
@@ -696,14 +727,14 @@ Figure&nbsp;3.16: The GPIO port output data register (GPIOx_ODR) sets the voltag
 <section id="finding-the-register-address" class="level3" data-number="3.8.7">
 <h3 data-number="3.8.7" class="anchored" data-anchor-id="finding-the-register-address"><span class="header-section-number">3.8.7</span> Finding the Register Address</h3>
 <p>In the reference manual, each register lists an <strong>address offset</strong>, indicating how far that register is from the GPIO port’s <strong>base address</strong>. For example, <code>GPIOx_ODR</code> has an address offset of <code>0x14</code>.</p>
-<p>To find the base address for a specific port, we consult the peripheral boundary address table in the reference manual, shown in <a href="#fig-ch03-peripheral-addrs" class="quarto-xref">Figure&nbsp;<span>3.17</span></a>.</p>
+<p>To find the base address for a specific port, we consult the peripheral boundary address table in the reference manual, shown in <a href="#fig-ch03-peripheral-addrs" class="quarto-xref">Figure&nbsp;<span>3.20</span></a>.</p>
 <div id="fig-ch03-peripheral-addrs" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ch03-peripheral-addrs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/ch03/ch03-peripheral-boundary-addresses.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-peripheral-addrs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.17: Peripheral boundary addresses from the reference manual. Each GPIO port occupies its own 1 KB block of address space
+Figure&nbsp;3.20: Peripheral boundary addresses from the reference manual. Each GPIO port occupies its own 1 KB block of address space
 </figcaption>
 </figure>
 </div>
@@ -751,14 +782,14 @@ Figure&nbsp;3.17: Peripheral boundary addresses from the reference manual. Each 
 <p>Let’s apply what we’ve learned to a second example: reading the state of the on-board user button (B1) and using it to control the LED.</p>
 <section id="reading-a-button-press-with-gpio" class="level3" data-number="3.9.1">
 <h3 data-number="3.9.1" class="anchored" data-anchor-id="reading-a-button-press-with-gpio"><span class="header-section-number">3.9.1</span> Reading a Button Press with GPIO</h3>
-<p>Just as with the LED, we first need to identify which pin the button is connected to. Consulting the development board schematic, shown in <a href="#fig-ch03-button-schematic" class="quarto-xref">Figure&nbsp;<span>3.18</span></a>, we find that the button is connected to PC13. Note also that these buttons are “normally open,” meaning the switch is open (not connected) when the button is not being pressed.</p>
+<p>Just as with the LED, we first need to identify which pin the button is connected to. Consulting the development board schematic, shown in <a href="#fig-ch03-button-schematic" class="quarto-xref">Figure&nbsp;<span>3.21</span></a>, we find that the button is connected to PC13. Note also that these buttons are “normally open,” meaning the switch is open (not connected) when the button is not being pressed.</p>
 <div id="fig-ch03-button-schematic" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ch03-button-schematic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/ch03/ch03-button-schematic.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-button-schematic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.18: The NUCLEO-F091RC’s user button (B1) is connected to PC13
+Figure&nbsp;3.21: The NUCLEO-F091RC’s user button (B1) is connected to PC13
 </figcaption>
 </figure>
 </div>
@@ -781,32 +812,32 @@ Figure&nbsp;3.18: The NUCLEO-F091RC’s user button (B1) is connected to PC13
 </section>
 <section id="do-we-need-a-pull-up-resistor" class="level3" data-number="3.9.4">
 <h3 data-number="3.9.4" class="anchored" data-anchor-id="do-we-need-a-pull-up-resistor"><span class="header-section-number">3.9.4</span> Do We Need a Pull-Up Resistor?</h3>
-<p>If we look again at the schematic in <a href="#fig-ch03-button-schematic" class="quarto-xref">Figure&nbsp;<span>3.18</span></a>, we can see the board already includes a 4.7 kΩ pull-up resistor connected to the button. This means the pin will read a high voltage whenever the button isn’t pressed, and a low voltage when it is pressed, without our needing to configure an internal pull-up resistor. <a href="#fig-ch03-pullup-present" class="quarto-xref">Figure&nbsp;<span>3.19</span></a> highlights this resistor on the schematic.</p>
+<p>If we look again at the schematic in <a href="#fig-ch03-button-schematic" class="quarto-xref">Figure&nbsp;<span>3.21</span></a>, we can see the board already includes a 4.7 kΩ pull-up resistor connected to the button. This means the pin will read a high voltage whenever the button isn’t pressed, and a low voltage when it is pressed, without our needing to configure an internal pull-up resistor. <a href="#fig-ch03-pullup-present" class="quarto-xref">Figure&nbsp;<span>3.22</span></a> highlights this resistor on the schematic.</p>
 <div id="fig-ch03-pullup-present" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ch03-pullup-present-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/ch03/ch03-pullup-already-present.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-pullup-present-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.19: The NUCLEO-F091RC already includes an external pull-up resistor (R30) on the user button circuit
+Figure&nbsp;3.22: The NUCLEO-F091RC already includes an external pull-up resistor (R30) on the user button circuit
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="internal-pull-up-and-pull-down-resistors" class="level3" data-number="3.9.5">
 <h3 data-number="3.9.5" class="anchored" data-anchor-id="internal-pull-up-and-pull-down-resistors"><span class="header-section-number">3.9.5</span> Internal Pull-Up and Pull-Down Resistors</h3>
-<p>It’s worth noting, however, that many circuits don’t have the luxury of an external pull-up or pull-down resistor already in place. Because these resistors are so commonly needed (any switch or open-drain output requires one), most GPIO peripherals, including the STM32’s, allow us to configure an <em>internal</em> resistor instead, saving us from having to add external hardware. <a href="#fig-ch03-internal-pullup" class="quarto-xref">Figure&nbsp;<span>3.20</span></a> shows a simplified illustration of how this internal resistor is wired into the GPIO hardware.</p>
+<p>It’s worth noting, however, that many circuits don’t have the luxury of an external pull-up or pull-down resistor already in place. Because these resistors are so commonly needed (any switch or open-drain output requires one), most GPIO peripherals, including the STM32’s, allow us to configure an <em>internal</em> resistor instead, saving us from having to add external hardware. <a href="#fig-ch03-internal-pullup" class="quarto-xref">Figure&nbsp;<span>3.23</span></a> shows a simplified illustration of how this internal resistor is wired into the GPIO hardware.</p>
 <div id="fig-ch03-internal-pullup" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ch03-internal-pullup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/ch03/ch03-internal-pullup-pulldown.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-internal-pullup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.20: Most GPIO peripherals include an internal pull-up or pull-down resistor that can be enabled in software, avoiding the need for external hardware
+Figure&nbsp;3.23: Most GPIO peripherals include an internal pull-up or pull-down resistor that can be enabled in software, avoiding the need for external hardware
 </figcaption>
 </figure>
 </div>
-<p>This internal resistor is configured using the <code>GPIOx_PUPDR</code> register, shown in <a href="#fig-ch03-pupdr" class="quarto-xref">Figure&nbsp;<span>3.21</span></a>. Just like the mode register, two bits are used to configure each pin:</p>
+<p>This internal resistor is configured using the <code>GPIOx_PUPDR</code> register, shown in <a href="#fig-ch03-pupdr" class="quarto-xref">Figure&nbsp;<span>3.24</span></a>. Just like the mode register, two bits are used to configure each pin:</p>
 <ul>
 <li><p><code>00</code>: No pull-up or pull-down</p></li>
 <li><p><code>01</code>: Pull-up</p></li>
@@ -819,7 +850,7 @@ Figure&nbsp;3.20: Most GPIO peripherals include an internal pull-up or pull-down
 <img src="../images/ch03/ch03-pupdr-register.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-pupdr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.21: The GPIO port pull-up/pull-down register (GPIOx_PUPDR) configures an internal pull resistor for each pin
+Figure&nbsp;3.24: The GPIO port pull-up/pull-down register (GPIOx_PUPDR) configures an internal pull resistor for each pin
 </figcaption>
 </figure>
 </div>
@@ -864,14 +895,14 @@ Figure&nbsp;3.21: The GPIO port pull-up/pull-down register (GPIOx_PUPDR) configu
 </section>
 <section id="gpio-hardware" class="level2" data-number="3.10">
 <h2 data-number="3.10" class="anchored" data-anchor-id="gpio-hardware"><span class="header-section-number">3.10</span> GPIO Hardware</h2>
-<p>Let’s take a moment to observe how the control registers we’ve discussed create the hardware behavior we’ve described. <a href="#fig-ch03-hw-schematic" class="quarto-xref">Figure&nbsp;<span>3.22</span></a> shows a simplified schematic of the internals of the GPIO peripheral hardware.</p>
+<p>Let’s take a moment to observe how the control registers we’ve discussed create the hardware behavior we’ve described. <a href="#fig-ch03-hw-schematic" class="quarto-xref">Figure&nbsp;<span>3.25</span></a> shows a simplified schematic of the internals of the GPIO peripheral hardware.</p>
 <div id="fig-ch03-hw-schematic" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ch03-hw-schematic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/ch03/ch03-gpio-hardware-schematic.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-hw-schematic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.22: Simplified internal schematic of the GPIO peripheral hardware, showing the input driver, output driver, and their associated control registers
+Figure&nbsp;3.25: Simplified internal schematic of the GPIO peripheral hardware, showing the input driver, output driver, and their associated control registers
 </figcaption>
 </figure>
 </div>
@@ -951,14 +982,14 @@ Figure&nbsp;3.22: Simplified internal schematic of the GPIO peripheral hardware,
 </section>
 <section id="creating-a-bit-mask" class="level3" data-number="3.12.2">
 <h3 data-number="3.12.2" class="anchored" data-anchor-id="creating-a-bit-mask"><span class="header-section-number">3.12.2</span> Creating a Bit Mask</h3>
-<p>A bit mask is a binary value constructed so that, when combined with another value using a bitwise operator, it isolates, sets, or clears specific bits while leaving the rest untouched. <a href="#fig-ch03-bitmask-and" class="quarto-xref">Figure&nbsp;<span>3.23</span></a> illustrates how a bitwise AND operation with a mask isolates a single bit, zeroing out every other bit in the result.</p>
+<p>A bit mask is a binary value constructed so that, when combined with another value using a bitwise operator, it isolates, sets, or clears specific bits while leaving the rest untouched. <a href="#fig-ch03-bitmask-and" class="quarto-xref">Figure&nbsp;<span>3.26</span></a> illustrates how a bitwise AND operation with a mask isolates a single bit, zeroing out every other bit in the result.</p>
 <div id="fig-ch03-bitmask-and" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ch03-bitmask-and-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/ch03/ch03-bitwise-and-mask.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch03-bitmask-and-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.23: A bitwise AND with a mask isolates the bits of interest, zeroing out every other bit
+Figure&nbsp;3.26: A bitwise AND with a mask isolates the bits of interest, zeroing out every other bit
 </figcaption>
 </figure>
 </div>
